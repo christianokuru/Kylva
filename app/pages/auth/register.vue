@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Checkbox } from '@/components/ui/checkbox'
 import { Separator } from '@/components/ui/separator'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp'
 import { toast } from 'vue-sonner'
 import { z } from 'zod'
 import { reactive, ref, watch, computed } from 'vue'
@@ -140,23 +141,35 @@ const handleRegister = async () => {
       description: 'Please wait while we set up your SafeRoute profile'
     })
 
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    // Call registration API
+    const response = await $fetch('/api/auth/register', {
+      method: 'POST',
+      body: formData
+    })
 
-    // Dismiss loading toast and show success
     toast.dismiss(loadingToast)
-    toast.success('Account created successfully!', {
-      description: 'Please check your email for OTP verification',
-      duration: 5000
-    })
 
-    currentStep.value = 2
-    success.value = 'Registration successful! Please check your email for OTP code.'
+    if (response.success) {
+      toast.success(response.message || 'Account created successfully!', {
+        description: 'Please check your email for OTP verification',
+        duration: 5000
+      })
+
+      console.log('Setting currentStep to 2, current value:', currentStep.value)
+      currentStep.value = 2
+      console.log('After setting, currentStep.value:', currentStep.value)
+      success.value = response.message || 'Registration successful! Please check your email for OTP code.'
+    } else {
+      throw new Error(response.message || 'Registration failed')
+    }
+
   } catch (err) {
+    console.error('Registration error:', err)
     toast.error('Registration failed', {
-      description: 'Please check your information and try again',
+      description: err.data?.statusMessage || err.message || 'Please check your information and try again',
       duration: 5000
     })
-    error.value = 'Registration failed. Please try again.'
+    error.value = err.data?.statusMessage || err.message || 'Registration failed. Please try again.'
   } finally {
     isLoading.value = false
   }
@@ -179,24 +192,38 @@ const handleVerifyOTP = async () => {
       description: 'Please wait while we verify your code'
     })
 
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    // Call verify OTP API
+    const response = await $fetch('/api/auth/verify-otp', {
+      method: 'POST',
+      body: {
+        email: formData.email,
+        otp: otpCode.value
+      }
+    })
 
     toast.dismiss(loadingToast)
-    toast.success('OTP verified successfully!', {
-      description: 'Welcome to SafeRoute! Redirecting to dashboard...',
-      duration: 3000
-    })
 
-    success.value = 'Account created successfully!'
-    setTimeout(() => {
-      navigateTo('/dashboard')
-    }, 2000)
+    if (response.success) {
+      toast.success('OTP verified successfully!', {
+        description: 'Welcome to SafeRoute! Redirecting to dashboard...',
+        duration: 3000
+      })
+
+      success.value = response.message || 'Account verified successfully!'
+      setTimeout(() => {
+        navigateTo('/dashboard')
+      }, 2000)
+    } else {
+      throw new Error(response.message || 'OTP verification failed')
+    }
+
   } catch (err) {
+    console.error('OTP verification error:', err)
     toast.error('OTP verification failed', {
-      description: 'Invalid OTP code. Please try again.',
+      description: err.data?.statusMessage || err.message || 'Invalid OTP code. Please try again.',
       duration: 5000
     })
-    error.value = 'Invalid OTP code. Please try again.'
+    error.value = err.data?.statusMessage || err.message || 'Invalid OTP code. Please try again.'
   } finally {
     isLoading.value = false
   }
@@ -204,24 +231,38 @@ const handleVerifyOTP = async () => {
 
 const handleResendOTP = async () => {
   try {
-    toast.loading('Resending OTP...', {
+    const loadingToast = toast.loading('Resending OTP...', {
       duration: 1000
     })
 
-    await new Promise(resolve => setTimeout(resolve, 1000))
-
-    toast.success('OTP resent successfully!', {
-      description: 'Please check your email for the new OTP code',
-      duration: 5000
+    // Call resend OTP API
+    const response = await $fetch('/api/auth/send-otp', {
+      method: 'POST',
+      body: {
+        email: formData.email
+      }
     })
 
-    success.value = 'OTP code has been resent to your email.'
+    toast.dismiss(loadingToast)
+
+    if (response.success) {
+      toast.success('OTP resent successfully!', {
+        description: 'Please check your email for the new OTP code',
+        duration: 5000
+      })
+
+      success.value = response.message || 'OTP code has been resent to your email.'
+    } else {
+      throw new Error(response.message || 'Failed to resend OTP')
+    }
+
   } catch (err) {
+    console.error('Resend OTP error:', err)
     toast.error('Failed to resend OTP', {
-      description: 'Please try again later',
+      description: err.data?.statusMessage || err.message || 'Please try again later',
       duration: 5000
     })
-    error.value = 'Failed to resend OTP. Please try again.'
+    error.value = err.data?.statusMessage || err.message || 'Failed to resend OTP. Please try again.'
   }
 }
 
@@ -519,9 +560,84 @@ const relationshipOptions = [
           </CardFooter>
         </div>
 
-        <!-- Your OTP step — unchanged -->
+        <!-- OTP Verification Step -->
         <div v-if="currentStep === 2">
-          <!-- ... exactly your original OTP code ... -->
+          <CardHeader class="text-center pb-6">
+            <CardTitle class="text-2xl font-bold text-[#0A0A0A] dark:text-[#FAFAFA]">
+              Verify Your Email
+            </CardTitle>
+            <CardDescription class="text-[#4B5563] dark:text-[#9CA3AF]">
+              We've sent a 6-digit code to <span class="font-medium text-[#002455] dark:text-[#3B82F6]">{{ formData.email }}</span>
+            </CardDescription>
+          </CardHeader>
+
+          <CardContent class="space-y-6">
+            <form @submit.prevent="handleVerifyOTP" class="space-y-6">
+              <!-- OTP Input -->
+              <div class="space-y-4">
+                <Label class="text-center block text-[#374151] dark:text-[#D1D5DB] font-medium">
+                  Enter verification code
+                </Label>
+
+                <div class="flex justify-center">
+                  <InputOTP
+                    v-model="otpCode"
+                    :maxlength="6"
+                    @complete="() => handleVerifyOTP()"
+                    class="justify-center gap-2"
+                  >
+                    <InputOTPGroup>
+                      <InputOTPSlot
+                        v-for="i in 6"
+                        :key="i"
+                        :index="i - 1"
+                        class="w-12 h-12 text-lg border-[#E5E7EB] dark:border-[#374151] bg-white dark:bg-[#1F2937] text-[#0A0A0A] dark:text-[#FAFAFA] rounded-lg focus:border-[#002455] dark:focus:border-[#3B82F6] focus:ring-2 focus:ring-[#002455]/20 dark:focus:ring-[#3B82F6]/20"
+                      />
+                    </InputOTPGroup>
+                  </InputOTP>
+                </div>
+              </div>
+
+              <!-- Verify Button -->
+              <Button
+                type="submit"
+                :disabled="!otpCode || otpCode.length !== 6 || isLoading"
+                class="w-full bg-[#002455] hover:bg-[#001D3D] text-white dark:bg-[#3B82F6] dark:hover:bg-[#2563EB]"
+              >
+                <Icon v-if="isLoading" icon="radix-icons:loading" class="mr-2 h-4 w-4 animate-spin" />
+                {{ isLoading ? 'Verifying...' : 'Verify Email' }}
+              </Button>
+
+              <!-- Resend Section -->
+              <div class="text-center space-y-3">
+                <p class="text-sm text-[#6B7280] dark:text-[#9CA3AF]">
+                  Didn't receive the code?
+                </p>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  @click="handleResendOTP"
+                  class="text-[#002455] dark:text-[#3B82F6] hover:bg-[#F3F4F6] dark:hover:bg-[#1F2937] font-medium"
+                >
+                  <Icon icon="radix-icons:update" class="mr-2 h-4 w-4" />
+                  Resend Code
+                </Button>
+              </div>
+            </form>
+          </CardContent>
+
+          <CardFooter class="text-center pt-6">
+            <p class="text-sm text-[#6B7280] dark:text-[#9CA3AF]">
+              Wrong email?
+              <Button
+                variant="ghost"
+                @click="currentStep = 1"
+                class="text-[#002455] dark:text-[#3B82F6] hover:bg-transparent p-1 h-auto font-medium"
+              >
+                Go back
+              </Button>
+            </p>
+          </CardFooter>
         </div>
       </Card>
     </div>
