@@ -38,74 +38,92 @@
 ### Primary Colors
 ```css
 :root {
-  /* Primary Brand Colors */
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #002455; /* SafeRoute Blue */
-  --color-primary-700: #001d3d;
-  --color-primary-800: #001529;
-  --color-primary-900: #000d14;
+  /* Light Mode Colors */
+  --background: #FAFAFA; /* off-white, not pure white - easier on eyes */
+  --foreground: #0A0A0A; /* almost black text */
+  --accent-primary: #002455; /* SafeRoute Blue - trust & authority */
+  --accent-emergency: #FF3838; /* Emergency Red - urgency */
+  --accent-success: #10B981; /* Success Green - hope & community */
+  --neutral-50: #F9FAFB;
+  --neutral-100: #F3F4F6;
+  --neutral-200: #E5E7EB;
+  --neutral-600: #4B5563;
+  --neutral-900: #111827;
 
-  /* Emergency Colors */
-  --color-emergency-50: #fef2f2;
-  --color-emergency-100: #fee2e2;
-  --color-emergency-200: #fecaca;
-  --color-emergency-300: #fca5a5;
-  --color-emergency-400: #f87171;
-  --color-emergency-500: #ef4444;
-  --color-emergency-600: #FF3838; /* SafeRoute Emergency Red */
-  --color-emergency-700: #b91c1c;
-  --color-emergency-800: #991b1b;
-  --color-emergency-900: #7f1d1d;
+  /* Extended Color Palette */
+  --accent-primary-50: #EEF2FF;
+  --accent-primary-100: #E0E7FF;
+  --accent-primary-200: #C7D2FE;
+  --accent-primary-300: #A5B4FC;
+  --accent-primary-400: #818CF8;
+  --accent-primary-500: #6366F1;
+  --accent-primary-700: #4338CA;
+  --accent-primary-800: #3730A3;
+  --accent-primary-900: #312E81;
 
-  /* Success Colors */
-  --color-success-50: #f0fdf4;
-  --color-success-100: #dcfce7;
-  --color-success-200: #bbf7d0;
-  --color-success-300: #86efac;
-  --color-success-400: #4ade80;
-  --color-success-500: #22c55e;
-  --color-success-600: #10B981; /* Success Green */
-  --color-success-700: #15803d;
-  --color-success-800: #166534;
-  --color-success-900: #14532d;
+  /* Emergency Color Variations */
+  --accent-emergency-50: #FEF2F2;
+  --accent-emergency-100: #FEE2E2;
+  --accent-emergency-200: #FECACA;
+  --accent-emergency-300: #FCA5A5;
+  --accent-emergency-400: #F87171;
+  --accent-emergency-500: #EF4444;
+  --accent-emergency-700: #B91C1C;
+  --accent-emergency-800: #991B1B;
+  --accent-emergency-900: #7F1D1D;
 
-  /* Warning Colors */
-  --color-warning-50: #fffbeb;
-  --color-warning-100: #fef3c7;
-  --color-warning-200: #fde68a;
-  --color-warning-300: #fcd34d;
-  --color-warning-400: #fbbf24;
-  --color-warning-500: #f59e0b;
-  --color-warning-600: #d97706;
-  --color-warning-700: #b45309;
-  --color-warning-800: #92400e;
-  --color-warning-900: #78350f;
+  /* Success Color Variations */
+  --accent-success-50: #F0FDF4;
+  --accent-success-100: #DCFCE7;
+  --accent-success-200: #BBF7D0;
+  --accent-success-300: #86EFAC;
+  --accent-success-400: #4ADE80;
+  --accent-success-500: #22C55E;
+  --accent-success-700: #15803D;
+  --accent-success-800: #166534;
+  --accent-success-900: #14532D;
 
-  /* Neutral Colors */
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
+  /* Neutral Color Scale */
+  --neutral-300: #D1D5DB;
+  --neutral-400: #9CA3AF;
+  --neutral-500: #6B7280;
+  --neutral-700: #374151;
+  --neutral-800: #1F2937;
+}
+```
+
+### Dark Mode Colors
+```css
+.dark {
+  /* Dark Mode Colors */
+  --background: #0A0A0A; /* deep black */
+  --foreground: #FAFAFA; /* off-white */
+  --accent-primary: #3B82F6; /* lighter blue for dark mode readability */
+  --accent-emergency: #F87171; /* softer red for dark mode */
+  --accent-success: #34D399; /* brighter green for dark mode */
+
+  /* Dark Mode Neutral Colors */
+  --neutral-50: #111827;
+  --neutral-100: #1F2937;
+  --neutral-200: #374151;
+  --neutral-300: #4B5563;
+  --neutral-400: #6B7280;
+  --neutral-500: #9CA3AF;
+  --neutral-600: #D1D5DB;
+  --neutral-700: #E5E7EB;
+  --neutral-800: #F3F4F6;
+  --neutral-900: #F9FAFB;
 }
 ```
 
 ### Semantic Color Usage
-- **Emergency Red**: Panic buttons, critical alerts, danger zones
-- **Primary Blue**: Trust elements, verified responders, professional services
-- **Success Green**: Resolved emergencies, confirmed responders, safe areas
-- **Warning Amber**: Pending responses, caution areas, system notifications
-- **Neutral Gray**: Text, backgrounds, non-critical UI elements
+- **Emergency Red (#FF3838)**: Panic buttons, critical alerts, danger zones
+- **Primary Blue (#002455)**: Trust elements, verified responders, professional services
+- **Success Green (#10B981)**: Resolved emergencies, confirmed responders, safe areas
+- **Dark Mode Blue (#3B82F6)**: Primary actions in dark mode for better readability
+- **Dark Mode Red (#F87171)**: Emergency elements in dark mode
+- **Dark Mode Green (#34D399)**: Success elements in dark mode
+- **Neutral Grays**: Text, backgrounds, non-critical UI elements with proper light/dark mode variants
 
 ---
 
@@ -207,9 +225,7 @@ SafeRoute is a **private emergency response application** with the following flo
     <!-- Bottom Navigation (Mobile) -->
     <BottomNavigation v-else />
 
-    <!-- Notification Container -->
-    <UNotifications />
-  </div>
+    </div>
 </template>
 ```
 
@@ -250,13 +266,15 @@ SafeRoute is a **private emergency response application** with the following flo
             <span class="text-sm text-gray-600">Online</span>
           </div>
           <!-- Notifications -->
-          <UButton
-            color="gray"
+          <Button
             variant="ghost"
             size="sm"
-            icon="i-heroicons-bell"
-            :badge="notificationCount"
-          />
+          >
+            <Bell class="h-4 w-4" />
+            <Badge v-if="notificationCount" variant="destructive" class="ml-1">
+              {{ notificationCount }}
+            </Badge>
+          </Button>
         </div>
       </div>
     </div>
@@ -276,51 +294,84 @@ SafeRoute is a **private emergency response application** with the following flo
 #### Primary Button
 ```vue
 <template>
-  <UButton
-    :color="color"
-    :variant="variant"
-    :size="size"
-    :loading="loading"
+  <Button
+    :variant="getVariant(variant)"
+    :size="getSize(size)"
     :disabled="disabled"
-    :icon="icon"
-    :block="block"
-    class="transition-all duration-200"
+    :class="[block ? 'w-full' : '', 'transition-all duration-200']"
   >
     <slot />
-  </UButton>
+  </Button>
 </template>
+
+<script setup>
+const props = defineProps({
+  color: String,
+  variant: String,
+  size: String,
+  loading: Boolean,
+  disabled: Boolean,
+  icon: String,
+  block: Boolean
+})
+
+const getVariant = (variant) => {
+  // Map Nuxt UI variants to shadcn-vue variants
+  const variantMap = {
+    'solid': 'default',
+    'outline': 'outline',
+    'ghost': 'ghost',
+    'link': 'link',
+    'soft': 'secondary'
+  }
+  return variantMap[variant] || 'default'
+}
+
+const getSize = (size) => {
+  // Map Nuxt UI sizes to shadcn-vue sizes
+  const sizeMap = {
+    '2xl': 'lg',
+    'xl': 'default',
+    'lg': 'default',
+    'md': 'default',
+    'sm': 'sm',
+    'xs': 'sm'
+  }
+  return sizeMap[size] || 'default'
+}
+</script>
 ```
 
 **Usage Examples:**
 ```vue
 <!-- Emergency Button (High Priority) -->
-<UButton
-  color="red"
-  size="xl"
-  block
-  class="h-16 text-lg font-bold shadow-lg"
+<Button
+  variant="destructive"
+  size="lg"
+  class="w-full h-16 text-lg font-bold shadow-lg"
 >
   🚨 Activate Panic Button
-</UButton>
+</Button>
 
 <!-- Secondary Action -->
-<UButton
-  color="blue"
+<Button
   variant="outline"
-  size="lg"
-  icon="i-heroicons-shield-check"
+  size="default"
+  class="flex items-center gap-2"
 >
+  <ShieldCheck class="h-4 w-4" />
   Accept Emergency
-</UButton>
+</Button>
 
 <!-- Success Button -->
-<UButton
-  color="green"
-  size="md"
-  icon="i-heroicons-check-circle"
+<Button
+  variant="default"
+  size="sm"
+  class="flex items-center gap-2 bg-green-600 hover:bg-green-700"
 >
+  <CheckCircle class="h-4 w-4" />
   Mark as Resolved
-</UButton>
+</Button>
 ```
 
 #### Button Variants
@@ -341,20 +392,12 @@ SafeRoute is a **private emergency response application** with the following flo
 #### Emergency Alert Card
 ```vue
 <template>
-  <UCard
-    :ui="{
-      base: 'overflow-hidden border-l-4 ' + borderClass,
-      divide: '',
-      header: { padding: 'p-4 sm:p-6' },
-      body: { padding: 'p-4 sm:p-6' },
-      footer: { padding: 'p-4 sm:p-6' }
-    }"
-  >
-    <template #header>
+  <Card :class="'overflow-hidden border-l-4 ' + borderClass">
+    <CardHeader class="p-4 sm:p-6 pb-3">
       <div class="flex items-start justify-between">
         <div class="flex items-center space-x-3">
           <div :class="iconClass" class="flex-shrink-0">
-            <UIcon name="i-heroicons-exclamation-triangle" class="h-6 w-6" />
+            <AlertTriangle class="h-6 w-6" />
           </div>
           <div>
             <h3 class="text-lg font-semibold text-gray-900">
@@ -365,49 +408,52 @@ SafeRoute is a **private emergency response application** with the following flo
             </p>
           </div>
         </div>
-        <UBadge :color="statusColor" variant="subtle">
+        <Badge :variant="getBadgeVariant(statusColor)">
           {{ emergency.status }}
-        </UBadge>
+        </Badge>
       </div>
-    </template>
+    </CardHeader>
 
-    <div class="space-y-4">
-      <p class="text-gray-700">{{ emergency.description }}</p>
+    <CardContent class="p-4 sm:p-6 pt-3">
+      <div class="space-y-4">
+        <p class="text-gray-700">{{ emergency.description }}</p>
 
-      <div class="flex items-center space-x-4 text-sm text-gray-500">
-        <div class="flex items-center space-x-1">
-          <UIcon name="i-heroicons-map-pin" class="h-4 w-4" />
-          <span>{{ emergency.address }}</span>
-        </div>
-        <div class="flex items-center space-x-1">
-          <UIcon name="i-heroicons-users" class="h-4 w-4" />
-          <span>{{ emergency.responders.length }} responders</span>
+        <div class="flex items-center space-x-4 text-sm text-gray-500">
+          <div class="flex items-center space-x-1">
+            <MapPin class="h-4 w-4" />
+            <span>{{ emergency.address }}</span>
+          </div>
+          <div class="flex items-center space-x-1">
+            <Users class="h-4 w-4" />
+            <span>{{ emergency.responders.length }} responders</span>
+          </div>
         </div>
       </div>
-    </div>
+    </CardContent>
 
-    <template #footer>
+    <CardFooter class="p-4 sm:p-6 pt-3">
       <div class="flex space-x-3">
-        <UButton
-          color="blue"
+        <Button
           variant="outline"
           size="sm"
-          icon="i-heroicons-map"
+          class="flex items-center gap-2"
           @click="viewOnMap"
         >
+          <Map class="h-4 w-4" />
           View on Map
-        </UButton>
-        <UButton
-          color="blue"
+        </Button>
+        <Button
+          variant="default"
           size="sm"
-          icon="i-heroicons-shield-check"
+          class="flex items-center gap-2"
           @click="acceptEmergency"
         >
+          <ShieldCheck class="h-4 w-4" />
           Accept Response
-        </UButton>
+        </Button>
       </div>
-    </template>
-  </UCard>
+    </CardFooter>
+  </Card>
 </template>
 
 <script setup>
@@ -441,85 +487,94 @@ const statusColor = computed(() => {
   }
   return colors[props.emergency.status] || 'gray'
 })
+
+const getBadgeVariant = (color) => {
+  const variantMap = {
+    'red': 'destructive',
+    'blue': 'default',
+    'green': 'default',
+    'gray': 'secondary'
+  }
+  return variantMap[color] || 'secondary'
+}
 </script>
 ```
 
 #### Responder Card
 ```vue
 <template>
-  <UCard class="hover:shadow-md transition-shadow duration-200">
-    <div class="flex items-center space-x-4">
-      <!-- Avatar -->
-      <div class="relative">
-        <UAvatar
-          :src="responder.avatar"
-          :alt="responder.name"
-          size="lg"
-          :ui="{
-            background: 'bg-blue-100',
-            text: 'text-blue-600',
-            placeholder: 'font-medium'
-          }"
-        />
-        <UBadge
-          v-if="responder.isVerified"
-          color="blue"
-          variant="solid"
-          size="xs"
-          class="absolute -bottom-1 -right-1"
-        >
-          ✓
-        </UBadge>
-      </div>
-
-      <!-- Info -->
-      <div class="flex-1">
-        <div class="flex items-center space-x-2">
-          <h3 class="font-semibold text-gray-900">{{ responder.name }}</h3>
-          <UBadge
-            v-if="responder.isVerified"
-            color="blue"
-            variant="subtle"
-            size="xs"
+  <Card class="hover:shadow-md transition-shadow duration-200">
+    <CardContent class="p-6">
+      <div class="flex items-center space-x-4">
+        <!-- Avatar -->
+        <div class="relative">
+          <Avatar
+            :src="responder.avatar"
+            :alt="responder.name"
+            class="h-12 w-12"
           >
-            Verified
-          </UBadge>
+            <AvatarFallback class="bg-blue-100 text-blue-600 font-medium">
+              {{ responder.name.charAt(0).toUpperCase() }}
+            </AvatarFallback>
+          </Avatar>
+          <Badge
+            v-if="responder.isVerified"
+            variant="default"
+            class="absolute -bottom-1 -right-1 h-5 w-5 rounded-full p-0 flex items-center justify-center bg-blue-600"
+          >
+            <Check class="h-3 w-3 text-white" />
+          </Badge>
         </div>
-        <p class="text-sm text-gray-500">{{ responder.type }}</p>
 
-        <!-- Stats -->
-        <div class="flex items-center space-x-4 mt-2 text-xs text-gray-500">
-          <div class="flex items-center space-x-1">
-            <UIcon name="i-heroicons-star" class="h-3 w-3 text-yellow-500" />
-            <span>{{ responder.rating }}</span>
+        <!-- Info -->
+        <div class="flex-1">
+          <div class="flex items-center space-x-2">
+            <h3 class="font-semibold text-gray-900">{{ responder.name }}</h3>
+            <Badge
+              v-if="responder.isVerified"
+              variant="secondary"
+              class="text-xs"
+            >
+              Verified
+            </Badge>
           </div>
-          <div class="flex items-center space-x-1">
-            <UIcon name="i-heroicons-shield-check" class="h-3 w-3 text-green-500" />
-            <span>{{ responder.totalResponses }} responses</span>
+          <p class="text-sm text-gray-500">{{ responder.type }}</p>
+
+          <!-- Stats -->
+          <div class="flex items-center space-x-4 mt-2 text-xs text-gray-500">
+            <div class="flex items-center space-x-1">
+              <Star class="h-3 w-3 text-yellow-500 fill-current" />
+              <span>{{ responder.rating }}</span>
+            </div>
+            <div class="flex items-center space-x-1">
+              <ShieldCheck class="h-3 w-3 text-green-500" />
+              <span>{{ responder.totalResponses }} responses</span>
+            </div>
           </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-col space-y-2">
+          <Button
+            variant="outline"
+            size="sm"
+            class="flex items-center gap-2"
+          >
+            <Phone class="h-4 w-4" />
+            Call
+          </Button>
+          <Button
+            variant="default"
+            size="sm"
+            class="flex items-center gap-2"
+          >
+            <MessageCircle class="h-4 w-4" />
+            Chat
+          </Button>
         </div>
       </div>
-
-      <!-- Actions -->
-      <div class="flex flex-col space-y-2">
-        <UButton
-          color="blue"
-          size="sm"
-          icon="i-heroicons-phone"
-          variant="outline"
-        >
-          Call
-        </UButton>
-        <UButton
-          color="blue"
-          size="sm"
-          icon="i-heroicons-chat-bubble-left-right"
-        >
-          Chat
-        </UButton>
-      </div>
-    </div>
-  </UCard>
+    </CardContent>
+  </Card>
 </template>
 ```
 
@@ -528,89 +583,83 @@ const statusColor = computed(() => {
 #### Login Form
 ```vue
 <template>
-  <UCard class="max-w-md mx-auto">
-    <template #header>
-      <div class="text-center">
-        <div class="mx-auto h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-          <UIcon name="i-heroicons-shield-check" class="h-6 w-6 text-blue-600" />
-        </div>
-        <h2 class="text-2xl font-bold text-gray-900">Welcome to SafeRoute</h2>
-        <p class="text-gray-600 mt-2">Sign in to your emergency response account</p>
+  <Card class="max-w-md mx-auto">
+    <CardHeader class="text-center">
+      <div class="mx-auto h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+        <ShieldCheck class="h-6 w-6 text-blue-600" />
       </div>
-    </template>
+      <CardTitle class="text-2xl font-bold text-gray-900">Welcome to SafeRoute</CardTitle>
+      <CardDescription class="text-gray-600 mt-2">
+        Sign in to your emergency response account
+      </CardDescription>
+    </CardHeader>
 
-    <UForm
-      :schema="schema"
-      :state="state"
-      @submit="onSubmit"
-    >
-      <div class="space-y-4">
-        <UFormGroup label="Email" name="email">
-          <UInput
+    <CardContent>
+      <form @submit="onSubmit" class="space-y-4">
+        <div class="space-y-2">
+          <Label for="email">Email</Label>
+          <Input
+            id="email"
             v-model="state.email"
             type="email"
             placeholder="you@example.com"
-            icon="i-heroicons-envelope"
-            size="lg"
             autocomplete="email"
+            class="h-11"
           />
-        </UFormGroup>
+        </div>
 
-        <UFormGroup label="Password" name="password">
-          <UInput
+        <div class="space-y-2">
+          <Label for="password">Password</Label>
+          <Input
+            id="password"
             v-model="state.password"
             type="password"
             placeholder="Enter your password"
-            icon="i-heroicons-lock-closed"
-            size="lg"
             autocomplete="current-password"
+            class="h-11"
           />
-        </UFormGroup>
+        </div>
 
         <div class="flex items-center justify-between">
-          <UCheckbox
-            v-model="state.remember"
-            name="remember"
-            label="Remember me"
-          />
-          <UButton
-            color="blue"
+          <div class="flex items-center space-x-2">
+            <Checkbox id="remember" v-model="state.remember" />
+            <Label for="remember" class="text-sm">Remember me</Label>
+          </div>
+          <Button
+            type="button"
             variant="ghost"
             size="sm"
             @click="forgotPassword"
           >
             Forgot password?
-          </UButton>
+          </Button>
         </div>
 
-        <UButton
+        <Button
           type="submit"
-          color="blue"
-          size="lg"
-          block
-          :loading="loading"
+          class="w-full h-11"
+          :disabled="loading"
         >
+          <Loader2 v-if="loading" class="mr-2 h-4 w-4 animate-spin" />
           Sign In
-        </UButton>
-      </div>
-    </UForm>
+        </Button>
+      </form>
+    </CardContent>
 
-    <template #footer>
-      <div class="text-center">
-        <p class="text-gray-600">
-          Don't have an account?
-          <UButton
-            color="blue"
-            variant="ghost"
-            size="sm"
-            @click="goToRegister"
-          >
-            Sign up
-          </UButton>
-        </p>
-      </div>
-    </template>
-  </UCard>
+    <CardFooter class="text-center">
+      <p class="text-gray-600">
+        Don't have an account?
+        <Button
+          type="button"
+          variant="ghost"
+          size="sm"
+          @click="goToRegister"
+        >
+          Sign up
+        </Button>
+      </p>
+    </CardFooter>
+  </Card>
 </template>
 
 <script setup>
@@ -646,86 +695,110 @@ const onSubmit = async (event) => {
 #### Emergency Contact Form
 ```vue
 <template>
-  <UCard>
-    <template #header>
-      <h3 class="text-lg font-semibold text-gray-900">
+  <Card>
+    <CardHeader>
+      <CardTitle class="text-lg font-semibold text-gray-900">
         Add Emergency Contact
-      </h3>
-      <p class="text-sm text-gray-500 mt-1">
+      </CardTitle>
+      <CardDescription class="text-sm text-gray-500 mt-1">
         These contacts will be notified when you activate the panic button
-      </p>
-    </template>
+      </CardDescription>
+    </CardHeader>
 
-    <UForm :schema="schema" :state="state" @submit="onSubmit">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <UFormGroup label="Name" name="name">
-          <UInput
-            v-model="state.name"
-            placeholder="Contact name"
-            icon="i-heroicons-user"
-          />
-        </UFormGroup>
+    <CardContent>
+      <form @submit="onSubmit" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <Label for="name">Name</Label>
+            <Input
+              id="name"
+              v-model="state.name"
+              placeholder="Contact name"
+            />
+          </div>
 
-        <UFormGroup label="Relationship" name="relationship">
-          <USelect
-            v-model="state.relationship"
-            :options="relationshipOptions"
-            placeholder="Select relationship"
-          />
-        </UFormGroup>
+          <div class="space-y-2">
+            <Label for="relationship">Relationship</Label>
+            <Select v-model="state.relationship">
+              <SelectTrigger>
+                <SelectValue placeholder="Select relationship" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem
+                  v-for="option in relationshipOptions"
+                  :key="option.value"
+                  :value="option.value"
+                >
+                  {{ option.label }}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-        <UFormGroup label="Phone Number" name="phone">
-          <UInput
-            v-model="state.phone"
-            placeholder="+234 800 000 0000"
-            icon="i-heroicons-phone"
-          />
-        </UFormGroup>
+          <div class="space-y-2">
+            <Label for="phone">Phone Number</Label>
+            <Input
+              id="phone"
+              v-model="state.phone"
+              placeholder="+234 800 000 0000"
+            />
+          </div>
 
-        <UFormGroup label="Email" name="email">
-          <UInput
-            v-model="state.email"
-            type="email"
-            placeholder="contact@example.com"
-            icon="i-heroicons-envelope"
-          />
-        </UFormGroup>
+          <div class="space-y-2">
+            <Label for="email">Email</Label>
+            <Input
+              id="email"
+              v-model="state.email"
+              type="email"
+              placeholder="contact@example.com"
+            />
+          </div>
 
-        <UFormGroup label="Priority" name="priority" class="md:col-span-2">
-          <USelect
-            v-model="state.priority"
-            :options="priorityOptions"
-            placeholder="Select priority level"
-          />
-        </UFormGroup>
+          <div class="space-y-2 md:col-span-2">
+            <Label for="priority">Priority</Label>
+            <Select v-model="state.priority">
+              <SelectTrigger>
+                <SelectValue placeholder="Select priority level" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem
+                  v-for="option in priorityOptions"
+                  :key="option.value"
+                  :value="option.value"
+                >
+                  {{ option.label }}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-        <UFormGroup class="md:col-span-2">
-          <UCheckbox
-            v-model="state.whatsappEnabled"
-            name="whatsappEnabled"
-            label="Enable WhatsApp notifications"
-          />
-        </UFormGroup>
-      </div>
+          <div class="md:col-span-2">
+            <div class="flex items-center space-x-2">
+              <Checkbox id="whatsapp" v-model="state.whatsappEnabled" />
+              <Label for="whatsapp">Enable WhatsApp notifications</Label>
+            </div>
+          </div>
+        </div>
 
-      <div class="flex justify-end space-x-3 mt-6">
-        <UButton
-          color="gray"
-          variant="outline"
-          @click="cancel"
-        >
-          Cancel
-        </UButton>
-        <UButton
-          type="submit"
-          color="blue"
-          :loading="loading"
-        >
-          Add Contact
-        </UButton>
-      </div>
-    </UForm>
-  </UCard>
+        <div class="flex justify-end space-x-3">
+          <Button
+            type="button"
+            variant="outline"
+            @click="cancel"
+          >
+            Cancel
+          </Button>
+          <Button
+            type="submit"
+            :disabled="loading"
+          >
+            <Loader2 v-if="loading" class="mr-2 h-4 w-4 animate-spin" />
+            Add Contact
+          </Button>
+        </div>
+      </form>
+    </CardContent>
+  </Card>
 </template>
 
 <script setup>
@@ -761,76 +834,88 @@ const priorityOptions = [
       <div class="absolute inset-0 bg-red-500 rounded-full animate-ping animation-delay-200 opacity-50"></div>
 
       <!-- Main Button -->
-      <UButton
-        color="red"
-        size="xl"
-        :loading="activating"
+      <Button
+        variant="destructive"
+        size="lg"
         :disabled="disabled"
         class="relative h-20 w-20 rounded-full shadow-2xl transform transition-all duration-200 hover:scale-105 active:scale-95"
         @click="activatePanic"
       >
-        <div class="flex flex-col items-center">
-          <UIcon name="i-heroicons-exclamation-triangle" class="h-8 w-8" />
+        <div v-if="!activating" class="flex flex-col items-center">
+          <AlertTriangle class="h-8 w-8" />
           <span class="text-xs font-bold mt-1">PANIC</span>
         </div>
-      </UButton>
+        <Loader2 v-else class="h-6 w-6 animate-spin" />
+      </Button>
     </div>
 
     <!-- Confirmation Dialog -->
-    <UModal v-model="showConfirmation" :ui="{ width: 'sm:max-w-md' }">
-      <UCard>
-        <template #header>
-          <div class="text-center">
-            <div class="mx-auto h-12 w-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
-              <UIcon name="i-heroicons-exclamation-triangle" class="h-6 w-6 text-red-600" />
-            </div>
-            <h3 class="text-xl font-bold text-red-900">Activate Emergency Alert?</h3>
-            <p class="text-red-700 mt-2">
-              This will notify emergency contacts and nearby responders
-            </p>
+    <Dialog v-model:open="showConfirmation">
+      <DialogContent class="sm:max-w-md">
+        <DialogHeader class="text-center">
+          <div class="mx-auto h-12 w-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
+            <AlertTriangle class="h-6 w-6 text-red-600" />
           </div>
-        </template>
+          <DialogTitle class="text-xl font-bold text-red-900">
+            Activate Emergency Alert?
+          </DialogTitle>
+          <DialogDescription class="text-red-700 mt-2">
+            This will notify emergency contacts and nearby responders
+          </DialogDescription>
+        </DialogHeader>
 
-        <div class="space-y-4">
-          <UFormGroup label="Emergency Type" name="type">
-            <USelect
-              v-model="emergencyType"
-              :options="emergencyTypes"
-              placeholder="Select emergency type"
-            />
-          </UFormGroup>
+        <div class="space-y-4 py-4">
+          <div class="space-y-2">
+            <Label for="emergency-type">Emergency Type</Label>
+            <Select v-model="emergencyType">
+              <SelectTrigger>
+                <SelectValue placeholder="Select emergency type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem
+                  v-for="type in emergencyTypes"
+                  :key="type.value"
+                  :value="type.value"
+                >
+                  {{ type.label }}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-          <UFormGroup label="Description (Optional)" name="description">
-            <UTextarea
+          <div class="space-y-2">
+            <Label for="description">Description (Optional)</Label>
+            <Textarea
+              id="description"
               v-model="emergencyDescription"
               placeholder="Brief description of the emergency"
               :rows="3"
             />
-          </UFormGroup>
+          </div>
         </div>
 
-        <template #footer>
-          <div class="flex space-x-3">
-            <UButton
-              color="gray"
-              variant="outline"
-              @click="showConfirmation = false"
-              class="flex-1"
-            >
-              Cancel
-            </UButton>
-            <UButton
-              color="red"
-              @click="confirmEmergency"
-              class="flex-1"
-              :loading="activating"
-            >
-              Yes, Send Alert
-            </UButton>
-          </div>
-        </template>
-      </UCard>
-    </UModal>
+        <DialogFooter class="flex space-x-3">
+          <Button
+            type="button"
+            variant="outline"
+            @click="showConfirmation = false"
+            class="flex-1"
+          >
+            Cancel
+          </Button>
+          <Button
+            type="button"
+            variant="destructive"
+            @click="confirmEmergency"
+            class="flex-1"
+            :disabled="activating"
+          >
+            <Loader2 v-if="activating" class="mr-2 h-4 w-4 animate-spin" />
+            Yes, Send Alert
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   </div>
 </template>
 
@@ -899,7 +984,7 @@ const confirmEmergency = async () => {
         <div class="flex items-center space-x-3">
           <!-- Animated Icon -->
           <div class="animate-pulse">
-            <UIcon name="i-heroicons-exclamation-triangle" class="h-6 w-6" />
+            <AlertTriangle class="h-6 w-6" />
           </div>
 
           <div>
@@ -917,14 +1002,13 @@ const confirmEmergency = async () => {
           </div>
 
           <!-- Cancel Button -->
-          <UButton
-            color="white"
-            variant="solid"
+          <Button
+            variant="secondary"
             size="sm"
             @click="cancelEmergency"
           >
             Cancel
-          </UButton>
+          </Button>
         </div>
       </div>
     </div>
@@ -957,44 +1041,46 @@ const formatElapsedTime = computed(() => {
     <!-- Map Controls -->
     <div class="absolute top-4 right-4 z-10 space-y-2">
       <!-- Center on User -->
-      <UButton
-        color="white"
-        variant="solid"
+      <Button
+        variant="secondary"
         size="sm"
-        icon="i-heroicons-location-marker"
-        class="shadow-lg"
+        class="shadow-lg bg-white hover:bg-gray-50"
         @click="centerOnUser"
-      />
+      >
+        <MapPin class="h-4 w-4" />
+      </Button>
 
       <!-- Toggle Layers -->
-      <UButton
-        color="white"
-        variant="solid"
+      <Button
+        variant="secondary"
         size="sm"
-        icon="i-heroicons-layers"
-        class="shadow-lg"
+        class="shadow-lg bg-white hover:bg-gray-50"
         @click="toggleLayers"
-      />
+      >
+        <Layers class="h-4 w-4" />
+      </Button>
     </div>
 
     <!-- Emergency Info Panel -->
     <div class="absolute bottom-4 left-4 right-4 z-10">
-      <UCard class="backdrop-blur-sm bg-white/90">
-        <div class="flex items-center justify-between">
-          <div>
-            <h3 class="font-semibold text-gray-900">Emergency Location</h3>
-            <p class="text-sm text-gray-600">{{ emergency.address }}</p>
+      <Card class="backdrop-blur-sm bg-white/90">
+        <CardContent class="p-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="font-semibold text-gray-900">Emergency Location</h3>
+              <p class="text-sm text-gray-600">{{ emergency.address }}</p>
+            </div>
+            <div class="flex items-center space-x-2">
+              <Badge variant="destructive">
+                {{ responders.length }} Responders
+              </Badge>
+              <Badge variant="default" class="bg-green-600 hover:bg-green-700">
+                {{ formatDistance }} away
+              </Badge>
+            </div>
           </div>
-          <div class="flex items-center space-x-2">
-            <UBadge color="red" variant="subtle">
-              {{ responders.length }} Responders
-            </UBadge>
-            <UBadge color="green" variant="subtle">
-              {{ formatDistance }} away
-            </UBadge>
-          </div>
-        </div>
-      </UCard>
+        </CardContent>
+      </Card>
     </div>
 
     <!-- Location Permission Prompt -->
@@ -1002,24 +1088,24 @@ const formatElapsedTime = computed(() => {
       v-if="locationError"
       class="absolute inset-0 bg-black/50 flex items-center justify-center z-20"
     >
-      <UCard class="max-w-sm">
-        <template #header>
-          <div class="text-center">
-            <UIcon name="i-heroicons-map-pin" class="h-12 w-12 text-gray-400 mx-auto mb-2" />
-            <h3 class="text-lg font-semibold">Location Required</h3>
-          </div>
-        </template>
-        <p class="text-gray-600 mb-4">
-          Location access is required for emergency response and maps.
-        </p>
-        <UButton
-          color="blue"
-          block
-          @click="requestLocation"
-        >
-          Enable Location
-        </UButton>
-      </UCard>
+      <Card class="max-w-sm">
+        <CardHeader class="text-center">
+          <MapPin class="h-12 w-12 text-gray-400 mx-auto mb-2" />
+          <CardTitle class="text-lg font-semibold">Location Required</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p class="text-gray-600 mb-4">
+            Location access is required for emergency response and maps.
+          </p>
+          <Button
+            variant="default"
+            class="w-full"
+            @click="requestLocation"
+          >
+            Enable Location
+          </Button>
+        </CardContent>
+      </Card>
     </div>
   </div>
 </template>
@@ -1081,17 +1167,17 @@ const addEmergencyMarker = () => {
 ### 4. Responder Status Panel
 ```vue
 <template>
-  <UCard>
-    <template #header>
+  <Card>
+    <CardHeader>
       <div class="flex items-center justify-between">
-        <h3 class="text-lg font-semibold text-gray-900">Active Responders</h3>
-        <UBadge color="blue" variant="subtle">
+        <CardTitle class="text-lg font-semibold text-gray-900">Active Responders</CardTitle>
+        <Badge variant="default" class="bg-blue-600 hover:bg-blue-700">
           {{ responders.length }} Responding
-        </UBadge>
+        </Badge>
       </div>
-    </template>
+    </CardHeader>
 
-    <div class="space-y-4">
+    <CardContent class="space-y-4">
       <!-- Responder List -->
       <div
         v-for="responder in responders"
@@ -1101,11 +1187,15 @@ const addEmergencyMarker = () => {
         <div class="flex items-center space-x-3">
           <!-- Avatar with Status -->
           <div class="relative">
-            <UAvatar
+            <Avatar
               :src="responder.avatar"
               :alt="responder.name"
-              size="md"
-            />
+              class="h-10 w-10"
+            >
+              <AvatarFallback>
+                {{ responder.name.charAt(0).toUpperCase() }}
+              </AvatarFallback>
+            </Avatar>
             <div
               :class="getStatusColor(responder.status)"
               class="absolute -bottom-1 -right-1 h-3 w-3 rounded-full border-2 border-white"
@@ -1122,17 +1212,16 @@ const addEmergencyMarker = () => {
         <!-- Status & Distance -->
         <div class="text-right">
           <div class="flex items-center space-x-1 text-sm">
-            <UIcon name="i-heroicons-map-pin" class="h-4 w-4 text-gray-400" />
+            <MapPin class="h-4 w-4 text-gray-400" />
             <span>{{ formatDistance(responder.distance) }}</span>
           </div>
-          <UBadge
-            :color="getStatusBadgeColor(responder.status)"
-            variant="subtle"
-            size="xs"
+          <Badge
+            :variant="getStatusBadgeVariant(responder.status)"
+            size="sm"
             class="mt-1"
           >
             {{ responder.status }}
-          </UBadge>
+          </Badge>
         </div>
       </div>
 
@@ -1141,33 +1230,32 @@ const addEmergencyMarker = () => {
         v-if="responders.length === 0"
         class="text-center py-8"
       >
-        <UIcon name="i-heroicons-users" class="h-12 w-12 text-gray-400 mx-auto mb-2" />
+        <Users class="h-12 w-12 text-gray-400 mx-auto mb-2" />
         <p class="text-gray-500">No responders nearby yet</p>
         <p class="text-sm text-gray-400">Alert has been sent to emergency contacts</p>
       </div>
-    </div>
+    </CardContent>
 
     <!-- Action Buttons -->
-    <template #footer>
-      <div class="flex space-x-3">
-        <UButton
-          color="blue"
-          variant="outline"
-          icon="i-heroicons-phone"
-          @click="callEmergencyServices"
-        >
-          Call Emergency Services
-        </UButton>
-        <UButton
-          color="red"
-          icon="i-heroicons-x-circle"
-          @click="cancelEmergency"
-        >
-          Cancel Alert
-        </UButton>
-      </div>
-    </template>
-  </UCard>
+    <CardFooter class="flex space-x-3">
+      <Button
+        variant="outline"
+        class="flex items-center gap-2"
+        @click="callEmergencyServices"
+      >
+        <Phone class="h-4 w-4" />
+        Call Emergency Services
+      </Button>
+      <Button
+        variant="destructive"
+        class="flex items-center gap-2"
+        @click="cancelEmergency"
+      >
+        <XCircle class="h-4 w-4" />
+        Cancel Alert
+      </Button>
+    </CardFooter>
+  </Card>
 </template>
 
 <script setup>
@@ -1200,14 +1288,25 @@ const getStatusColor = (status) => {
   return colors[status] || 'bg-gray-500'
 }
 
-const getStatusBadgeColor = (status) => {
-  const colors = {
-    en_route: 'blue',
-    responding: 'yellow',
-    arrived: 'green',
-    helping: 'purple'
+const getStatusBadgeVariant = (status) => {
+  const variants = {
+    en_route: 'default',
+    responding: 'secondary',
+    arrived: 'default',
+    helping: 'default'
   }
-  return colors[status] || 'gray'
+
+  const variantMap = {
+    en_route: 'bg-blue-600 hover:bg-blue-700',
+    responding: 'bg-yellow-600 hover:bg-yellow-700',
+    arrived: 'bg-green-600 hover:bg-green-700',
+    helping: 'bg-purple-600 hover:bg-purple-700'
+  }
+
+  return {
+    variant: variants[status] || 'secondary',
+    className: variantMap[status] || ''
+  }
 }
 </script>
 ```
@@ -1237,48 +1336,44 @@ xl: 1280px  /* Laptops */
   <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40">
     <div class="grid grid-cols-4 gap-1">
       <!-- Dashboard -->
-      <UButton
-        :color="currentRoute === '/' ? 'blue' : 'gray'"
-        variant="ghost"
+      <Button
+        :variant="currentRoute === '/' ? 'default' : 'ghost'"
         class="flex-col h-16 rounded-none"
         @click="navigate('/')"
       >
-        <UIcon name="i-heroicons-squares-2x2" class="h-5 w-5" />
+        <LayoutDashboard class="h-5 w-5" />
         <span class="text-xs mt-1">Home</span>
-      </UButton>
+      </Button>
 
       <!-- Map -->
-      <UButton
-        :color="currentRoute === '/map' ? 'blue' : 'gray'"
-        variant="ghost"
+      <Button
+        :variant="currentRoute === '/map' ? 'default' : 'ghost'"
         class="flex-col h-16 rounded-none"
         @click="navigate('/map')"
       >
-        <UIcon name="i-heroicons-map" class="h-5 w-5" />
+        <Map class="h-5 w-5" />
         <span class="text-xs mt-1">Map</span>
-      </UButton>
+      </Button>
 
       <!-- Emergency Contacts -->
-      <UButton
-        :color="currentRoute === '/contacts' ? 'blue' : 'gray'"
-        variant="ghost"
+      <Button
+        :variant="currentRoute === '/contacts' ? 'default' : 'ghost'"
         class="flex-col h-16 rounded-none"
         @click="navigate('/contacts')"
       >
-        <UIcon name="i-heroicons-phone" class="h-5 w-5" />
+        <Phone class="h-5 w-5" />
         <span class="text-xs mt-1">Contacts</span>
-      </UButton>
+      </Button>
 
       <!-- Profile -->
-      <UButton
-        :color="currentRoute === '/profile' ? 'blue' : 'gray'"
-        variant="ghost"
+      <Button
+        :variant="currentRoute === '/profile' ? 'default' : 'ghost'"
         class="flex-col h-16 rounded-none"
         @click="navigate('/profile')"
       >
-        <UIcon name="i-heroicons-user-circle" class="h-5 w-5" />
+        <UserCircle class="h-5 w-5" />
         <span class="text-xs mt-1">Profile</span>
-      </UButton>
+      </Button>
     </div>
   </div>
 </template>
@@ -1292,7 +1387,11 @@ xl: 1280px  /* Laptops */
     <!-- Logo & User Info -->
     <div class="p-6 border-b border-gray-200">
       <div class="flex items-center space-x-3">
-        <UAvatar :src="user.avatar" :alt="user.name" size="lg" />
+        <Avatar :src="user.avatar" :alt="user.name" class="h-12 w-12">
+          <AvatarFallback class="bg-blue-100 text-blue-600">
+            {{ user.name.charAt(0).toUpperCase() }}
+          </AvatarFallback>
+        </Avatar>
         <div>
           <h3 class="font-semibold text-gray-900">{{ user.name }}</h3>
           <p class="text-sm text-gray-500">{{ user.phone }}</p>
@@ -1303,17 +1402,16 @@ xl: 1280px  /* Laptops */
     <!-- Navigation Items -->
     <nav class="p-4">
       <div class="space-y-1">
-        <UButton
+        <Button
           v-for="item in navigation"
           :key="item.path"
-          :color="currentRoute === item.path ? 'blue' : 'gray'"
-          variant="ghost"
-          class="w-full justify-start"
-          :icon="item.icon"
+          :variant="currentRoute === item.path ? 'default' : 'ghost'"
+          class="w-full justify-start gap-2"
           @click="navigate(item.path)"
         >
+          <component :is="item.icon" class="h-4 w-4" />
           {{ item.name }}
-        </UButton>
+        </Button>
       </div>
 
       <!-- Emergency Section -->
@@ -1322,39 +1420,36 @@ xl: 1280px  /* Laptops */
           Emergency
         </h3>
         <div class="space-y-1">
-          <UButton
-            color="red"
+          <Button
             variant="outline"
-            class="w-full justify-start"
-            icon="i-heroicons-exclamation-triangle"
+            class="w-full justify-start gap-2 text-red-600 border-red-200 hover:bg-red-50"
             @click="triggerEmergency"
           >
+            <AlertTriangle class="h-4 w-4" />
             Activate Panic Button
-          </UButton>
-          <UButton
-            color="blue"
+          </Button>
+          <Button
             variant="ghost"
-            class="w-full justify-start"
-            icon="i-heroicons-shield-check"
+            class="w-full justify-start gap-2"
             @click="navigate('/responder')"
           >
+            <ShieldCheck class="h-4 w-4" />
             Responder Mode
-          </UButton>
+          </Button>
         </div>
       </div>
     </nav>
 
     <!-- Bottom Actions -->
     <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200">
-      <UButton
-        color="gray"
+      <Button
         variant="ghost"
-        class="w-full justify-start"
-        icon="i-heroicons-arrow-right-on-rectangle"
+        class="w-full justify-start gap-2"
         @click="logout"
       >
+        <LogOut class="h-4 w-4" />
         Sign Out
-      </UButton>
+      </Button>
     </div>
   </div>
 </template>
@@ -1364,11 +1459,11 @@ const user = useAuthStore().user
 const currentRoute = useRoute().path
 
 const navigation = [
-  { name: 'Dashboard', path: '/', icon: 'i-heroicons-squares-2x2' },
-  { name: 'Live Map', path: '/map', icon: 'i-heroicons-map' },
-  { name: 'Emergency Contacts', path: '/contacts', icon: 'i-heroicons-phone' },
-  { name: 'Profile', path: '/profile', icon: 'i-heroicons-user-circle' },
-  { name: 'Settings', path: '/settings', icon: 'i-heroicons-cog-6-tooth' }
+  { name: 'Dashboard', path: '/', icon: LayoutDashboard },
+  { name: 'Live Map', path: '/map', icon: Map },
+  { name: 'Emergency Contacts', path: '/contacts', icon: Phone },
+  { name: 'Profile', path: '/profile', icon: UserCircle },
+  { name: 'Settings', path: '/settings', icon: Settings }
 ]
 </script>
 ```
@@ -1378,16 +1473,16 @@ const navigation = [
 <template>
   <!-- Mobile: Stacked Layout -->
   <div class="md:hidden space-y-4">
-    <div class="p-4 bg-white rounded-lg shadow">
+    <Card class="p-4">
       <!-- Mobile content -->
-    </div>
+    </Card>
   </div>
 
   <!-- Desktop: Grid Layout -->
   <div class="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="bg-white rounded-lg shadow p-6">
+    <Card class="p-6">
       <!-- Desktop content -->
-    </div>
+    </Card>
   </div>
 </template>
 ```
@@ -1428,8 +1523,8 @@ const navigation = [
 <template>
   <!-- Adequate spacing between interactive elements -->
   <div class="space-y-3">
-    <UButton size="lg" block>Primary Action</UButton>
-    <UButton size="lg" block variant="outline">Secondary Action</UButton>
+    <Button size="lg" class="w-full">Primary Action</Button>
+    <Button size="lg" variant="outline" class="w-full">Secondary Action</Button>
   </div>
 </template>
 ```
@@ -1456,12 +1551,12 @@ const navigation = [
 #### Focus Indicators
 ```vue
 <template>
-  <UButton
+  <Button
     class="focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
     aria-label="Activate emergency alert"
   >
     Panic Button
-  </UButton>
+  </Button>
 </template>
 ```
 
@@ -1497,22 +1592,22 @@ const navigation = [
   <nav role="navigation" aria-label="Main navigation">
     <ul class="flex space-x-4">
       <li>
-        <UButton
+        <Button
           variant="ghost"
-          :to="'/'"
+          @click="navigate('/')"
           class="focus:ring-2 focus:ring-blue-500"
         >
           Home
-        </UButton>
+        </Button>
       </li>
       <li>
-        <UButton
+        <Button
           variant="ghost"
-          :to="'/emergency'"
+          @click="navigate('/emergency')"
           class="focus:ring-2 focus:ring-blue-500"
         >
           Emergency
-        </UButton>
+        </Button>
       </li>
     </ul>
   </nav>
@@ -1567,18 +1662,17 @@ const navigation = [
     <div class="container mx-auto px-4 py-3">
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-3">
-          <UIcon name="i-heroicons-wifi-slash" class="h-5 w-5" />
+          <WifiOff class="h-5 w-5" />
           <span class="font-medium">Offline Mode</span>
           <span class="text-sm">Emergency features still available</span>
         </div>
-        <UButton
-          color="white"
-          variant="solid"
+        <Button
+          variant="secondary"
           size="sm"
           @click="retryConnection"
         >
           Retry
-        </UButton>
+        </Button>
       </div>
     </div>
   </div>
@@ -1607,7 +1701,7 @@ onMounted(() => {
     <div class="bg-blue-600 text-white p-4">
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-2">
-          <UIcon name="i-heroicons-wifi-slash" class="h-5 w-5" />
+          <WifiOff class="h-5 w-5" />
           <span class="font-medium">Offline Mode</span>
         </div>
         <span class="text-sm">Emergency features active</span>
@@ -1617,7 +1711,7 @@ onMounted(() => {
     <!-- Emergency Functions Available Offline -->
     <div class="p-4 space-y-4">
       <!-- Panic Button (Always Available) -->
-      <UCard class="bg-red-50 border-red-200">
+      <Card class="bg-red-50 border-red-200 p-6">
         <div class="text-center">
           <h3 class="text-lg font-semibold text-red-900 mb-2">
             Emergency Alert Available
@@ -1626,27 +1720,27 @@ onMounted(() => {
             You can still trigger emergency alerts and call emergency services
           </p>
 
-          <UButton
-            color="red"
-            size="xl"
-            block
-            icon="i-heroicons-exclamation-triangle"
+          <Button
+            variant="destructive"
+            size="lg"
+            class="w-full flex items-center gap-2"
             @click="activateOfflineEmergency"
           >
+            <AlertTriangle class="h-4 w-4" />
             Activate Emergency Alert
-          </UButton>
+          </Button>
         </div>
-      </UCard>
+      </Card>
 
       <!-- Emergency Contacts -->
-      <UCard>
-        <template #header>
-          <h3 class="text-lg font-semibold text-gray-900">
+      <Card>
+        <CardHeader>
+          <CardTitle class="text-lg font-semibold text-gray-900">
             Emergency Contacts
-          </h3>
-        </template>
+          </CardTitle>
+        </CardHeader>
 
-        <div class="space-y-3">
+        <CardContent class="space-y-3">
           <div
             v-for="contact in emergencyContacts"
             :key="contact.id"
@@ -1656,66 +1750,62 @@ onMounted(() => {
               <h4 class="font-medium text-gray-900">{{ contact.name }}</h4>
               <p class="text-sm text-gray-500">{{ contact.relationship }}</p>
             </div>
-            <UButton
-              color="blue"
+            <Button
               variant="outline"
               size="sm"
-              icon="i-heroicons-phone"
+              class="flex items-center gap-2"
               :href="`tel:${contact.phone}`"
             >
+              <Phone class="h-4 w-4" />
               Call
-            </UButton>
+            </Button>
           </div>
-        </div>
-      </UCard>
+        </CardContent>
+      </Card>
 
       <!-- Emergency Numbers -->
-      <UCard>
-        <template #header>
-          <h3 class="text-lg font-semibold text-gray-900">
+      <Card>
+        <CardHeader>
+          <CardTitle class="text-lg font-semibold text-gray-900">
             Emergency Services
-          </h3>
-        </template>
+          </CardTitle>
+        </CardHeader>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <UButton
-            color="red"
+        <CardContent class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <Button
             variant="outline"
-            block
-            icon="i-heroicons-phone"
+            class="flex items-center gap-2 text-red-600 border-red-200"
             :href="'tel:112'"
           >
+            <Phone class="h-4 w-4" />
             112 - Emergency
-          </UButton>
-          <UButton
-            color="blue"
+          </Button>
+          <Button
             variant="outline"
-            block
-            icon="i-heroicons-phone"
+            class="flex items-center gap-2"
             :href="'tel:767'"
           >
+            <Phone class="h-4 w-4" />
             767 - Police
-          </UButton>
-          <UButton
-            color="green"
+          </Button>
+          <Button
             variant="outline"
-            block
-            icon="i-heroicons-phone"
+            class="flex items-center gap-2 text-green-600 border-green-200"
             :href="'tel:122'"
           >
+            <Phone class="h-4 w-4" />
             122 - Ambulance
-          </UButton>
-          <UButton
-            color="orange"
+          </Button>
+          <Button
             variant="outline"
-            block
-            icon="i-heroicons-phone"
+            class="flex items-center gap-2 text-orange-600 border-orange-200"
             :href="'tel:123'"
           >
+            <Phone class="h-4 w-4" />
             123 - Fire Service
-          </UButton>
-        </div>
-      </UCard>
+          </Button>
+        </CardContent>
+      </Card>
     </div>
   </div>
 </template>
@@ -1741,52 +1831,26 @@ onMounted(() => {
 
 ## Component Library Usage
 
-### Nuxt UI Configuration
+### shadcn-vue Configuration
 ```typescript
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['@nuxt/ui'],
+  modules: ['shadcn-nuxt'],
 
-  ui: {
-    global: true,
-    icons: ['heroicons']
+  shadcn: {
+    prefix: '',
+    componentDir: './components/ui'
   },
 
-  // Custom UI theme
-  ui: {
-    primary: 'blue',
-    gray: 'slate',
+  // Custom CSS variables for theming
+  css: ['~/assets/css/main.css'],
 
-    // Custom button styles
-    button: {
-      base: 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
-      size: {
-        '2xl': 'text-lg h-16 px-8 py-3',
-        xl: 'text-base h-14 px-6 py-3',
-        lg: 'text-sm h-12 px-5 py-2.5',
-        md: 'text-sm h-10 px-4 py-2',
-        sm: 'text-xs h-9 px-3 py-1.5',
-        xs: 'text-xs h-8 px-2.5 py-1'
-      }
-    },
-
-    // Custom card styles
-    card: {
-      base: 'overflow-hidden',
-      background: 'bg-white',
-      divide: 'divide-y divide-gray-200 dark:divide-gray-700',
-      ring: 'ring-1 ring-gray-200 dark:ring-gray-700',
-      rounded: 'rounded-lg',
-      shadow: 'shadow-sm',
-      header: {
-        padding: 'px-6 py-4',
-        base: 'flex items-center justify-between'
-      },
-      body: {
-        padding: 'px-6 py-4'
-      },
-      footer: {
-        padding: 'px-6 py-4'
+  // Vite config for proper component resolution
+  vite: {
+    resolve: {
+      alias: {
+        '@/components': './components',
+        '@/lib': './lib'
       }
     }
   }
@@ -1795,31 +1859,65 @@ export default defineNuxtConfig({
 
 ### Custom Theme Overrides
 ```css
-/* assets/css/custom.css */
+/* assets/css/main.css */
 :root {
-  --ui-primary: 59 130 246;      /* blue-500 */
-  --ui-primary-50: 239 246 255;  /* blue-50 */
-  --ui-primary-500: 59 130 246;  /* blue-500 */
-  --ui-primary-600: 37 99 235;   /* blue-600 */
+  /* SafeRoute Light Mode Colors */
+  --background: #FAFAFA; /* off-white, not pure white - easier on eyes */
+  --foreground: #0A0A0A; /* almost black text */
+  --accent-primary: #002455; /* SafeRoute Blue - trust & authority */
+  --accent-emergency: #FF3838; /* Emergency Red - urgency */
+  --accent-success: #10B981; /* Success Green - hope & community */
 
-  --ui-red: 239 68 68;           /* red-500 */
-  --ui-red-50: 254 242 242;     /* red-50 */
-  --ui-red-500: 239 68 68;      /* red-500 */
-  --ui-red-600: 220 38 38;      /* red-600 */
+  /* Override shadcn-vue CSS variables */
+  --primary: var(--accent-primary);
+  --primary-foreground: #FFFFFF;
+  --destructive: var(--accent-emergency);
+  --destructive-foreground: #FFFFFF;
+  --ring: var(--accent-primary);
+}
+
+/* Dark mode specific styles */
+.dark {
+  --background: #0A0A0A; /* deep black */
+  --foreground: #FAFAFA; /* off-white */
+  --accent-primary: #3B82F6; /* lighter blue for dark mode readability */
+  --accent-emergency: #F87171; /* softer red for dark mode */
+  --accent-success: #34D399; /* brighter green for dark mode */
 }
 
 /* Emergency mode specific styles */
 .emergency-mode {
-  --ui-primary: var(--ui-red);
+  --primary: var(--accent-emergency);
+  --primary-foreground: #FFFFFF;
+  --ring: var(--accent-emergency);
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ui-bg: 17 24 39;          /* gray-900 */
-    --ui-text: 243 244 246;     /* gray-100 */
-  }
+/* Button customizations for emergency context */
+.btn-emergency {
+  background-color: var(--accent-emergency) !important;
+  border-color: var(--accent-emergency) !important;
+  color: #FFFFFF !important;
 }
+
+.btn-emergency:hover {
+  background-color: #DC2626 !important;
+  border-color: #DC2626 !important;
+}
+
+/* Custom SafeRoute components styling */
+.saferoute-card {
+  border-left: 4px solid var(--accent-primary);
+}
+
+.saferoute-card.emergency {
+  border-left-color: var(--accent-emergency);
+}
+
+/* SafeRoute utility classes */
+.saferoute-text-primary { color: var(--accent-primary); }
+.saferoute-text-emergency { color: var(--accent-emergency); }
+.saferoute-bg-primary { background-color: var(--accent-primary); }
+.saferoute-bg-emergency { background-color: var(--accent-emergency); }
 ```
 
 ### Icon Usage
@@ -1828,20 +1926,20 @@ export default defineNuxtConfig({
   <!-- Consistent icon usage across components -->
   <div class="space-y-4">
     <!-- Emergency Icons -->
-    <UIcon name="i-heroicons-exclamation-triangle" class="text-red-500" />
-    <UIcon name="i-heroicons-shield-check" class="text-blue-500" />
-    <UIcon name="i-heroicons-bell-alert" class="text-yellow-500" />
+    <AlertTriangle class="h-5 w-5 text-red-500" />
+    <ShieldCheck class="h-5 w-5 text-blue-500" />
+    <BellAlert class="h-5 w-5 text-yellow-500" />
 
     <!-- Navigation Icons -->
-    <UIcon name="i-heroicons-home" />
-    <UIcon name="i-heroicons-map" />
-    <UIcon name="i-heroicons-user" />
-    <UIcon name="i-heroicons-cog-6-tooth" />
+    <Home class="h-5 w-5" />
+    <Map class="h-5 w-5" />
+    <User class="h-5 w-5" />
+    <Settings class="h-5 w-5" />
 
     <!-- Status Icons -->
-    <UIcon name="i-heroicons-check-circle" class="text-green-500" />
-    <UIcon name="i-heroicons-x-circle" class="text-red-500" />
-    <UIcon name="i-heroicons-clock" class="text-yellow-500" />
+    <CheckCircle class="h-5 w-5 text-green-500" />
+    <XCircle class="h-5 w-5 text-red-500" />
+    <Clock class="h-5 w-5 text-yellow-500" />
   </div>
 </template>
 ```
@@ -1865,7 +1963,7 @@ export default defineNuxtConfig({
       class="bg-red-600 text-white rounded-full p-4"
       :class="{ 'animate-bounce': needsAttention }"
     >
-      <UIcon name="i-heroicons-bell" class="h-6 w-6" />
+      <Bell class="h-6 w-6" />
     </div>
   </div>
 </template>

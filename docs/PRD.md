@@ -194,8 +194,8 @@ Nigerian travelers face unique and severe security challenges:
 ```
 Technology Stack: Nuxt 4 Fullstack
 - Framework: Nuxt 4 with Vue 3
-- UI Library: Nuxt UI 4.2.1
-- Styling: Tailwind CSS
+- UI Library: shadcn-vue
+- Styling: Tailwind CSS 4
 - State Management: Pinia (built-in with Nuxt)
 - PWA Support: Offline emergency mode
 - Progressive Enhancement: Works on low-bandwidth connections

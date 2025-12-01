@@ -1,9 +1,11 @@
+<script setup>
+import Navbar from '~/components/custom/general/Navbar.vue';
+</script>
 <template>
   <div>
-    <Header />
+    <Navbar />
     <main>
       <slot />
     </main>
-    <Footer />
   </div>
 </template>

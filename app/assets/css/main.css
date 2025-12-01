@@ -43,71 +43,97 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* SafeRoute Light Mode Colors */
+  --background: #FAFAFA;
+  --foreground: #0A0A0A;
+  --accent-primary: #002455;
+  --accent-emergency: #FF3838;
+  --accent-success: #10B981;
+  --neutral-50: #F9FAFB;
+  --neutral-100: #F3F4F6;
+  --neutral-200: #E5E7EB;
+  --neutral-600: #4B5563;
+  --neutral-900: #111827;
+
+  /* shadcn-vue system colors using SafeRoute palette */
+  --card: #FFFFFF;
+  --card-foreground: var(--foreground);
+  --popover: #FFFFFF;
+  --popover-foreground: var(--foreground);
+  --primary: var(--accent-primary);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--neutral-100);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--neutral-100);
+  --muted-foreground: var(--neutral-600);
+  --accent: var(--neutral-100);
+  --accent-foreground: var(--foreground);
+  --destructive: var(--accent-emergency);
+  --destructive-foreground: #FFFFFF;
+  --border: var(--neutral-200);
+  --input: var(--neutral-200);
+  --ring: var(--accent-primary);
+  --chart-1: var(--accent-primary);
+  --chart-2: var(--accent-emergency);
+  --chart-3: var(--accent-success);
+  --chart-4: #6366F1;
+  --chart-5: #EC4899;
+  --sidebar: var(--neutral-50);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--accent-primary);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--neutral-100);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--neutral-200);
+  --sidebar-ring: var(--accent-primary);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* SafeRoute Dark Mode Colors */
+  --background: #0A0A0A;
+  --foreground: #FAFAFA;
+  --accent-primary: #3B82F6;
+  --accent-emergency: #F87171;
+  --accent-success: #34D399;
+
+  /* Update neutral colors for dark mode */
+  --neutral-50: #111827;
+  --neutral-100: #1F2937;
+  --neutral-200: #374151;
+  --neutral-600: #9CA3AF;
+  --neutral-900: #F9FAFB;
+
+  /* shadcn-vue system colors for dark mode */
+  --card: #111827;
+  --card-foreground: var(--foreground);
+  --popover: #111827;
+  --popover-foreground: var(--foreground);
+  --primary: var(--accent-primary);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--neutral-100);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--neutral-100);
+  --muted-foreground: var(--neutral-600);
+  --accent: var(--neutral-100);
+  --accent-foreground: var(--foreground);
+  --destructive: var(--accent-emergency);
+  --destructive-foreground: #FFFFFF;
+  --border: var(--neutral-200);
+  --input: var(--neutral-200);
+  --ring: var(--accent-primary);
+  --chart-1: var(--accent-primary);
+  --chart-2: var(--accent-emergency);
+  --chart-3: var(--accent-success);
+  --chart-4: #8B5CF6;
+  --chart-5: #EC4899;
+  --sidebar: #0A0A0A;
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--accent-primary);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--neutral-100);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--neutral-200);
+  --sidebar-ring: var(--accent-primary);
 }
 
 @layer base {
@@ -117,4 +143,48 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* SafeRoute-specific utility classes */
+.emergency-mode {
+  --primary: var(--accent-emergency);
+  --primary-foreground: #FFFFFF;
+  --ring: var(--accent-emergency);
+  --sidebar-primary: var(--accent-emergency);
+  --sidebar-ring: var(--accent-emergency);
+}
+
+.btn-emergency {
+  background-color: var(--accent-emergency) !important;
+  border-color: var(--accent-emergency) !important;
+  color: #FFFFFF !important;
+}
+
+.btn-emergency:hover {
+  background-color: #DC2626 !important;
+  border-color: #DC2626 !important;
+}
+
+.saferoute-card {
+  border-left: 4px solid var(--accent-primary);
+}
+
+.saferoute-card.emergency {
+  border-left-color: var(--accent-emergency);
+}
+
+.saferoute-text-primary {
+  color: var(--accent-primary);
+}
+
+.saferoute-text-emergency {
+  color: var(--accent-emergency);
+}
+
+.saferoute-bg-primary {
+  background-color: var(--accent-primary);
+}
+
+.saferoute-bg-emergency {
+  background-color: var(--accent-emergency);
 }

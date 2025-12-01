@@ -30,7 +30,7 @@
 ### Core Architecture Pattern
 ```
 Nuxt 4 Fullstack Application
-├── Frontend (Vue 3 + Nuxt UI + Tailwind)
+├── Frontend (Vue 3 + shadcn-vue + Tailwind)
 ├── Backend (Nuxt Nitro Server)
 ├── Real-time (Socket.io)
 ├── Database (MongoDB + Mongoose)
@@ -45,10 +45,10 @@ Nuxt 4 Fullstack Application
 ```json
 {
   "framework": "Nuxt 4",
-  "ui": "Nuxt UI 4.2.1",
-  "styling": "Tailwind CSS",
+  "ui": "shadcn-vue",
+  "styling": "Tailwind CSS 4",
   "state": "Pinia + Nuxt useState",
-  "icons": "Heroicons (via Nuxt UI)",
+  "icons": "Heroicons (via Lucide Vue)",
   "maps": "Google Maps JavaScript API",
   "realtime": "Socket.io Client"
 }
@@ -2331,7 +2331,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/pwa',
     '@pinia/nuxt',
-    '@nuxt/ui'
   ],
 
   pwa: {
