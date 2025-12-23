@@ -1,9 +1,20 @@
-<script setup>
+<!-- Path: /app/pages/index.vue -->
 
+<script setup>
+import { useDarkMode } from '@/composables/useDarkMode'
+import HomeHero from '../components/custom/Home/HomeHero.vue'
+import HomeServices from '../components/custom/Home/HomeServices.vue'
+import HomePortfolio from '../components/custom/Home/HomePortfolio.vue'
+import HomeCTA from '../components/custom/Home/HomeCTA.vue'
+
+const { darkMode } = useDarkMode()
 </script>
+
 <template>
-  <div class="container">
-    <h1>Welcome to the Home Page</h1>
-    <p>This is the main landing page of the application.</p>
+  <div>
+    <HomeHero :dark-mode="darkMode" />
+    <HomeServices :dark-mode="darkMode" />
+    <HomePortfolio :dark-mode="darkMode" />
+    <HomeCTA :dark-mode="darkMode" />
   </div>
 </template>
