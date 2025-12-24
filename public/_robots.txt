@@ -1,0 +1,39 @@
+# robots.txt for kylva.com
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow crawling of admin/API endpoints (when you add them)
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /.nuxt/
+
+# Sitemap location
+Sitemap: https://kylva.com/sitemap.xml
+
+# Crawl-delay for polite bots (optional, helps prevent server overload)
+Crawl-delay: 1
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Block bad bots (optional, add as needed)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
