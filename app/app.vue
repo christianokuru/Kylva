@@ -1,9 +1,10 @@
-<!-- app/app.vue -->
 <script setup>
 import 'vue-sonner/style.css'
 import { Toaster } from '@/components/ui/sonner'
 
-// Global SEO defaults
+/* ---------------------
+   Global SEO defaults
+---------------------- */
 useSeoMeta({
   titleTemplate: '%s | Kylva',
   ogSiteName: 'Kylva',
@@ -12,11 +13,13 @@ useSeoMeta({
 })
 
 const route = useRoute()
+const config = useRuntimeConfig()
 
+/* ---------------------
+   Canonical + HTML attrs
+---------------------- */
 useHead({
-  htmlAttrs: {
-    lang: 'en'
-  },
+  htmlAttrs: { lang: 'en' },
   link: [
     {
       rel: 'canonical',
@@ -25,7 +28,9 @@ useHead({
   ]
 })
 
-// Schema.org WebSite markup
+/* ---------------------
+   Schema.org
+---------------------- */
 useSchemaOrg([
   {
     '@type': 'WebSite',
@@ -42,27 +47,46 @@ useSchemaOrg([
   }
 ])
 
-// Google Analytics 4
-const config = useRuntimeConfig()
-if (config.public.gaId) {
-  useHead({
-    script: [
-      {
-        src: `https://www.googletagmanager.com/gtag/js?id=${config.public.gaId}`,
-        async: true
-      },
-      {
-        children: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${config.public.gaId}');
-        `,
-        type: 'text/javascript'
-      }
-    ]
-  })
-}
+/* --------------------------------
+   Google Analytics 4 (Nuxt 4 safe)
+--------------------------------- */
+
+onMounted(() => {
+  if (!config.public.gaId) return
+
+  // Prevent duplicate injection
+  if (window.gtag) return
+
+  // Load GA library
+  const gtagScript = document.createElement('script')
+  gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${config.public.gaId}`
+  gtagScript.async = true
+  document.head.appendChild(gtagScript)
+
+  // Init GA
+  const inlineScript = document.createElement('script')
+  inlineScript.innerHTML = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', '${config.public.gaId}', {
+      send_page_view: false
+    });
+  `
+  document.head.appendChild(inlineScript)
+})
+
+// Track SPA route changes
+watch(
+  () => route.fullPath,
+  () => {
+    if (!window.gtag) return
+    window.gtag('event', 'page_view', {
+      page_path: route.fullPath
+    })
+  }
+)
 </script>
 
 <template>
@@ -70,6 +94,6 @@ if (config.public.gaId) {
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-    <Toaster :position="'bottom-right'" :rich-colors="true" :expand="true"/>
+    <Toaster position="bottom-right" rich-colors expand />
   </div>
 </template>
