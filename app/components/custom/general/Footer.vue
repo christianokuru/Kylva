@@ -1,6 +1,8 @@
 <!-- Path: /app/components/custom/general/Footer.vue -->
 
 <script setup>
+import Logo from '@/components/custom/general/Logo.vue'
+
 const props = defineProps({
   darkMode: {
     type: Boolean,

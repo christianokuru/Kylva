@@ -11,6 +11,8 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
+const route = useRoute()
+
 useHead({
   htmlAttrs: {
     lang: 'en'
@@ -18,7 +20,7 @@ useHead({
   link: [
     {
       rel: 'canonical',
-      href: () => `https://kylva.com${useRoute().path}`
+      href: () => `https://kylva.com${route.path}`
     }
   ]
 })
