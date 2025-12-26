@@ -1,4 +1,5 @@
 <!-- Path: /app/components/custom/general/Input.vue -->
+<!-- Minimalist Input Component -->
 
 <script setup>
 const props = defineProps({
@@ -15,21 +16,17 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  darkMode: {
-    type: Boolean,
-    required: true
-  },
   required: {
+    type: Boolean,
+    default: false
+  },
+  error: {
     type: Boolean,
     default: false
   }
 })
 
 const emit = defineEmits(['update:modelValue'])
-
-const handleInput = (event) => {
-  emit('update:modelValue', event.target.value)
-}
 </script>
 
 <template>
@@ -38,18 +35,16 @@ const handleInput = (event) => {
     :placeholder="placeholder"
     :value="modelValue"
     :required="required"
-    @input="handleInput"
     :class="[
-      'w-full px-0 py-4 border-b outline-none transition-colors text-sm',
-      darkMode 
-        ? 'bg-transparent border-white/10 text-white focus:border-gold placeholder:text-white/30' 
-        : 'bg-transparent border-black/10 text-black focus:border-gold placeholder:text-black/30'
+      // Base styles - minimalist underline style
+      'w-full px-0 py-4 min-h-[44px] border-b outline-none transition-colors duration-150 text-base sm:text-lg',
+      // Focus and error states
+      error
+        ? 'border-destructive'
+        : 'border-input focus:border-ring',
+      // Colors
+      'bg-background text-foreground placeholder:text-muted-foreground/50'
     ]"
+    @input="emit('update:modelValue', $event.target.value)"
   />
 </template>
-
-<style scoped>
-.border-gold {
-  border-color: #D4AF37;
-}
-</style>

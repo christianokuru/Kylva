@@ -1,15 +1,9 @@
 <!-- Path: /app/components/custom/general/MobileMenu.vue -->
+<!-- Minimalist Mobile Menu Component -->
 
 <script setup>
-import { useRoute, useRouter } from 'vue-router'
-
-
-const props = defineProps({
+defineProps({
   isOpen: {
-    type: Boolean,
-    required: true
-  },
-  darkMode: {
     type: Boolean,
     required: true
   }
@@ -40,23 +34,17 @@ const isActive = (page) => {
     leave-from-class="opacity-100"
     leave-to-class="opacity-0"
   >
-    <div 
+    <div
       v-if="isOpen"
-      :class="[
-        'md:hidden',
-        darkMode ? 'bg-black border-white/10' : 'bg-white border-black/10',
-        'border-t'
-      ]"
+      class="md:hidden bg-background border-t border-border"
     >
-      <div class="px-8 py-8 space-y-6">
+      <div class="px-4 py-6 space-y-2">
         <button
           v-for="item in navItems"
           :key="item"
           @click="handleNavigation(item)"
-          :class="[
-            'block w-full text-left text-sm tracking-widest uppercase transition-colors',
-            isActive(item) ? 'text-gold' : darkMode ? 'text-white hover:text-gold' : 'text-black hover:text-gold'
-          ]"
+          class="block w-full text-left min-h-[44px] px-4 text-sm tracking-widest uppercase transition-colors duration-150 rounded"
+          :class="isActive(item) ? 'text-foreground font-medium bg-muted' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'"
         >
           {{ item }}
         </button>
@@ -64,9 +52,3 @@ const isActive = (page) => {
     </div>
   </Transition>
 </template>
-
-<style scoped>
-.text-gold {
-  color: #D4AF37;
-}
-</style>

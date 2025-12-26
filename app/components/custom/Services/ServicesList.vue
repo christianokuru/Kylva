@@ -1,12 +1,8 @@
 <!-- Path: /app/components/custom/Services/ServicesList.vue -->
+<!-- Minimalist Services List Component -->
 
 <script setup>
-const props = defineProps({
-  darkMode: {
-    type: Boolean,
-    required: true
-  }
-})
+import ServiceCard from './ServiceCard.vue'
 
 const services = [
   {
@@ -31,18 +27,18 @@ const services = [
 </script>
 
 <template>
-  <section class="py-40 px-8">
+  <section class="py-32 px-6">
     <div class="max-w-4xl mx-auto space-y-40">
       <div
         v-for="(service, index) in services"
         :key="service.num"
         :class="[
           'pb-32 border-b',
-          index === services.length - 1 ? 'border-0' : '',
-          darkMode ? 'border-white/10' : 'border-black/10'
+          index === services.length - 1 ? 'border-0' : ''
         ]"
+        class="border-border"
       >
-        <ServiceCard :service="service" :dark-mode="darkMode" />
+        <ServiceCard :service="service" />
       </div>
     </div>
   </section>

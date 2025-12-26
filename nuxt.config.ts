@@ -18,6 +18,13 @@ export default defineNuxtConfig({
     ],
   },
 
+  // Color Mode Configuration
+  colorMode: {
+    classSuffix: '',
+    fallback: 'light',
+    preference: 'light'
+  },
+
   // SEO Configuration
   site: {
     url: 'https://kylva.com',
