@@ -10,10 +10,12 @@ const props = defineProps({
 </script>
 
 <template>
-  <img 
+  <div class="w-32 h-5">
+    <img 
     src="/logo.svg" 
     alt="Kylva Logo" 
     :width="props.width"
-    class="h-auto"
+    class="border object-contain"
   />
+  </div>
 </template>

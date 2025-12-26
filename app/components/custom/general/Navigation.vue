@@ -35,7 +35,7 @@ const isActive = (page) => {
       <div class="flex items-center justify-between h-24">
         <!-- Logo -->
         <NuxtLink to="/" class="flex items-center">
-          <Logo width="200" />
+          <Logo />
         </NuxtLink>
 
         <!-- Desktop Navigation -->
