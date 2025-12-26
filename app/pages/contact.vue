@@ -1,14 +1,24 @@
 <!-- Path: /app/pages/contact.vue -->
 
 <script setup>
+import { toast } from 'vue-sonner'
 import ContactHero from '../components/custom/Contact/ContactHero.vue'
 import ContactForm from '../components/custom/Contact/ContactForm.vue'
 import ContactInfo from '../components/custom/Contact/ContactInfo.vue'
 
 const handleFormSubmit = (formData) => {
   console.log('Form submitted:', formData)
-  alert('Thank you! We will be in touch soon.')
-  
+
+  // Show success toast
+  toast.success('Message sent successfully', {
+    description: 'We\'ll be in touch within 24-48 hours.'
+  })
+
+  // Redirect to thank you page
+  setTimeout(() => {
+    navigateTo('/thank-you')
+  }, 1500)
+
   // Here you would typically send the data to your API
   // Example: await $fetch('/api/contact', { method: 'POST', body: formData })
 }
