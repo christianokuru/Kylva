@@ -94,6 +94,22 @@ watch(
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-    <Toaster position="bottom-right" rich-colors expand />
+    <Toaster
+      position="bottom-right"
+      duration="4000"
+      :close-button="true"
+      :toast-options="{
+        class: 'border-0 shadow-sm',
+        classes: {
+          toast: 'border border-border text-foreground',
+          success: 'bg-green-50 border-green-200 text-green-900',
+          error: 'bg-red-50 border-red-200 text-red-900',
+          title: 'text-sm font-medium',
+          description: 'text-xs opacity-80',
+          actionButton: 'bg-primary text-primary-foreground hover:opacity-80 text-xs',
+          cancelButton: 'text-muted-foreground hover:text-foreground text-xs'
+        }
+      }"
+    />
   </div>
 </template>

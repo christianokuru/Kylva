@@ -4,6 +4,7 @@
 import HomeHero from '../components/custom/Home/HomeHero.vue'
 import HomeServices from '../components/custom/Home/HomeServices.vue'
 import HomePortfolio from '../components/custom/Home/HomePortfolio.vue'
+import ProcessSection from '../components/custom/Home/ProcessSection.vue'
 import TeamSection from '../components/custom/Home/TeamSection.vue'
 import Testimonials from '../components/custom/Home/Testimonials.vue'
 import HomeCTA from '../components/custom/Home/HomeCTA.vue'
@@ -117,6 +118,7 @@ useSchemaOrg([
     <HomeHero />
     <HomeServices />
     <HomePortfolio />
+    <ProcessSection />
     <TeamSection />
     <Testimonials />
     <HomeCTA />
