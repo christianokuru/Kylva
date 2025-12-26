@@ -1,18 +1,10 @@
 <!-- Path: /app/components/custom/Portfolio/PortfolioHero.vue -->
-
-<script setup>
-const props = defineProps({
-  darkMode: {
-    type: Boolean,
-    required: true
-  }
-})
-</script>
+<!-- Minimalist Portfolio Hero Component -->
 
 <template>
-  <section class="min-h-screen flex items-center justify-center px-8 py-32">
+  <section class="flex max-sm:pt-28 items-center justify-center px-6 py-32 max-sm:py-0">
     <div class="max-w-3xl text-center space-y-12">
-      <h1 class="text-3xl md:text-4xl font-light leading-relaxed">
+      <h1 class="text-3xl max-sm:text-4xl md:text-4xl font-light leading-relaxed text-foreground">
         Selected projects
       </h1>
     </div>

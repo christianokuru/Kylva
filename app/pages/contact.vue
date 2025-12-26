@@ -1,12 +1,9 @@
 <!-- Path: /app/pages/contact.vue -->
 
 <script setup>
-import { useDarkMode } from '@/composables/useDarkMode'
 import ContactHero from '../components/custom/Contact/ContactHero.vue'
 import ContactForm from '../components/custom/Contact/ContactForm.vue'
 import ContactInfo from '../components/custom/Contact/ContactInfo.vue'
-
-const { darkMode } = useDarkMode()
 
 const handleFormSubmit = (formData) => {
   console.log('Form submitted:', formData)
@@ -103,12 +100,11 @@ useSchemaOrg([
 <template>
   <section class="pt-32 min-h-screen flex items-center justify-center px-8 py-32">
     <div class="max-w-2xl w-full space-y-20">
-      <ContactHero :dark-mode="darkMode" />
-      <ContactForm 
-        :dark-mode="darkMode"
+      <ContactHero />
+      <ContactForm
         @submit="handleFormSubmit"
       />
-      <ContactInfo :dark-mode="darkMode" />
+      <ContactInfo />
     </div>
   </section>
 </template>

@@ -1,27 +1,25 @@
 <!-- Path: /app/layouts/default.vue -->
+<!-- Minimalist Default Layout -->
 
 <script setup>
-import { useDarkMode } from '@/composables/useDarkMode'
 import Navigation from '../components/custom/general/Navigation.vue'
 import Footer from '../components/custom/general/Footer.vue'
-
-const { darkMode } = useDarkMode()
 </script>
 
 <template>
-  <div 
-    :class="[
-      'min-h-screen transition-colors',
-      darkMode ? 'bg-black text-white' : 'bg-white text-black'
-    ]"
-  >
+  <div class="min-h-screen bg-background text-foreground">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">
+      Skip to main content
+    </a>
+
     <Navigation />
-    
-    <main>
+
+    <main id="main-content">
       <slot />
     </main>
-    
-    <Footer :dark-mode="darkMode" />
+
+    <Footer />
   </div>
 </template>
 

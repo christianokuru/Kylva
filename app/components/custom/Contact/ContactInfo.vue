@@ -1,30 +1,11 @@
 <!-- Path: /app/components/custom/Contact/ContactInfo.vue -->
-
-<script setup>
-const props = defineProps({
-  darkMode: {
-    type: Boolean,
-    required: true
-  }
-})
-</script>
+<!-- Minimalist Contact Info Component -->
 
 <template>
   <div class="text-center space-y-6 pt-20">
-    <div 
-      :class="[
-        'text-xs tracking-widest uppercase',
-        darkMode ? 'text-white/40' : 'text-black/40'
-      ]"
-    >
+    <div class="text-xs tracking-widest uppercase text-muted-foreground">
       Or Email Directly
     </div>
-    <div class="text-gold text-sm">hello@kylva.com</div>
+    <div class="text-accent text-sm">hello@kylva.com</div>
   </div>
 </template>
-
-<style scoped>
-.text-gold {
-  color: #D4AF37;
-}
-</style>

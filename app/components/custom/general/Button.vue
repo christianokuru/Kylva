@@ -1,15 +1,12 @@
 <!-- Path: /app/components/custom/general/Button.vue -->
+<!-- Minimalist Button Component -->
 
 <script setup>
 const props = defineProps({
   variant: {
     type: String,
     default: 'primary',
-    validator: (value) => ['primary', 'text'].includes(value)
-  },
-  darkMode: {
-    type: Boolean,
-    required: true
+    validator: (value) => ['primary', 'secondary', 'ghost'].includes(value)
   },
   text: {
     type: String,
@@ -18,55 +15,42 @@ const props = defineProps({
   fullWidth: {
     type: Boolean,
     default: false
+  },
+  disabled: {
+    type: Boolean,
+    default: false
   }
 })
 
 const emit = defineEmits(['click'])
-
-const handleClick = () => {
-  emit('click')
-}
-
-const buttonClasses = computed(() => {
-  const base = 'text-xs tracking-widest uppercase transition-colors cursor-pointer'
-  
-  if (props.variant === 'primary') {
-    return [
-      base,
-      'px-8 py-4 border',
-      props.darkMode 
-        ? 'border-white/20 hover:border-gold' 
-        : 'border-black/20 hover:border-gold',
-      props.fullWidth ? 'w-full' : ''
-    ].filter(Boolean).join(' ')
-  }
-  
-  if (props.variant === 'text') {
-    return [
-      base,
-      'text-gold hover:opacity-70'
-    ].join(' ')
-  }
-  
-  return base
-})
 </script>
 
 <template>
   <button
-    :class="buttonClasses"
-    @click="handleClick"
+    :class="[
+      // Base styles - no rounded corners
+      'inline-flex items-center justify-center font-medium transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring min-h-[44px]',
+      'text-xs sm:text-sm tracking-widest uppercase px-6 sm:px-8 py-3 sm:py-4',
+      // Disabled state
+      disabled ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer',
+      // Variants
+      variant === 'primary' && [
+        'bg-primary text-primary-foreground hover:opacity-80',
+        'active:scale-95'
+      ],
+      variant === 'secondary' && [
+        'border border-border bg-background text-foreground hover:bg-muted',
+        'active:scale-95'
+      ],
+      variant === 'ghost' && [
+        'text-muted-foreground hover:text-foreground hover:bg-muted'
+      ],
+      // Width
+      fullWidth ? 'w-full' : ''
+    ]"
+    :disabled="disabled"
+    @click="emit('click')"
   >
     {{ text }}
   </button>
 </template>
-
-<style scoped>
-.text-gold {
-  color: #D4AF37;
-}
-
-.border-gold {
-  border-color: #D4AF37;
-}
-</style>

@@ -1,26 +1,12 @@
 <!-- Path: /app/components/custom/Contact/ContactHero.vue -->
-
-<script setup>
-const props = defineProps({
-  darkMode: {
-    type: Boolean,
-    required: true
-  }
-})
-</script>
+<!-- Minimalist Contact Hero Component -->
 
 <template>
   <div class="text-center space-y-12">
-    <h1 class="text-3xl md:text-4xl font-light leading-relaxed">
+    <h1 class="text-3xl md:text-4xl font-light leading-relaxed text-foreground">
       Let's create something
       <br />
-      <span class="text-gold">exceptional together</span>
+      <span class="text-accent">exceptional together</span>
     </h1>
   </div>
 </template>
-
-<style scoped>
-.text-gold {
-  color: #D4AF37;
-}
-</style>

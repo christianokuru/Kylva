@@ -5,10 +5,10 @@ export const useDarkMode = () => {
 
   const toggleDarkMode = () => {
     darkMode.value = !darkMode.value
-    
-    if (process.client) {
+
+    if (import.meta.client) {
       localStorage.setItem('kylva-theme', darkMode.value ? 'dark' : 'light')
-      
+
       if (darkMode.value) {
         document.documentElement.classList.add('dark')
       } else {
@@ -18,9 +18,9 @@ export const useDarkMode = () => {
   }
 
   const initDarkMode = () => {
-    if (process.client) {
+    if (import.meta.client) {
       const savedTheme = localStorage.getItem('kylva-theme')
-      
+
       if (savedTheme === 'dark') {
         darkMode.value = true
         document.documentElement.classList.add('dark')

@@ -1,13 +1,12 @@
 <!-- Path: /app/pages/index.vue -->
 
 <script setup>
-import { useDarkMode } from '@/composables/useDarkMode'
 import HomeHero from '../components/custom/Home/HomeHero.vue'
 import HomeServices from '../components/custom/Home/HomeServices.vue'
 import HomePortfolio from '../components/custom/Home/HomePortfolio.vue'
+import TeamSection from '../components/custom/Home/TeamSection.vue'
+import Testimonials from '../components/custom/Home/Testimonials.vue'
 import HomeCTA from '../components/custom/Home/HomeCTA.vue'
-
-const { darkMode } = useDarkMode()
 
 // SEO Meta Tags for Home Page
 useSeoMeta({
@@ -115,9 +114,11 @@ useSchemaOrg([
 
 <template>
   <div>
-    <HomeHero :dark-mode="darkMode" />
-    <HomeServices :dark-mode="darkMode" />
-    <HomePortfolio :dark-mode="darkMode" />
-    <HomeCTA :dark-mode="darkMode" />
+    <HomeHero />
+    <HomeServices />
+    <HomePortfolio />
+    <TeamSection />
+    <Testimonials />
+    <HomeCTA />
   </div>
 </template>

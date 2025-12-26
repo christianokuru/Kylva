@@ -1,14 +1,8 @@
 <!-- Path: /app/components/custom/Home/HomeServices.vue -->
+<!-- Minimalist Home Services Component -->
 
 <script setup>
 import Button from '@/components/custom/general/Button.vue'
-
-const props = defineProps({
-  darkMode: {
-    type: Boolean,
-    required: true
-  }
-})
 
 const router = useRouter()
 
@@ -24,28 +18,22 @@ const navigateToServices = () => {
 </script>
 
 <template>
-  <section class="py-40 px-8">
+  <section class="py-32 px-6">
     <div class="max-w-4xl mx-auto">
       <div class="grid md:grid-cols-3 gap-20">
-        <div 
-          v-for="service in services" 
-          :key="service.num" 
+        <div
+          v-for="service in services"
+          :key="service.num"
           class="space-y-6"
         >
-          <div 
-            :class="[
-              'text-xs',
-              darkMode ? 'text-white/30' : 'text-black/30'
-            ]"
-          >
+          <div class="text-xs text-muted-foreground/30">
             {{ service.num }}
           </div>
-          
-          <h3 class="text-xl font-light">{{ service.title }}</h3>
-          
-          <Button 
-            variant="text"
-            :dark-mode="darkMode"
+
+          <h3 class="text-xl font-light text-foreground">{{ service.title }}</h3>
+
+          <Button
+            variant="ghost"
             text="Learn More →"
             @click="navigateToServices"
           />

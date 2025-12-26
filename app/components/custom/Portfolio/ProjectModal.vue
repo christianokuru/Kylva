@@ -1,14 +1,11 @@
 <!-- Path: /app/components/custom/Portfolio/ProjectModal.vue -->
+<!-- Minimalist Project Modal Component -->
 
 <script setup>
 const props = defineProps({
   project: {
     type: Object,
     default: null
-  },
-  darkMode: {
-    type: Boolean,
-    required: true
   }
 })
 
@@ -36,50 +33,44 @@ const handleContentClick = (e) => {
     leave-from-class="opacity-100"
     leave-to-class="opacity-0"
   >
-    <div 
+    <div
       v-if="project"
-      class="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-8"
+      class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-6"
       @click="handleBackdropClick"
     >
-      <div 
-        :class="[
-          'max-w-4xl w-full p-16 space-y-12',
-          darkMode ? 'bg-black' : 'bg-white'
-        ]"
+      <div
+        class="max-w-4xl w-full p-12 space-y-12 bg-card shadow-lg"
         @click="handleContentClick"
       >
-        <button 
+        <button
           @click="handleClose"
-          class="text-xs tracking-widest uppercase text-gold hover:opacity-70 transition-opacity"
+          class="text-xs tracking-widest uppercase text-accent hover:opacity-70 transition-opacity"
         >
           Close
         </button>
-        
-        <div 
-          :class="[
-            'aspect-video',
-            darkMode ? 'bg-white/5' : 'bg-black/5'
-          ]"
-        ></div>
-        
+
+        <div class="aspect-video overflow-hidden bg-muted">
+          <NuxtImg
+            :src="project.image"
+            :alt="project.title"
+            class="w-full h-full object-cover"
+            format="webp"
+          />
+        </div>
+
         <div class="space-y-8">
-          <h2 class="text-3xl font-light">{{ project.title }}</h2>
-          
+          <h2 class="text-3xl font-light text-foreground">{{ project.title }}</h2>
+
           <div class="flex gap-8 text-xs">
-            <span :class="darkMode ? 'text-white/40' : 'text-black/40'">
+            <span class="text-muted-foreground">
               {{ project.category }}
             </span>
-            <span :class="darkMode ? 'text-white/40' : 'text-black/40'">
+            <span class="text-muted-foreground">
               {{ project.year }}
             </span>
           </div>
-          
-          <p 
-            :class="[
-              'text-lg leading-loose',
-              darkMode ? 'text-white/60' : 'text-black/60'
-            ]"
-          >
+
+          <p class="text-lg leading-loose text-muted-foreground">
             A premium digital experience crafted with meticulous attention to detail. This project exemplifies our commitment to creating exceptional web solutions that perform beautifully.
           </p>
         </div>
@@ -87,9 +78,3 @@ const handleContentClick = (e) => {
     </div>
   </Transition>
 </template>
-
-<style scoped>
-.text-gold {
-  color: #D4AF37;
-}
-</style>

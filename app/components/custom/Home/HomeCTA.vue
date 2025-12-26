@@ -1,14 +1,8 @@
 <!-- Path: /app/components/custom/Home/HomeCTA.vue -->
+<!-- Minimalist CTA Component -->
 
 <script setup>
 import Button from '@/components/custom/general/Button.vue'
-
-const props = defineProps({
-  darkMode: {
-    type: Boolean,
-    required: true
-  }
-})
 
 const router = useRouter()
 
@@ -18,17 +12,16 @@ const navigateToContact = () => {
 </script>
 
 <template>
-  <section class="py-40 px-8">
+  <section class="py-32 px-6">
     <div class="max-w-2xl mx-auto text-center space-y-12">
-      <h2 class="text-3xl md:text-4xl font-light leading-relaxed">
+      <h2 class="text-3xl md:text-4xl font-light leading-relaxed text-foreground">
         Ready to elevate your
         <br />
         digital presence?
       </h2>
-      
-      <Button 
+
+      <Button
         variant="primary"
-        :dark-mode="darkMode"
         text="Get in Touch"
         @click="navigateToContact"
       />
