@@ -1,45 +1,115 @@
-<!-- Path: /app/components/custom/general/Footer.vue -->
-<!-- Minimalist Footer Component -->
-
 <script setup>
 import Logo from '@/components/custom/general/Logo.vue'
 
-const socialLinks = [
-  { name: 'LinkedIn', url: '#' },
-  { name: 'Twitter', url: '#' },
-  { name: 'GitHub', url: '#' }
-]
-
 const currentYear = new Date().getFullYear()
+
+const scrollToSection = (id) => {
+  const element = document.getElementById(id)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 
 <template>
-  <footer class="border-t border-border py-12 md:py-16 px-4 md:px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-8 md:gap-12 mb-8 md:mb-12">
-        <!-- Logo -->
+  <footer class="bg-black text-white py-16 px-6 lg:px-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-12 mb-16">
         <div>
-          <Logo size="text-xl" />
+          <Logo variant="white" class="mb-6" />
+          <p
+            class="text-gray-400 text-sm leading-relaxed"
+            style="font-family: 'Inter', sans-serif; font-weight: 300"
+          >
+            Crafting exceptional e-commerce experiences for luxury fashion and beauty brands.
+          </p>
         </div>
 
-        <!-- Social Links -->
-        <div class="flex justify-start md:justify-end gap-6 md:gap-8">
-          <a
-            v-for="social in socialLinks"
-            :key="social.name"
-            :href="social.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="min-h-[44px] inline-flex items-center px-2 text-xs sm:text-sm tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors duration-150"
+        <div>
+          <h3
+            class="text-xs uppercase tracking-[0.3em] mb-6"
+            style="font-family: 'Inter', sans-serif; font-weight: 500"
           >
-            {{ social.name }}
-          </a>
+            Quick Links
+          </h3>
+          <ul class="space-y-3">
+            <li v-for="link in ['Services', 'About', 'Work', 'Testimonials', 'Contact']" :key="link">
+              <button
+                @click="scrollToSection(link.toLowerCase())"
+                class="text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1"
+                style="font-family: 'Inter', sans-serif; font-weight: 300"
+              >
+                {{ link }}
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            class="text-xs uppercase tracking-[0.3em] mb-6"
+            style="font-family: 'Inter', sans-serif; font-weight: 500"
+          >
+            Connect
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a
+                href="mailto:hello@kylva.studio"
+                class="text-gray-400 hover:text-white transition-colors text-sm"
+                style="font-family: 'Inter', sans-serif; font-weight: 300"
+              >
+                hello@kylva.studio
+              </a>
+            </li>
+            <li>
+              <a
+                href="tel:+1234567890"
+                class="text-gray-400 hover:text-white transition-colors text-sm"
+                style="font-family: 'Inter', sans-serif; font-weight: 300"
+              >
+                +1 (234) 567-890
+              </a>
+            </li>
+          </ul>
+
+          <div class="flex gap-4 mt-6">
+            <a
+              v-for="social in ['Instagram', 'LinkedIn', 'Behance']"
+              :key="social"
+              href="#"
+              class="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-[#D4AF37] transition-all duration-200 hover:-translate-y-1"
+              style="font-family: 'Inter', sans-serif; font-weight: 400"
+            >
+              {{ social }}
+            </a>
+          </div>
         </div>
       </div>
 
-      <!-- Copyright -->
-      <div class="text-xs sm:text-sm text-muted-foreground">
-        © {{ currentYear }} Kylva. All rights reserved.
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p
+          class="text-xs text-gray-500"
+          style="font-family: 'Inter', sans-serif; font-weight: 300"
+        >
+          © {{ currentYear }} Kylva. All rights reserved.
+        </p>
+        <div class="flex gap-8">
+          <a
+            href="#"
+            class="text-xs text-gray-500 hover:text-white transition-colors uppercase tracking-[0.2em]"
+            style="font-family: 'Inter', sans-serif; font-weight: 300"
+          >
+            Privacy Policy
+          </a>
+          <a
+            href="#"
+            class="text-xs text-gray-500 hover:text-white transition-colors uppercase tracking-[0.2em]"
+            style="font-family: 'Inter', sans-serif; font-weight: 300"
+          >
+            Terms of Service
+          </a>
+        </div>
       </div>
     </div>
   </footer>
