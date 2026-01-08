@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxtjs/color-mode',
+    
     '@nuxtjs/seo'
   ],
   css: ['./app/assets/css/main.css'],
