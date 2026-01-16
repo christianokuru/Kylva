@@ -19,23 +19,23 @@ const handleSubmit = () => {
       <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
         <div :class="['scroll-reveal', { 'revealed animate-fade-in-left': isInView }]">
           <p class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-6" style="font-family: 'Inter', sans-serif">
-            Get In Touch
+            Let's Begin
           </p>
 
           <h2
             class="text-5xl md:text-6xl lg:text-7xl mb-8 tracking-tight"
             style="font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1"
           >
-            Let's Create
+            Your Vision
             <br />
-            <span class="italic" style="font-weight: 400">Something Exceptional</span>
+            <span class="italic" style="font-weight: 400">Deserves Excellence</span>
           </h2>
 
           <p
-            class="text-lg text-gray-600 leading-relaxed mb-12"
+            class="text-base text-gray-600 leading-relaxed mb-12"
             style="font-family: 'Inter', sans-serif; font-weight: 300"
           >
-            Whether you're launching a new brand or reimagining an existing one, we're here to bring your vision to life with elegance and precision.
+            Whether you're launching a new brand or reimagining an established house, we approach each partnership with the same commitment to perfection. Share your vision with us, and let's create something extraordinary together.
           </p>
 
           <div class="space-y-6">
@@ -74,6 +74,10 @@ const handleSubmit = () => {
         </div>
 
         <div :class="['scroll-reveal', { 'revealed animate-fade-in-right': isInView }]" style="animation-delay: 0.2s">
+          <h3 class="text-2xl font-light text-neutral-900 mb-8" style="font-family: 'Cormorant Garamond', serif; font-weight: 400">
+            Tell Us About Your Brand
+          </h3>
+          
           <form @submit.prevent="handleSubmit" class="space-y-8">
             <div>
               <label
@@ -135,8 +139,11 @@ const handleSubmit = () => {
                 class="block text-xs uppercase tracking-[0.3em] mb-3"
                 style="font-family: 'Inter', sans-serif; font-weight: 500"
               >
-                Tell Us About Your Project
+                Your Vision
               </label>
+              <p class="text-sm text-gray-400 mb-2" style="font-family: 'Inter', sans-serif; font-weight: 300">
+                What story do you want your digital presence to tell?
+              </p>
               <textarea
                 id="message"
                 v-model="formData.message"
@@ -152,7 +159,7 @@ const handleSubmit = () => {
               class="w-full py-5 bg-black text-white text-sm uppercase tracking-[0.3em] transition-all duration-200 hover:scale-105 active:scale-95"
               style="font-family: 'Inter', sans-serif; font-weight: 500"
             >
-              Send Message
+              Begin the Conversation
             </button>
           </form>
         </div>

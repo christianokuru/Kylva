@@ -4,22 +4,34 @@ const { targetRef, isInView } = useInView({ threshold: 0.2 })
 const services = [
   {
     number: "01",
-    title: "Fashion E-Commerce",
-    description: "Bespoke online stores that embody the essence of luxury fashion. From haute couture to contemporary brands, we create digital experiences that mirror the sophistication of your collections.",
-    features: ["Custom Design Systems", "Product Showcases", "Seamless Checkout"],
+    title: 'Fashion E-Commerce',
+    description: 'Your garments tell stories. Your online store should do the same. We design bespoke digital experiences where every interaction mirrors the care and precision woven into your collections. From the first click to the final purchase, your customers encounter nothing less than perfection.',
+    features: [
+      'Custom design systems that embody your brand\'s essence',
+      'Product presentations worthy of your craftsmanship',
+      'Checkout experiences that honor the luxury purchase journey'
+    ]
   },
   {
     number: "02",
-    title: "Beauty Platforms",
-    description: "Elegant e-commerce solutions for beauty and cosmetics brands. We craft immersive experiences that highlight your products' luxury and effectiveness with refined detail.",
-    features: ["Interactive Product Views", "Shade Matching", "Subscription Systems"],
+    title: 'Beauty Platforms',
+    description: 'Beauty is intimate, transformative, personal. Your digital presence should reflect this truth. We create elegant platforms where customers discover, explore, and fall in love with your products through experiences as sophisticated as the formulations themselves.',
+    features: [
+      'Immersive product storytelling that captivates',
+      'Intelligent tools that guide personal discovery',
+      'Seamless subscription journeys for lasting relationships'
+    ]
   },
   {
     number: "03",
-    title: "Brand Experience",
-    description: "More than just a store—a complete digital identity. We develop cohesive experiences that tell your brand's story and connect with discerning customers on a deeper level.",
-    features: ["Brand Storytelling", "Editorial Layouts", "Luxury UI/UX"],
-  },
+    title: 'Brand Experience',
+    description: 'Beyond transactions lies identity. We craft complete digital worlds where your heritage, values, and vision come alive. Every page becomes a chapter in your brand\'s story, every interaction a moment of connection with those who truly understand.',
+    features: [
+      'Narratives that evoke emotion and belonging',
+      'Editorial design that rivals luxury publications',
+      'Experiences that transform browsers into devotees'
+    ]
+  }
 ]
 </script>
 
@@ -34,9 +46,9 @@ const services = [
           class="text-6xl md:text-7xl lg:text-8xl tracking-tight"
           style="font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1"
         >
-          Specialized in
+          Devoted Exclusively to 
           <br />
-          <span class="italic" style="font-weight: 400">Luxury Digital</span>
+          <span class="italic" style="font-weight: 400">Luxury</span>
         </h2>
       </div>
 
@@ -64,7 +76,7 @@ const services = [
               {{ service.title }}
             </h3>
             <p
-              class="text-gray-600 leading-relaxed text-lg"
+              class="text-gray-600 leading-relaxed text-base"
               style="font-family: 'Inter', sans-serif; font-weight: 300"
             >
               {{ service.description }}
@@ -76,7 +88,7 @@ const services = [
               <li
                 v-for="feature in service.features"
                 :key="feature"
-                class="flex items-center gap-3 text-sm uppercase tracking-[0.2em]"
+                class="flex items-center gap-3 text-xs uppercase tracking-[0.2em]"
                 style="font-family: 'Inter', sans-serif; font-weight: 400"
               >
                 <span class="w-8 h-px bg-[#D4AF37]" />

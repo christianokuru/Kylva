@@ -45,7 +45,7 @@ onMounted(() => {
           :key="item"
           @click="scrollToSection(item)"
           :class="[
-            'text-sm uppercase tracking-[0.2em] transition-all duration-200 hover:-translate-y-0.5',
+            'text-xs uppercase tracking-[0.2em] transition-all duration-200 hover:-translate-y-0.5',
             scrolled ? 'text-gray-800 hover:text-gray-600' : 'text-white hover:text-gray-300'
           ]"
           style="font-family: 'Inter', sans-serif; font-weight: 400"

@@ -1,53 +1,54 @@
 <script setup>
-const { targetRef, isInView } = useInView({ threshold: 0.3 })
+const scrollToSection = (sectionId) => {
+  const element = document.querySelector(sectionId)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 
 <template>
-  <section id="about" ref="targetRef" class="py-32 px-6 lg:px-12 bg-[#fafaf9]">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        <div :class="['relative h-[600px] overflow-hidden scroll-reveal', { 'revealed animate-fade-in-left': isInView }]">
-          <img
-            src="https://images.unsplash.com/photo-1580656940647-8854a00547f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBmYXNoaW9uJTIwc3RvcmV8ZW58MXx8fHwxNzY3NjQ1ODE1fDA&ixlib=rb-4.1.0&q=80&w=1080"
-            alt="Luxury store interior"
-            class="w-full h-full object-cover transition-transform duration-600 hover:scale-105"
-          />
-        </div>
-
-        <div :class="['scroll-reveal', { 'revealed animate-fade-in-right': isInView }]" style="animation-delay: 0.2s">
-          <p class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-6" style="font-family: 'Inter', sans-serif">
-            About Kylva
-          </p>
-
-          <h2
-            class="text-5xl md:text-6xl lg:text-7xl mb-8 tracking-tight"
-            style="font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1"
+  <section id="about" class="py-24 md:py-32 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-sm tracking-widest uppercase text-neutral-500 mb-4">About Kylva</p>
+          <h2 class="text-3xl md:text-5xl font-light tracking-tight text-neutral-900 mb-8"
+          style="font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1"
           >
-            Where <span class="italic" style="font-weight: 400">Luxury</span>
-            <br />
-            Meets Technology
+            Where Luxury Finds Its Digital Voice
           </h2>
-
-          <div class="space-y-6 text-gray-600 text-lg leading-relaxed" style="font-family: 'Inter', sans-serif; font-weight: 300">
+          
+          <div class="space-y-6 text-neutral-600 leading-relaxed" style="font-family: 'Inter', sans-serif; font-weight: 300">
             <p>
-              Kylva was born from a singular vision: to create digital experiences that match the sophistication and elegance of the world's finest fashion and beauty brands.
+              Kylva was founded on a singular conviction: that extraordinary brands deserve extraordinary digital experiences. Too many luxury houses settle for online presence that fails to match the artistry of their products. We exist to change that.
             </p>
-
+            
             <p>
-              We understand that luxury isn't just about aesthetics—it's about feeling, experience, and attention to every minute detail. That's why we exclusively focus on fashion and beauty e-commerce, bringing unparalleled expertise to an industry that demands perfection.
+              We understand luxury is not about excess—it's about restraint, intention, and the confidence that comes from mastering every detail. It's the space between elements. The typography chosen with care. The animation that delights without demanding attention. The navigation so intuitive it becomes invisible.
             </p>
-
+            
             <p>
-              Our approach combines minimalist design principles with cutting-edge technology, creating platforms that are as functional as they are beautiful. Every line of code, every pixel, every interaction is crafted with the same care your brand puts into its products.
+              Our work combines the aesthetic sensibility of the world's finest ateliers with technology that performs flawlessly across every device, every connection, every moment. Because true luxury never makes excuses.
+            </p>
+            
+            <p>
+              We serve discerning brands across North America and Europe who recognize that their digital presence is not separate from their brand—it is their brand, experienced by thousands before a single product is ever touched.
             </p>
           </div>
-
-          <div
-            class="mt-12 inline-flex items-center gap-3 text-sm uppercase tracking-[0.3em] cursor-pointer group transition-transform duration-200 hover:translate-x-1"
-            style="font-family: 'Inter', sans-serif; font-weight: 500"
+          
+          <button 
+            @click="scrollToSection('#contact')"
+            class="mt-8 px-8 py-4 border border-neutral-900 text-neutral-900 text-sm tracking-widest uppercase hover:bg-neutral-900 hover:text-white transition-colors duration-300"
           >
-            Learn More About Our Process
-            <span class="transform group-hover:translate-x-1 transition-transform text-[#D4AF37]">→</span>
+            Discover Our Approach
+          </button>
+        </div>
+        
+        <div class="relative h-96 md:h-full min-h-[400px] bg-neutral-200">
+          <!-- Placeholder for imagery - replace with actual image -->
+          <div class="absolute inset-0 flex items-center justify-center text-neutral-400">
+            <span class="text-sm tracking-widest uppercase">Image Placeholder</span>
           </div>
         </div>
       </div>

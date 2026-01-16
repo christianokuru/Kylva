@@ -3,19 +3,19 @@ const { targetRef, isInView } = useInView({ threshold: 0.2 })
 
 const testimonials = [
   {
-    quote: "Kylva transformed our vision into a digital masterpiece. The attention to detail and understanding of luxury e-commerce is unparalleled.",
+    quote: "Kylva didn't just build us a website—they captured the very essence of our brand and translated it into a digital experience that rivals our boutiques. Our customers feel the difference, and our conversion rates prove it.",
     author: "Sophie Laurent",
     position: "Creative Director",
     brand: "Maison Noir",
   },
   {
-    quote: "Working with Kylva felt like partnering with artisans who truly understand the beauty industry. Our online presence now matches our product quality.",
+    quote: "Working with Kylva felt like collaborating with artists who truly understood luxury beauty. They built us a platform that's as sophisticated as our formulations, as personal as our customer service, and as elegant as our packaging.",
     author: "Isabella Chen",
     position: "Founder & CEO",
     brand: "Lumière Beauty",
   },
   {
-    quote: "The sophistication and elegance they brought to our e-commerce platform exceeded all expectations. Our customers notice the difference.",
+    quote: "From our first conversation, Kylva understood that fragrance is not a product—it's an emotion, a memory, an identity. They created a digital world that honors this truth. The result exceeded every expectation.",
     author: "Alexandre Dubois",
     position: "Brand Director",
     brand: "Essence Parfums",
@@ -28,13 +28,15 @@ const testimonials = [
     <div class="max-w-7xl mx-auto">
       <div :class="['mb-24 text-center scroll-reveal', { 'revealed': isInView }]">
         <p class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-4" style="font-family: 'Inter', sans-serif">
-          Client Testimonials
+          Our Clients
         </p>
         <h2
           class="text-6xl md:text-7xl lg:text-8xl tracking-tight"
           style="font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1"
         >
-          <span class="italic" style="font-weight: 400">Trusted</span> by the Best
+          Partnerships Built on
+          <br />
+          <span class="italic" style="font-weight: 400">Excellence</span>
         </h2>
       </div>
 

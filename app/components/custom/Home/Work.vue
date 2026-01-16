@@ -6,19 +6,19 @@ const projects = [
     title: "Maison Noir",
     category: "Fashion E-Commerce",
     image: "https://images.unsplash.com/photo-1611747581894-45e5f11c7be6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxibGFjayUyMHdoaXRlJTIwZmFzaGlvbnxlbnwxfHx8fDE3Njc2MjA0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    description: "Contemporary fashion redefined through minimalist digital experience",
+    description: "Contemporary fashion redefined through the purity of minimalist design. A digital experience where every garment becomes a protagonist, every collection tells a story, and simplicity speaks volumes.",
   },
   {
     title: "Lumière Beauty",
     category: "Beauty Platform",
     image: "https://images.unsplash.com/photo-1739980296455-3f8d6051ca20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwYmVhdXR5JTIwY29zbWV0aWNzfGVufDF8fHx8MTc2NzczNDA1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    description: "Luxury cosmetics platform with interactive product discovery",
+    description: "A luxury cosmetics house brought to life through an immersive platform where beauty discovery becomes a personal journey. Technology and intuition merge to guide each customer to their perfect shade, their signature look.",
   },
   {
     title: "Essence",
-    category: "Fragrance Store",
+    category: "Fragrance Experience",
     image: "https://images.unsplash.com/photo-1762751629196-1d9a874cdf92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwcGVyZnVtZSUyMGJvdHRsZXxlbnwxfHx8fDE3Njc2NDE3MjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    description: "Artisanal perfume brand brought to life through elegant storytelling",
+    description: "Artisanal perfumery elevated through digital storytelling. Where fragrance notes become narratives, and choosing a scent becomes an exploration of identity and desire.",
   },
 ]
 </script>
@@ -28,14 +28,20 @@ const projects = [
     <div class="max-w-7xl mx-auto">
       <div :class="['mb-24 scroll-reveal', { 'revealed': isInView }]">
         <p class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-4" style="font-family: 'Inter', sans-serif">
-          Selected Projects
+          Selected Work
         </p>
         <h2
-          class="text-6xl md:text-7xl lg:text-8xl tracking-tight"
+          class="text-6xl md:text-7xl lg:text-8xl tracking-tight mb-8"
           style="font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1"
         >
-          Our <span class="italic" style="font-weight: 400">Portfolio</span>
+          Creating Digital <span class="italic" style="font-weight: 400">Legacies</span>
         </h2>
+        <p
+          class="text-lg md:text-base text-gray-400 leading-relaxed max-w-3xl"
+          style="font-family: 'Inter', sans-serif; font-weight: 300"
+        >
+          Each collaboration is a partnership in excellence. These projects represent more than beautiful websites—they are digital expressions of brands who demand nothing less than perfection.
+        </p>
       </div>
 
       <div class="space-y-32">
@@ -64,7 +70,7 @@ const projects = [
                 {{ project.title }}
               </h3>
               <p
-                class="text-gray-400 text-lg leading-relaxed"
+                class="text-gray-400 text-base leading-relaxed"
                 style="font-family: 'Inter', sans-serif; font-weight: 300"
               >
                 {{ project.description }}
@@ -88,7 +94,7 @@ const projects = [
           class="px-12 py-5 border border-white text-white text-sm uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-300 hover:scale-105 active:scale-95"
           style="font-family: 'Inter', sans-serif; font-weight: 500"
         >
-          View All Projects
+          View Case Studies
         </button>
       </div>
     </div>
