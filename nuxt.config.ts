@@ -180,15 +180,10 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     // Private keys (only available on server-side)
+    resendApiKey: process.env.RESEND_API_KEY,
+    fromEmail: process.env.FROM_EMAIL,
+    contactReceiverEmail: process.env.CONTACT_RECEIVER_EMAIL,
     // mongodbUri: process.env.MONGODB_URI,
-    // resendApiKey: process.env.RESEND_API_KEY,
-    // jwtSecret: process.env.JWT_SECRET,
-    // jwtExpiresIn: process.env.JWT_EXPIRES_IN,
-    // jwtRefreshSecret: process.env.JWT_REFRESH_SECRET,
-    // jwtRefreshExpiresIn: process.env.JWT_REFRESH_EXPIRES_IN,
-    // paystackSecretKey: process.env.PAYSTACK_SECRET_KEY,
-    // fromEmail: process.env.FROM_EMAIL,
-    // fromName: process.env.FROM_NAME,
 
     // Public keys (exposed to client-side)
     public: {

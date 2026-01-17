@@ -175,7 +175,7 @@ const scrollToSection = (id) => {
         <span class="text-xs uppercase tracking-[0.3em] text-gray-400" style="font-family: 'Inter', sans-serif">
           Scroll
         </span>
-        <div class="w-px h-16 bg-gradient-to-b from-gray-400 to-transparent" />
+        <div class="w-px h-16 bg-linear-to-b from-gray-400 to-transparent" />
       </div>
     </div>
   </section>

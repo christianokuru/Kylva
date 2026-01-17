@@ -41,9 +41,12 @@ const handleSubmit = async () => {
   isLoading.value = true;
 
   try {
-    // Simulate API call - replace with actual submission logic
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log("Form submitted:", formData.value);
+    const response = await $fetch("/api/contact", {
+      method: "POST",
+      body: formData.value,
+    });
+
+    console.log("Form submitted successfully:", response);
 
     // Show success toast
     toast.success("Message sent successfully!", {
@@ -265,14 +268,14 @@ const handleSubmit = async () => {
                     : 'border-gray-300 focus:border-[#D4AF37]',
                 ]"
                 style="
-                  font-family: 'Inter', sans-serif;
+                 font-family: 'Inter', sans-serif;
                   font-weight: 300;
                 "
               />
               <p
                 v-if="errors.brand"
                 class="text-red-500 text-sm mt-2"
-                style="font-family: 'Inter', sans-serif"
+                style="font-family: 'Inter', sans-serif;"
               >
                 {{ errors.brand }}
               </p>
@@ -293,7 +296,7 @@ const handleSubmit = async () => {
                 class="text-sm text-gray-400 mb-2"
                 style="
                   font-family: 'Inter', sans-serif;
-                  font-weight: 300;
+                  font-weight: 500;
                 "
               >
                 What story do you want your digital presence to tell?
@@ -334,7 +337,7 @@ const handleSubmit = async () => {
               ]"
               style="
                 font-family: 'Inter', sans-serif;
-                font-weight: 500;
+                  font-weight: 500;
               "
             >
               <svg
