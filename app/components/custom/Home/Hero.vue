@@ -33,7 +33,7 @@ const scrollToSection = (id) => {
       </div>
 
       <p
-        class="text-base md:text-base text-gray-600 mb-12 max-w-2xl mx-auto tracking-wide animate-fade-in-up animate-delay-500 opacity-0"
+        class="max-sm:text-xs text-base md:text-base text-gray-600 mb-12 max-w-2xl mx-auto tracking-wide animate-fade-in-up animate-delay-500 opacity-0"
         style="font-family: 'Inter', sans-serif; font-weight: 300"
       >
         We craft bespoke e-commerce experiences for fashion and beauty brands who demand excellence. Each project transforms your vision into a refined digital presence.
