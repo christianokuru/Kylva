@@ -18,28 +18,28 @@ const scrollToSection = (id) => {
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-center">
-      <div class="animate-fade-in-up animate-delay-300 opacity-0 mt-11">
+      <div class="animate-fade-in-up animate-delay-300 opacity-0 mt-15">
         <h1
-          class="text-7xl md:text-8xl lg:text-9xl mb-8 tracking-tight"
+          class="text-7xl md:text-8xl lg:text-8xl mb-8 tracking-tight"
           style="font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1"
         >
-          Crafting Digital
+          Where Digital Elegance Meets
           <br />
-          <span class="italic" style="font-weight: 400">Elegance</span>
+          <span class="italic" style="font-weight: 400">Commerce</span>
         </h1>
       </div>
 
       <p
-        class="text-base md:text-lg text-gray-600 mb-12 max-w-2xl mx-auto tracking-wide animate-fade-in-up animate-delay-500 opacity-0"
+        class="text-base md:text-base text-gray-600 mb-12 max-w-2xl mx-auto tracking-wide animate-fade-in-up animate-delay-500 opacity-0"
         style="font-family: 'Inter', sans-serif; font-weight: 300"
       >
-        We build exceptional e-commerce experiences exclusively for luxury fashion and beauty brands
+        We craft bespoke e-commerce experiences for fashion and beauty brands who refuse to compromise on excellence. Each project is an intimate collaboration, transforming your vision into a digital presence as refined as the products you create.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animate-delay-700 opacity-0">
         <button
           @click="scrollToSection('contact')"
-          class="px-12 py-5 bg-black text-white text-sm uppercase tracking-[0.3em] transition-all duration-200 hover:scale-105 active:scale-95"
+          class="px-12 py-5 bg-black text-white text-xs uppercase tracking-[0.3em] transition-all duration-200 hover:scale-105 active:scale-95"
           style="font-family: 'Inter', sans-serif; font-weight: 500"
         >
           Begin Your Journey
@@ -47,22 +47,22 @@ const scrollToSection = (id) => {
 
         <button
           @click="scrollToSection('work')"
-          class="text-sm uppercase tracking-[0.3em] text-gray-700 flex items-center gap-3 group transition-transform duration-200 hover:translate-x-1"
+          class="text-xs px-12 py-5 border uppercase tracking-[0.3em] text-gray-700 flex items-center gap-3 group transition-transform duration-200 hover:translate-x-1"
           style="font-family: 'Inter', sans-serif; font-weight: 400"
         >
-          View Our Work
+          Explore Our Work
           <span class="transform group-hover:translate-x-1 transition-transform">→</span>
         </button>
       </div>
     </div>
 
-    <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-fade-in animate-delay-1200 opacity-0">
+    <!-- <div class="absolute top-72 left-1/2 transform -translate-x-1/2 animate-fade-in animate-delay-1200 opacity-0">
       <div class="flex flex-col items-center gap-2 animate-bounce">
         <span class="text-xs uppercase tracking-[0.3em] text-gray-400" style="font-family: 'Inter', sans-serif">
-          Scroll
+          Scroll Down
         </span>
-        <div class="w-px h-16 bg-gradient-to-b from-gray-400 to-transparent" />
+        <div class="w-px h-16 bg-linear-to-b from-gray-400 to-transparent" />
       </div>
-    </div>
+    </div> -->
   </section>
 </template>
