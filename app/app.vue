@@ -81,7 +81,7 @@ useSchemaOrg([
     "@type": "ProfessionalService",
     "@id": "https://kylva.com/#localbusiness",
     name: "Kylva",
-    image: "https://kylva.com/logo.svg",
+    image: "https://kylva.com/og-image.png",
     url: "https://kylva.com",
     telephone: "+1 (234) 567-890",
     email: "hello@kylva.studio",
@@ -139,7 +139,7 @@ watch(
     window.gtag("event", "page_view", {
       page_path: route.fullPath,
     });
-  }
+  },
 );
 </script>
 

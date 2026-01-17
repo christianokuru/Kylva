@@ -112,7 +112,7 @@ export default defineNuxtConfig({
       keywords:
         "luxury web development, fashion e-commerce agency, beauty brand website, haute couture digital, cosmetics e-commerce, luxury brand design, fashion website development, beauty platform, luxury digital agency, premium web design",
       author: "Kylva",
-      ogImage: "/logo.svg",
+      ogImage: "/og-image.png",
       twitterCard: "summary_large_image",
       twitterSite: "@kylva",
     },

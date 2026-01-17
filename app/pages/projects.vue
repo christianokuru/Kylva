@@ -38,7 +38,7 @@ useSeoMeta({
           :key="project.id"
           class="group cursor-pointer"
         >
-          <div class="relative aspect-[3/4] overflow-hidden mb-8 bg-gray-900">
+          <div class="relative aspect-3/4 overflow-hidden mb-8 bg-gray-900">
             <img
               :src="project.image"
               :alt="project.title"
