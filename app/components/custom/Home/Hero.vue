@@ -23,8 +23,7 @@ const scrollToSection = (id) => {
     <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-center">
       <div class="animate-fade-in-up animate-delay-300 opacity-0 mt-15">
         <h1
-         class="text-6xl md:text-8xl lg:text-8xl mb-8 tracking-tight"
-          style="font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1"
+          class="text-6xl md:text-8xl lg:text-8xl mb-8 tracking-tight font-serif font-light leading-[1.1]"
         >
           Where Digital Elegance Meets
           <br />
@@ -33,10 +32,11 @@ const scrollToSection = (id) => {
       </div>
 
       <p
-        class="max-sm:text-xs text-base md:text-base text-gray-600 mb-12 max-w-2xl mx-auto tracking-wide animate-fade-in-up animate-delay-500 opacity-0"
-        style="font-family: 'Inter', sans-serif; font-weight: 300"
+        class="max-sm:text-xs text-base md:text-base text-gray-600 mb-12 max-w-2xl mx-auto tracking-wide animate-fade-in-up animate-delay-500 opacity-0 font-sans font-light"
       >
-        We craft bespoke e-commerce experiences for fashion and beauty brands who demand excellence. Each project transforms your vision into a refined digital presence.
+        We craft bespoke e-commerce experiences for fashion and beauty brands
+        who demand excellence. Each project transforms your vision into a
+        refined digital presence.
       </p>
 
       <div
@@ -44,16 +44,14 @@ const scrollToSection = (id) => {
       >
         <button
           @click="scrollToSection('contact')"
-          class="px-12 py-5 bg-black text-white text-xs uppercase tracking-[0.3em] transition-all duration-200 hover:scale-105 active:scale-95"
-          style="font-family: 'Inter', sans-serif; font-weight: 500"
+          class="px-12 py-5 bg-black text-white text-xs uppercase tracking-[0.3em] transition-all duration-200 hover:scale-105 active:scale-95 font-sans font-medium"
         >
           Begin Your Journey
         </button>
 
         <button
           @click="scrollToSection('work')"
-          class="text-xs px-12 py-5 border uppercase tracking-[0.3em] text-gray-700 flex items-center gap-3 group transition-transform duration-200 hover:translate-x-1"
-          style="font-family: 'Inter', sans-serif; font-weight: 400"
+          class="text-xs px-12 py-5 border uppercase tracking-[0.3em] text-gray-700 flex items-center gap-3 group transition-transform duration-200 hover:translate-x-1 font-sans font-normal"
         >
           Explore Our Work
           <span class="transform group-hover:translate-x-1 transition-transform"
