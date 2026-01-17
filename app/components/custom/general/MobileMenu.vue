@@ -37,7 +37,7 @@ const scrollToSection = (id) => {
     <button
       @click="toggleMenu"
       :class="[
-        'p-2 transition-colors duration-200 focus:outline-none z-[100] relative',
+        'p-2 transition-colors duration-200 focus:outline-none z-100 relative',
         isOpen ? 'text-gray-900' : scrolled ? 'text-gray-800' : 'text-white',
       ]"
       aria-label="Toggle Menu"
@@ -60,7 +60,7 @@ const scrollToSection = (id) => {
       >
         <div
           v-if="isOpen"
-          class="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center p-8 text-center"
+          class="fixed inset-0 z-9999 bg-white flex flex-col items-center justify-center p-8 text-center"
         >
           <!-- Nav Links -->
           <div class="flex flex-col items-center gap-8">
@@ -89,8 +89,7 @@ const scrollToSection = (id) => {
           <button
             @click="scrollToSection('contact')"
             class="mt-16 px-12 py-5 bg-black text-white text-[10px] uppercase tracking-[0.3em] hover:bg-gray-800 transition-all duration-300 active:scale-95 shadow-2xl"
-            style="font-family: &quot;Inter&quot;, sans-serif; font-weight: 600"
-          >
+            style="font-family: 'Inter', sans-serif; font-weight: 500;">
             Start Project
           </button>
         </div>
