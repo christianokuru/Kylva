@@ -4,6 +4,11 @@ import Logo from "@/components/custom/general/Logo.vue";
 import MobileMenu from "@/components/custom/general/MobileMenu.vue";
 
 const scrolled = ref(false);
+const isMobileMenuOpen = ref(false);
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
+};
 
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
@@ -29,9 +34,11 @@ onMounted(() => {
   <nav
     :class="[
       'fixed top-0 left-0 right-0 z-50 transition-all duration-500 animate-fade-in-down',
-      scrolled
-        ? 'bg-white/95 backdrop-blur-sm shadow-sm'
-        : 'bg-black/20 backdrop-blur-sm',
+      isMobileMenuOpen
+        ? 'bg-transparent'
+        : scrolled
+          ? 'bg-white/95 backdrop-blur-sm shadow-sm'
+          : 'bg-black/20 backdrop-blur-sm',
     ]"
   >
     <div
@@ -41,10 +48,14 @@ onMounted(() => {
         @click="scrollToSection('hero')"
         class="flex items-center transition-transform duration-200 hover:scale-105"
       >
-        <Logo :variant="scrolled ? 'black' : 'white'" />
+        <Logo :variant="scrolled || isMobileMenuOpen ? 'black' : 'white'" />
       </button>
 
-      <MobileMenu :scrolled="scrolled" />
+      <MobileMenu
+        :scrolled="scrolled"
+        :is-open="isMobileMenuOpen"
+        @toggle="toggleMobileMenu"
+      />
 
       <div class="hidden md:flex items-center gap-12">
         <button
@@ -63,7 +74,7 @@ onMounted(() => {
               ? 'text-gray-800 hover:text-gray-600'
               : 'text-white hover:text-gray-300',
           ]"
-          style="font-family: &quot;Inter&quot;, sans-serif; font-weight: 400"
+          style="font-family: 'Inter', sans-serif; font-weight: 400;">
         >
           {{ item }}
         </button>
@@ -77,7 +88,7 @@ onMounted(() => {
             ? 'bg-black text-white hover:bg-gray-900'
             : 'bg-white text-black hover:bg-gray-100',
         ]"
-        style="font-family: &quot;Inter&quot;, sans-serif; font-weight: 500"
+        style="font-family: 'Inter', sans-serif; font-weight: 500;">
       >
         Start Project
       </button>

@@ -1,32 +1,40 @@
 <script setup>
-import { ref } from "vue";
+import { watch } from "vue";
 import { Menu, X } from "lucide-vue-next";
 
-defineProps({
+const props = defineProps({
   scrolled: {
+    type: Boolean,
+    default: false,
+  },
+  isOpen: {
     type: Boolean,
     default: false,
   },
 });
 
-const isOpen = ref(false);
+const emit = defineEmits(["toggle"]);
+
+watch(
+  () => props.isOpen,
+  (newValue) => {
+    if (newValue) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  },
+);
 
 const toggleMenu = () => {
-  isOpen.value = !isOpen.value;
-  // Prevent scrolling when menu is open
-  if (isOpen.value) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-  }
+  emit("toggle");
 };
 
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
   if (element) {
     element.scrollIntoView({ behavior: "smooth" });
-    isOpen.value = false;
-    document.body.style.overflow = "";
+    emit("toggle");
   }
 };
 </script>
@@ -60,7 +68,7 @@ const scrollToSection = (id) => {
       >
         <div
           v-if="isOpen"
-          class="fixed inset-0 z-9999 bg-white flex flex-col items-center justify-center p-8 text-center"
+          class="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center p-8 text-center"
         >
           <!-- Nav Links -->
           <div class="flex flex-col items-center gap-8">
