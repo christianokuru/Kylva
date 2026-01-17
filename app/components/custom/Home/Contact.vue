@@ -123,33 +123,14 @@ const handleSubmit = async () => {
                 Email
               </p>
               <a
-                href="mailto:hello@kylva.studio"
+                href="mailto:okuruchristian@gmail.com"
                 class="text-xl hover:text-[#D4AF37] transition-colors"
                 style="
                   font-family: 'Cormorant Garamond', serif;
                   font-weight: 400;
                 "
               >
-                hello@kylva.studio
-              </a>
-            </div>
-
-            <div>
-              <p
-                class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2"
-                style="font-family: 'Inter', sans-serif"
-              >
-                Phone
-              </p>
-              <a
-                href="tel:+1234567890"
-                class="text-xl hover:text-[#D4AF37] transition-colors"
-                style="
-                  font-family: 'Cormorant Garamond', serif;
-                  font-weight: 400;
-                "
-              >
-                +1 (234) 567-890
+                okuruchristian@gmail.com
               </a>
             </div>
           </div>

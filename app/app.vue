@@ -42,8 +42,7 @@ useSchemaOrg([
       "@type": "ImageObject",
       url: "https://kylva.com/logo.svg",
     },
-    email: "hello@kylva.studio",
-    telephone: "+1 (234) 567-890",
+    email: "okuruchristian@gmail.com",
     description:
       "Luxury web development agency crafting exceptional e-commerce experiences exclusively for high-end fashion and beauty brands.",
     sameAs: [
@@ -83,8 +82,7 @@ useSchemaOrg([
     name: "Kylva",
     image: "https://kylva.com/og-image.png",
     url: "https://kylva.com",
-    telephone: "+1 (234) 567-890",
-    email: "hello@kylva.studio",
+    email: "okuruchristian@gmail.com",
     priceRange: "$$$",
     description:
       "Luxury web development agency specializing in bespoke e-commerce experiences for high-end fashion and beauty brands.",

@@ -1,14 +1,14 @@
 <script setup>
-import Logo from '@/components/custom/general/Logo.vue'
+import Logo from "@/components/custom/general/Logo.vue";
 
-const currentYear = new Date().getFullYear()
+const currentYear = new Date().getFullYear();
 
 const scrollToSection = (id) => {
-  const element = document.getElementById(id)
+  const element = document.getElementById(id);
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
+    element.scrollIntoView({ behavior: "smooth" });
   }
-}
+};
 </script>
 
 <template>
@@ -21,7 +21,8 @@ const scrollToSection = (id) => {
             class="text-gray-400 text-sm leading-relaxed"
             style="font-family: 'Inter', sans-serif; font-weight: 300"
           >
-            Crafting exceptional e-commerce experiences for luxury fashion and beauty brands.
+            Crafting exceptional e-commerce experiences for luxury fashion and
+            beauty brands.
           </p>
         </div>
 
@@ -33,11 +34,23 @@ const scrollToSection = (id) => {
             Quick Links
           </h3>
           <ul class="space-y-3">
-            <li v-for="link in ['Services', 'About', 'Work', 'Testimonials', 'Contact']" :key="link">
+            <li
+              v-for="link in [
+                'Services',
+                'About',
+                'Work',
+                'Testimonials',
+                'Contact',
+              ]"
+              :key="link"
+            >
               <button
                 @click="scrollToSection(link.toLowerCase())"
                 class="text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1"
-                style="font-family: 'Inter', sans-serif; font-weight: 300"
+                style="
+                  font-family: 'Inter', sans-serif;
+                  font-weight: 300;
+                "
               >
                 {{ link }}
               </button>
@@ -55,20 +68,14 @@ const scrollToSection = (id) => {
           <ul class="space-y-3">
             <li>
               <a
-                href="mailto:hello@kylva.studio"
+                href="mailto:okuruchristian@gmail.com"
                 class="text-gray-400 hover:text-white transition-colors text-sm"
-                style="font-family: 'Inter', sans-serif; font-weight: 300"
+                style="
+                  font-family: 'Inter', sans-serif;
+                  font-weight: 300;
+                "
               >
-                hello@kylva.studio
-              </a>
-            </li>
-            <li>
-              <a
-                href="tel:+1234567890"
-                class="text-gray-400 hover:text-white transition-colors text-sm"
-                style="font-family: 'Inter', sans-serif; font-weight: 300"
-              >
-                +1 (234) 567-890
+                okuruchristian@gmail.com
               </a>
             </li>
           </ul>
@@ -79,7 +86,10 @@ const scrollToSection = (id) => {
               :key="social"
               href="#"
               class="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-[#D4AF37] transition-all duration-200 hover:-translate-y-1"
-              style="font-family: 'Inter', sans-serif; font-weight: 400"
+              style="
+                font-family: 'Inter', sans-serif;
+                font-weight: 400;
+              "
             >
               {{ social }}
             </a>
@@ -87,7 +97,9 @@ const scrollToSection = (id) => {
         </div>
       </div>
 
-      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div
+        class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+      >
         <p
           class="text-xs text-gray-500"
           style="font-family: 'Inter', sans-serif; font-weight: 300"
