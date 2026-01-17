@@ -10,7 +10,7 @@ const scrollToSection = (id) => {
 <template>
   <section
     id="hero"
-    class="relative h-screen max-sm:h-auto max-sm:min-h-screen flex items-center justify-center overflow-hidden max-sm:overflow-visible bg-[#fafaf9] max-sm:pt-32 max-sm:pb-12"
+    class="relative h-screen max-sm:h-auto max-sm:min-h-screen flex items-center justify-center overflow-hidden max-sm:overflow-visible bg-[#fafaf9] max-sm:pt-24 max-sm:pb-12"
   >
     <div class="absolute inset-0 animate-scale-in">
       <img
@@ -21,7 +21,7 @@ const scrollToSection = (id) => {
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-center">
-      <div class="animate-fade-in-up animate-delay-300 opacity-0 mt-15">
+      <div class="animate-fade-in-up animate-delay-300 opacity-0 mt-4">
         <h1
           class="text-6xl md:text-8xl lg:text-8xl mb-8 tracking-tight font-serif font-light leading-[1.1]"
         >
