@@ -56,12 +56,12 @@ onMounted(() => {
     <div
       class="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex items-center justify-between"
     >
-      <button
-        @click="scrollToSection('hero')"
+      <NuxtLink
+        to="/"
         class="flex items-center transition-transform duration-200 hover:scale-105"
       >
         <Logo :variant="scrolled || isMobileMenuOpen ? 'black' : 'white'" />
-      </button>
+      </NuxtLink>
 
       <MobileMenu
         :scrolled="scrolled"
