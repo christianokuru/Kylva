@@ -1,14 +1,17 @@
 <script setup>
 const scrollToSection = (id) => {
-  const element = document.getElementById(id)
+  const element = document.getElementById(id);
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
+    element.scrollIntoView({ behavior: "smooth" });
   }
-}
+};
 </script>
 
 <template>
-  <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden bg-[#fafaf9]">
+  <section
+    id="hero"
+    class="relative h-screen max-sm:h-auto max-sm:min-h-screen flex items-center justify-center overflow-hidden max-sm:overflow-visible bg-[#fafaf9] max-sm:pt-32 max-sm:pb-12"
+  >
     <div class="absolute inset-0 animate-scale-in">
       <img
         src="https://images.unsplash.com/photo-1745284504942-2eb53650360a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwbHV4dXJ5JTIwZmFzaGlvbnxlbnwxfHx8fDE3Njc3MjU5NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
@@ -20,7 +23,7 @@ const scrollToSection = (id) => {
     <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-center">
       <div class="animate-fade-in-up animate-delay-300 opacity-0 mt-15">
         <h1
-          class="max-sm:pt-54 text-6xl md:text-8xl lg:text-8xl mb-8 tracking-tight"
+         class="text-6xl md:text-8xl lg:text-8xl mb-8 tracking-tight"
           style="font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1"
         >
           Where Digital Elegance Meets
@@ -33,10 +36,12 @@ const scrollToSection = (id) => {
         class="text-base md:text-base text-gray-600 mb-12 max-w-2xl mx-auto tracking-wide animate-fade-in-up animate-delay-500 opacity-0"
         style="font-family: 'Inter', sans-serif; font-weight: 300"
       >
-        We craft bespoke e-commerce experiences for fashion and beauty brands who refuse to compromise on excellence. Each project is an intimate collaboration, transforming your vision into a digital presence as refined as the products you create.
+        We craft bespoke e-commerce experiences for fashion and beauty brands who demand excellence. Each project transforms your vision into a refined digital presence.
       </p>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animate-delay-700 opacity-0">
+      <div
+        class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animate-delay-700 opacity-0"
+      >
         <button
           @click="scrollToSection('contact')"
           class="px-12 py-5 bg-black text-white text-xs uppercase tracking-[0.3em] transition-all duration-200 hover:scale-105 active:scale-95"
@@ -51,7 +56,9 @@ const scrollToSection = (id) => {
           style="font-family: 'Inter', sans-serif; font-weight: 400"
         >
           Explore Our Work
-          <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+          <span class="transform group-hover:translate-x-1 transition-transform"
+            >→</span
+          >
         </button>
       </div>
     </div>
