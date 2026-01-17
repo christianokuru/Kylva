@@ -31,11 +31,13 @@ const toggleMenu = () => {
 };
 
 const scrollToSection = (id) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-    emit("toggle");
-  }
+  emit("toggle");
+  setTimeout(() => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, 100);
 };
 </script>
 

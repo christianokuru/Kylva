@@ -7,7 +7,16 @@ const scrolled = ref(false);
 const isMobileMenuOpen = ref(false);
 
 const toggleMobileMenu = () => {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value;
+  if (isMobileMenuOpen.value) {
+    history.back();
+  } else {
+    isMobileMenuOpen.value = true;
+    history.pushState({ menu: "open" }, "");
+  }
+};
+
+const handlePopState = (event) => {
+  isMobileMenuOpen.value = !!(event.state && event.state.menu === "open");
 };
 
 const scrollToSection = (id) => {
@@ -18,6 +27,8 @@ const scrollToSection = (id) => {
 };
 
 onMounted(() => {
+  window.addEventListener("popstate", handlePopState);
+
   const handleScroll = () => {
     scrolled.value = window.scrollY > 50;
   };
@@ -26,6 +37,7 @@ onMounted(() => {
 
   onUnmounted(() => {
     window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("popstate", handlePopState);
   });
 });
 </script>
@@ -75,7 +87,7 @@ onMounted(() => {
               : 'text-white hover:text-gray-300',
           ]"
           style="font-family: 'Inter', sans-serif; font-weight: 400;">
-        >
+          >
           {{ item }}
         </button>
       </div>
