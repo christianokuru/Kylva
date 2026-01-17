@@ -20,7 +20,7 @@ const scrollToSection = (id) => {
     <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-center">
       <div class="animate-fade-in-up animate-delay-300 opacity-0 mt-15">
         <h1
-          class="text-7xl md:text-8xl lg:text-8xl mb-8 tracking-tight"
+          class="max-sm:pt-54 text-6xl md:text-8xl lg:text-8xl mb-8 tracking-tight"
           style="font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1"
         >
           Where Digital Elegance Meets
