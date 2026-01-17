@@ -25,7 +25,7 @@ const projects = getFeaturedProjects();
           <span class="italic" style="font-weight: 400">Legacies</span>
         </h2>
         <p
-          class="text-lg md:text-base text-gray-400 leading-relaxed max-w-3xl font-sans font-light"
+          class="text-xs md:text-xl text-gray-400 leading-relaxed max-w-3xl font-sans font-light"
         >
           Each collaboration is a partnership in excellence. These projects
           represent more than beautiful websites—they are digital expressions of
@@ -65,7 +65,7 @@ const projects = getFeaturedProjects();
                 {{ project.title }}
               </h3>
               <p
-                class="text-gray-400 text-base leading-relaxed font-sans font-light"
+                class="text-gray-400 text-base leading-relaxed font-sans font-light text-xs md:text-base"
               >
                 {{ project.description }}
               </p>

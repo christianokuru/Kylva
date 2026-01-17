@@ -19,12 +19,12 @@ useSeoMeta({
           Our Portfolio
         </p>
         <h1
-          class="text-5xl md:text-7xl lg:text-8xl tracking-tight mb-8 font-serif font-light leading-[1.1]"
+          class="text-6xl md:text-7xl lg:text-8xl tracking-tight mb-8 font-serif font-light leading-[1.1]"
         >
           Selected <span class="italic" style="font-weight: 400">Works</span>
         </h1>
         <p
-          class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto font-sans font-light"
+          class="text-xs md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto font-sans font-light"
         >
           A curated collection of digital experiences that define luxury
           e-commerce.

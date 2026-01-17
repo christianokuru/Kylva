@@ -105,7 +105,7 @@ const handleSubmit = async () => {
           </h2>
 
           <p
-            class="text-base text-gray-600 leading-relaxed mb-12"
+            class="text-xs md:text-base text-gray-600 leading-relaxed mb-12"
             style="font-family: 'Inter', sans-serif; font-weight: 300"
           >
             Whether you're launching a new brand or reimagining an established
@@ -268,14 +268,14 @@ const handleSubmit = async () => {
                     : 'border-gray-300 focus:border-[#D4AF37]',
                 ]"
                 style="
-                 font-family: 'Inter', sans-serif;
+                  font-family: 'Inter', sans-serif;
                   font-weight: 300;
                 "
               />
               <p
                 v-if="errors.brand"
                 class="text-red-500 text-sm mt-2"
-                style="font-family: 'Inter', sans-serif;"
+                style="font-family: 'Inter', sans-serif"
               >
                 {{ errors.brand }}
               </p>
@@ -337,7 +337,7 @@ const handleSubmit = async () => {
               ]"
               style="
                 font-family: 'Inter', sans-serif;
-                  font-weight: 500;
+                font-weight: 500;
               "
             >
               <svg
