@@ -88,7 +88,6 @@ onMounted(() => {
           ]"
           style="font-family: &quot;Inter&quot;, sans-serif; font-weight: 400"
         >
-          >
           {{ item }}
         </button>
       </div>
