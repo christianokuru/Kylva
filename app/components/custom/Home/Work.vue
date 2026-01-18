@@ -1,5 +1,5 @@
 <script setup>
-const { targetRef, isInView } = useInView({ threshold: 0.1 });
+// const { targetRef, isInView } = useInView({ threshold: 0.1 });
 const { getFeaturedProjects } = useProjects();
 
 const projects = getFeaturedProjects();
@@ -12,7 +12,7 @@ const projects = getFeaturedProjects();
     class="py-32 px-6 lg:px-12 bg-black text-white"
   >
     <div class="max-w-7xl mx-auto">
-      <div :class="['mb-24 scroll-reveal', { revealed: isInView }]">
+      <div :class="['mb-24']" data-aos="fade-up">
         <p
           class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-4 font-sans"
         >
@@ -37,11 +37,9 @@ const projects = getFeaturedProjects();
         <div
           v-for="(project, index) in projects"
           :key="project.title"
-          :class="[
-            'group cursor-pointer scroll-reveal',
-            { revealed: isInView },
-          ]"
-          :style="{ animationDelay: `${index * 0.2}s` }"
+          :class="['group cursor-pointer']"
+          data-aos="fade-up"
+          :data-aos-delay="index * 100"
         >
           <div
             class="relative h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden mb-8"
@@ -82,10 +80,7 @@ const projects = getFeaturedProjects();
         </div>
       </div>
 
-      <div
-        :class="['mt-32 text-center scroll-reveal', { revealed: isInView }]"
-        style="animation-delay: 0.8s"
-      >
+      <div class="mt-32 text-center" data-aos="fade-up">
         <NuxtLink
           to="/projects"
           class="inline-block px-12 py-5 border border-white text-white text-sm uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-300 hover:scale-105 active:scale-95 font-sans font-medium"

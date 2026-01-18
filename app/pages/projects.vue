@@ -12,7 +12,7 @@ useSeoMeta({
   <div class="bg-black text-white min-h-screen pt-32 pb-24">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <!-- Header -->
-      <div class="mb-24 text-center">
+      <div class="mb-24 text-center" data-aos="fade-up">
         <p
           class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-4 font-sans"
         >
@@ -37,6 +37,8 @@ useSeoMeta({
           v-for="(project, index) in projects"
           :key="project.id"
           class="group cursor-pointer"
+          data-aos="fade-up"
+          :data-aos-delay="index * 100"
         >
           <div class="relative aspect-3/4 overflow-hidden mb-8 bg-gray-900">
             <img
@@ -72,7 +74,10 @@ useSeoMeta({
       </div>
 
       <!-- CTA -->
-      <div class="mt-32 text-center border-t border-white/10 pt-24">
+      <div
+        class="mt-32 text-center border-t border-white/10 pt-24"
+        data-aos="fade-up"
+      >
         <h2 class="text-3xl md:text-4xl mb-8 font-serif">
           Ready to create your legacy?
         </h2>

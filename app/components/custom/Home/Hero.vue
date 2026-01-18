@@ -23,6 +23,8 @@ const scrollToSection = (id) => {
     <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-center">
       <div class="mt-4">
         <h1
+          data-aos="fade-up"
+          data-aos-delay="200"
           class="text-6xl md:text-8xl lg:text-8xl mb-8 tracking-tight font-serif font-light leading-[1.1]"
         >
           Where Digital Elegance Meets
@@ -32,6 +34,8 @@ const scrollToSection = (id) => {
       </div>
 
       <p
+        data-aos="fade-up"
+        data-aos-delay="400"
         class="text-xs md:text-base text-gray-600 mb-12 max-w-2xl mx-auto tracking-wide font-sans font-light"
       >
         We craft bespoke e-commerce experiences for fashion and beauty brands
@@ -39,7 +43,11 @@ const scrollToSection = (id) => {
         refined digital presence.
       </p>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+      <div
+        class="flex flex-col sm:flex-row items-center justify-center gap-6"
+        data-aos="fade-up"
+        data-aos-delay="600"
+      >
         <button
           @click="scrollToSection('contact')"
           class="px-12 py-5 bg-black text-white text-xs uppercase tracking-[0.3em] transition-all duration-200 hover:scale-105 active:scale-95 font-sans font-medium"

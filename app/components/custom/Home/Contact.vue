@@ -70,7 +70,7 @@ const handleSubmit = async () => {
   <section id="contact" class="py-32 px-6 lg:px-12 bg-[#fafaf9]">
     <div class="max-w-7xl mx-auto">
       <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
-        <div>
+        <div data-aos="fade-right">
           <p
             class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-6"
             style="font-family: &quot;Inter&quot;, sans-serif"
@@ -125,7 +125,7 @@ const handleSubmit = async () => {
           </div>
         </div>
 
-        <div>
+        <div data-aos="fade-left">
           <h3
             class="text-2xl font-light text-neutral-900 mb-8"
             style="

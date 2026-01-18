@@ -11,7 +11,7 @@ const scrollToSection = (sectionId) => {
   <section id="about" class="py-24 md:py-32 bg-neutral-50">
     <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
       <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
+        <div data-aos="fade-up">
           <p class="text-sm tracking-widest uppercase text-neutral-500 mb-4">
             About Kylva
           </p>
@@ -68,7 +68,11 @@ const scrollToSection = (sectionId) => {
           </button>
         </div>
 
-        <div class="relative h-96 md:h-full min-h-[400px] bg-neutral-200">
+        <div
+          class="relative h-96 md:h-full min-h-[400px] bg-neutral-200"
+          data-aos="fade-in"
+          data-aos-delay="300"
+        >
           <!-- Placeholder for imagery - replace with actual image -->
           <div
             class="absolute inset-0 flex items-center justify-center text-neutral-400"

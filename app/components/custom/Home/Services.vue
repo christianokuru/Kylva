@@ -39,7 +39,7 @@ const services = [
 <template>
   <section id="services" class="py-32 px-6 lg:px-12 bg-white">
     <div class="max-w-7xl mx-auto">
-      <div :class="['mb-24']">
+      <div :class="['mb-24']" data-aos="fade-up">
         <p
           class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-4"
           style="font-family: &quot;Inter&quot;, sans-serif"
@@ -68,7 +68,7 @@ const services = [
             'grid md:grid-cols-12 gap-8 md:gap-12 border-t border-gray-200 pt-12',
           ]"
         >
-          <div class="md:col-span-2">
+          <div class="md:col-span-2" data-aos="fade-up">
             <span
               class="text-6xl text-gray-200"
               style="
@@ -80,7 +80,7 @@ const services = [
             </span>
           </div>
 
-          <div class="md:col-span-6">
+          <div class="md:col-span-6" data-aos="fade-up" data-aos-delay="100">
             <h3
               class="text-4xl md:text-5xl mb-6 tracking-tight"
               style="
@@ -101,7 +101,7 @@ const services = [
             </p>
           </div>
 
-          <div class="md:col-span-4">
+          <div class="md:col-span-4" data-aos="fade-up" data-aos-delay="200">
             <ul class="space-y-4">
               <li
                 v-for="feature in service.features"
