@@ -147,6 +147,13 @@
   html.lenis,
   html.lenis body {
     height: auto;
+    overflow-x: hidden;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
   }
 
   .lenis.lenis-smooth {
