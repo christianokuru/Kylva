@@ -113,7 +113,7 @@ const handleSubmit = async () => {
               </p>
               <a
                 href="mailto:okuruchristian@gmail.com"
-                class="text-xl hover:text-[#D4AF37] transition-colors"
+                class="text-underline text-xl hover:text-[#D4AF37] transition-colors"
                 style="
                   font-family: &quot;Cormorant Garamond&quot;, serif;
                   font-weight: 400;
