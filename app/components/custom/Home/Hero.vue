@@ -21,7 +21,7 @@ const scrollToSection = (id) => {
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-center">
-      <div class="animate-fade-in-up animate-delay-300 opacity-0 mt-4">
+      <div class="animate-fade-in-up animate-delay-300 mt-4">
         <h1
           class="text-6xl text-black md:text-8xl lg:text-8xl mb-8 tracking-tight font-serif font-light leading-[1.1]"
         >
@@ -32,7 +32,7 @@ const scrollToSection = (id) => {
       </div>
 
       <p
-        class="text-xs md:text-base text-gray-600 mb-12 max-w-2xl mx-auto tracking-wide animate-fade-in-up animate-delay-500 opacity-0 font-sans font-light"
+        class="text-xs md:text-base text-gray-600 mb-12 max-w-2xl mx-auto tracking-wide animate-fade-in-up animate-delay-500 font-sans font-light"
       >
         We craft bespoke e-commerce experiences for fashion and beauty brands
         who demand excellence. Each project transforms your vision into a
@@ -40,7 +40,7 @@ const scrollToSection = (id) => {
       </p>
 
       <div
-        class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animate-delay-700 opacity-0"
+        class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animate-delay-700"
       >
         <button
           @click="scrollToSection('contact')"

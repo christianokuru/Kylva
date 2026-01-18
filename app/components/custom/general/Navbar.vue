@@ -45,7 +45,7 @@ onMounted(() => {
 <template>
   <nav
     :class="[
-      'fixed top-0 left-0 right-0 z-50 transition-all duration-500 animate-fade-in-down',
+      'fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,shadow] duration-500 animate-fade-in-down',
       isMobileMenuOpen
         ? 'bg-transparent'
         : scrolled
