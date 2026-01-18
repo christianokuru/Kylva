@@ -1,6 +1,4 @@
 <script setup>
-const { targetRef, isInView } = useInView({ threshold: 0.2 });
-
 const testimonials = [
   {
     quote:
@@ -27,18 +25,9 @@ const testimonials = [
 </script>
 
 <template>
-  <section
-    id="testimonials"
-    ref="targetRef"
-    class="py-32 px-6 lg:px-12 bg-white"
-  >
+  <section id="testimonials" class="py-32 px-6 lg:px-12 bg-white">
     <div class="max-w-7xl mx-auto">
-      <div
-        :class="[
-          'mb-24 text-center',
-          isInView ? 'revealed animate-fade-in-up' : 'scroll-reveal',
-        ]"
-      >
+      <div :class="['mb-24 text-center animate-fade-in-up']">
         <p
           class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-4"
           style="font-family: &quot;Inter&quot;, sans-serif"
@@ -63,10 +52,7 @@ const testimonials = [
         <div
           v-for="(testimonial, index) in testimonials"
           :key="testimonial.author"
-          :class="[
-            'border-t border-gray-200 pt-8',
-            isInView ? 'revealed animate-fade-in-up' : 'scroll-reveal',
-          ]"
+          :class="['border-t border-gray-200 pt-8 animate-fade-in-up']"
           :style="{ animationDelay: `${index * 0.2}s` }"
         >
           <p

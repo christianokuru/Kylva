@@ -1,6 +1,4 @@
 <script setup>
-const { targetRef, isInView } = useInView({ threshold: 0.2 });
-
 const services = [
   {
     number: "01",
@@ -39,14 +37,9 @@ const services = [
 </script>
 
 <template>
-  <section id="services" ref="targetRef" class="py-32 px-6 lg:px-12 bg-white">
+  <section id="services" class="py-32 px-6 lg:px-12 bg-white">
     <div class="max-w-7xl mx-auto">
-      <div
-        :class="[
-          'mb-24',
-          isInView ? 'revealed animate-fade-in-up' : 'scroll-reveal',
-        ]"
-      >
+      <div :class="['mb-24 animate-fade-in-up']">
         <p
           class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-4"
           style="font-family: &quot;Inter&quot;, sans-serif"
@@ -72,8 +65,7 @@ const services = [
           v-for="(service, index) in services"
           :key="service.number"
           :class="[
-            'grid md:grid-cols-12 gap-8 md:gap-12 border-t border-gray-200 pt-12',
-            isInView ? 'revealed animate-fade-in-up' : 'scroll-reveal',
+            'grid md:grid-cols-12 gap-8 md:gap-12 border-t border-gray-200 pt-12 animate-fade-in-up',
           ]"
           :style="{ animationDelay: `${index * 0.2}s` }"
         >

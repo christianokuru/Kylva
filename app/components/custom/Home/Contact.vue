@@ -3,8 +3,6 @@ import { z } from "zod";
 import { useZod } from "~/composables/useZod";
 import { toast } from "vue-sonner";
 
-const { targetRef, isInView } = useInView({ threshold: 0.3 });
-
 const contactSchema = z.object({
   name: z
     .string()
@@ -69,18 +67,10 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <section
-    id="contact"
-    ref="targetRef"
-    class="py-32 px-6 lg:px-12 bg-[#fafaf9]"
-  >
+  <section id="contact" class="py-32 px-6 lg:px-12 bg-[#fafaf9]">
     <div class="max-w-7xl mx-auto">
       <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
-        <div
-          :class="[
-            isInView ? 'revealed animate-fade-in-left' : 'scroll-reveal',
-          ]"
-        >
+        <div class="animate-fade-in-left">
           <p
             class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-6"
             style="font-family: &quot;Inter&quot;, sans-serif"
@@ -135,12 +125,7 @@ const handleSubmit = async () => {
           </div>
         </div>
 
-        <div
-          :class="[
-            isInView ? 'revealed animate-fade-in-right' : 'scroll-reveal',
-          ]"
-          style="animation-delay: 0.2s"
-        >
+        <div class="animate-fade-in-right" style="animation-delay: 0.2s">
           <h3
             class="text-2xl font-light text-neutral-900 mb-8"
             style="
