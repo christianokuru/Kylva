@@ -102,7 +102,7 @@ onMounted(() => {
         ]"
         style="font-family: &quot;Inter&quot;, sans-serif; font-weight: 500"
       >
-        > Start Project
+        Start Project
       </button>
     </div>
   </nav>
