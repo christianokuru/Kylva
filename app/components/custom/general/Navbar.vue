@@ -45,7 +45,7 @@ onMounted(() => {
 <template>
   <nav
     :class="[
-      'fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,shadow] duration-500 animate-fade-in-down',
+      'fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,shadow] duration-500',
       isMobileMenuOpen
         ? 'bg-transparent'
         : scrolled
@@ -86,7 +86,8 @@ onMounted(() => {
               ? 'text-gray-800 hover:text-gray-600'
               : 'text-white hover:text-gray-300',
           ]"
-          style="font-family: 'Inter', sans-serif; font-weight: 400;">
+          style="font-family: &quot;Inter&quot;, sans-serif; font-weight: 400"
+        >
           >
           {{ item }}
         </button>
@@ -100,9 +101,9 @@ onMounted(() => {
             ? 'bg-black text-white hover:bg-gray-900'
             : 'bg-white text-black hover:bg-gray-100',
         ]"
-        style="font-family: 'Inter', sans-serif; font-weight: 500;">
+        style="font-family: &quot;Inter&quot;, sans-serif; font-weight: 500"
       >
-        Start Project
+        > Start Project
       </button>
     </div>
   </nav>

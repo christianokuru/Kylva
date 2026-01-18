@@ -12,7 +12,7 @@ const scrollToSection = (id) => {
     id="hero"
     class="relative h-screen max-sm:h-auto max-sm:min-h-screen flex items-center justify-center overflow-hidden max-sm:overflow-visible bg-[#fafaf9] max-sm:pt-24 max-sm:pb-12"
   >
-    <div class="absolute inset-0 animate-scale-in">
+    <div class="absolute inset-0 opacity-15">
       <img
         src="https://images.unsplash.com/photo-1745284504942-2eb53650360a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwbHV4dXJ5JTIwZmFzaGlvbnxlbnwxfHx8fDE3Njc3MjU5NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
         alt=""
@@ -21,7 +21,7 @@ const scrollToSection = (id) => {
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-center">
-      <div class="animate-fade-in-up animate-delay-300 mt-4">
+      <div class="mt-4">
         <h1
           class="text-6xl text-black md:text-8xl lg:text-8xl mb-8 tracking-tight font-serif font-light leading-[1.1]"
         >
@@ -32,16 +32,14 @@ const scrollToSection = (id) => {
       </div>
 
       <p
-        class="text-xs md:text-base text-gray-600 mb-12 max-w-2xl mx-auto tracking-wide animate-fade-in-up animate-delay-500 font-sans font-light"
+        class="text-xs md:text-base text-gray-600 mb-12 max-w-2xl mx-auto tracking-wide font-sans font-light"
       >
         We craft bespoke e-commerce experiences for fashion and beauty brands
         who demand excellence. Each project transforms your vision into a
         refined digital presence.
       </p>
 
-      <div
-        class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animate-delay-700"
-      >
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
         <button
           @click="scrollToSection('contact')"
           class="px-12 py-5 bg-black text-white text-xs uppercase tracking-[0.3em] transition-all duration-200 hover:scale-105 active:scale-95 font-sans font-medium"

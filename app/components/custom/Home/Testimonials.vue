@@ -27,7 +27,7 @@ const testimonials = [
 <template>
   <section id="testimonials" class="py-32 px-6 lg:px-12 bg-white">
     <div class="max-w-7xl mx-auto">
-      <div :class="['mb-24 text-center animate-fade-in-up']">
+      <div :class="['mb-24 text-center']">
         <p
           class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-4"
           style="font-family: &quot;Inter&quot;, sans-serif"
@@ -52,8 +52,7 @@ const testimonials = [
         <div
           v-for="(testimonial, index) in testimonials"
           :key="testimonial.author"
-          :class="['border-t border-gray-200 pt-8 animate-fade-in-up']"
-          :style="{ animationDelay: `${index * 0.2}s` }"
+          :class="['border-t border-gray-200 pt-8']"
         >
           <p
             class="text-2xl md:text-3xl mb-12 leading-relaxed"
