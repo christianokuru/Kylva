@@ -23,7 +23,7 @@ const scrollToSection = (id) => {
     <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-center">
       <div class="mt-4">
         <h1
-          class="text-6xl text-black md:text-8xl lg:text-8xl mb-8 tracking-tight font-serif font-light leading-[1.1]"
+          class="text-6xl md:text-8xl lg:text-8xl mb-8 tracking-tight font-serif font-light leading-[1.1]"
         >
           Where Digital Elegance Meets
           <br />
