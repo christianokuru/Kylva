@@ -41,17 +41,22 @@ const services = [
 <template>
   <section id="services" ref="targetRef" class="py-32 px-6 lg:px-12 bg-white">
     <div class="max-w-7xl mx-auto">
-      <div :class="['mb-24 scroll-reveal', { revealed: isInView }]">
+      <div
+        :class="[
+          'mb-24',
+          isInView ? 'revealed animate-fade-in-up' : 'scroll-reveal',
+        ]"
+      >
         <p
           class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-4"
-          style="font-family: 'Inter', sans-serif"
+          style="font-family: &quot;Inter&quot;, sans-serif"
         >
           What We Do
         </p>
         <h2
           class="text-6xl md:text-7xl lg:text-8xl tracking-tight"
           style="
-            font-family: 'Cormorant Garamond', serif;
+            font-family: &quot;Cormorant Garamond&quot;, serif;
             font-weight: 300;
             line-height: 1.1;
           "
@@ -67,8 +72,8 @@ const services = [
           v-for="(service, index) in services"
           :key="service.number"
           :class="[
-            'grid md:grid-cols-12 gap-8 md:gap-12 border-t border-gray-200 pt-12 scroll-reveal',
-            { revealed: isInView },
+            'grid md:grid-cols-12 gap-8 md:gap-12 border-t border-gray-200 pt-12',
+            isInView ? 'revealed animate-fade-in-up' : 'scroll-reveal',
           ]"
           :style="{ animationDelay: `${index * 0.2}s` }"
         >
@@ -76,7 +81,7 @@ const services = [
             <span
               class="text-6xl text-gray-200"
               style="
-                font-family: 'Cormorant Garamond', serif;
+                font-family: &quot;Cormorant Garamond&quot;, serif;
                 font-weight: 300;
               "
             >
@@ -88,7 +93,7 @@ const services = [
             <h3
               class="text-4xl md:text-5xl mb-6 tracking-tight"
               style="
-                font-family: 'Cormorant Garamond', serif;
+                font-family: &quot;Cormorant Garamond&quot;, serif;
                 font-weight: 400;
               "
             >
@@ -97,7 +102,7 @@ const services = [
             <p
               class="text-gray-600 leading-relaxed text-xs md:text-base"
               style="
-                font-family: 'Inter', sans-serif;
+                font-family: &quot;Inter&quot;, sans-serif;
                 font-weight: 300;
               "
             >
@@ -112,7 +117,7 @@ const services = [
                 :key="feature"
                 class="flex items-center gap-3 text-xs uppercase tracking-[0.2em]"
                 style="
-                  font-family: 'Inter', sans-serif;
+                  font-family: &quot;Inter&quot;, sans-serif;
                   font-weight: 400;
                 "
               >

@@ -78,13 +78,12 @@ const handleSubmit = async () => {
       <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
         <div
           :class="[
-            'scroll-reveal',
-            { 'revealed animate-fade-in-left': isInView },
+            isInView ? 'revealed animate-fade-in-left' : 'scroll-reveal',
           ]"
         >
           <p
             class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-6"
-            style="font-family: 'Inter', sans-serif"
+            style="font-family: &quot;Inter&quot;, sans-serif"
           >
             Let's Begin
           </p>
@@ -92,7 +91,7 @@ const handleSubmit = async () => {
           <h2
             class="text-5xl md:text-6xl lg:text-7xl mb-8 tracking-tight"
             style="
-              font-family: 'Cormorant Garamond', serif;
+              font-family: &quot;Cormorant Garamond&quot;, serif;
               font-weight: 300;
               line-height: 1.1;
             "
@@ -106,7 +105,7 @@ const handleSubmit = async () => {
 
           <p
             class="text-xs md:text-base text-gray-600 leading-relaxed mb-12"
-            style="font-family: 'Inter', sans-serif; font-weight: 300"
+            style="font-family: &quot;Inter&quot;, sans-serif; font-weight: 300"
           >
             Whether you're launching a new brand or reimagining an established
             house, we approach each partnership with the same commitment to
@@ -118,7 +117,7 @@ const handleSubmit = async () => {
             <div>
               <p
                 class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2"
-                style="font-family: 'Inter', sans-serif"
+                style="font-family: &quot;Inter&quot;, sans-serif"
               >
                 Email
               </p>
@@ -126,7 +125,7 @@ const handleSubmit = async () => {
                 href="mailto:okuruchristian@gmail.com"
                 class="text-xl hover:text-[#D4AF37] transition-colors"
                 style="
-                  font-family: 'Cormorant Garamond', serif;
+                  font-family: &quot;Cormorant Garamond&quot;, serif;
                   font-weight: 400;
                 "
               >
@@ -138,15 +137,14 @@ const handleSubmit = async () => {
 
         <div
           :class="[
-            'scroll-reveal',
-            { 'revealed animate-fade-in-right': isInView },
+            isInView ? 'revealed animate-fade-in-right' : 'scroll-reveal',
           ]"
           style="animation-delay: 0.2s"
         >
           <h3
             class="text-2xl font-light text-neutral-900 mb-8"
             style="
-              font-family: 'Cormorant Garamond', serif;
+              font-family: &quot;Cormorant Garamond&quot;, serif;
               font-weight: 400;
             "
           >
@@ -159,7 +157,7 @@ const handleSubmit = async () => {
                 for="name"
                 class="block text-xs uppercase tracking-[0.3em] mb-3"
                 style="
-                  font-family: 'Inter', sans-serif;
+                  font-family: &quot;Inter&quot;, sans-serif;
                   font-weight: 500;
                 "
               >
@@ -177,14 +175,14 @@ const handleSubmit = async () => {
                     : 'border-gray-300 focus:border-[#D4AF37]',
                 ]"
                 style="
-                  font-family: 'Inter', sans-serif;
+                  font-family: &quot;Inter&quot;, sans-serif;
                   font-weight: 300;
                 "
               />
               <p
                 v-if="errors.name"
                 class="text-red-500 text-sm mt-2"
-                style="font-family: 'Inter', sans-serif"
+                style="font-family: &quot;Inter&quot;, sans-serif"
               >
                 {{ errors.name }}
               </p>
@@ -195,7 +193,7 @@ const handleSubmit = async () => {
                 for="email"
                 class="block text-xs uppercase tracking-[0.3em] mb-3"
                 style="
-                  font-family: 'Inter', sans-serif;
+                  font-family: &quot;Inter&quot;, sans-serif;
                   font-weight: 500;
                 "
               >
@@ -213,14 +211,14 @@ const handleSubmit = async () => {
                     : 'border-gray-300 focus:border-[#D4AF37]',
                 ]"
                 style="
-                  font-family: 'Inter', sans-serif;
+                  font-family: &quot;Inter&quot;, sans-serif;
                   font-weight: 300;
                 "
               />
               <p
                 v-if="errors.email"
                 class="text-red-500 text-sm mt-2"
-                style="font-family: 'Inter', sans-serif"
+                style="font-family: &quot;Inter&quot;, sans-serif"
               >
                 {{ errors.email }}
               </p>
@@ -231,7 +229,7 @@ const handleSubmit = async () => {
                 for="brand"
                 class="block text-xs uppercase tracking-[0.3em] mb-3"
                 style="
-                  font-family: 'Inter', sans-serif;
+                  font-family: &quot;Inter&quot;, sans-serif;
                   font-weight: 500;
                 "
               >
@@ -249,14 +247,14 @@ const handleSubmit = async () => {
                     : 'border-gray-300 focus:border-[#D4AF37]',
                 ]"
                 style="
-                  font-family: 'Inter', sans-serif;
+                  font-family: &quot;Inter&quot;, sans-serif;
                   font-weight: 300;
                 "
               />
               <p
                 v-if="errors.brand"
                 class="text-red-500 text-sm mt-2"
-                style="font-family: 'Inter', sans-serif"
+                style="font-family: &quot;Inter&quot;, sans-serif"
               >
                 {{ errors.brand }}
               </p>
@@ -267,7 +265,7 @@ const handleSubmit = async () => {
                 for="message"
                 class="block text-xs uppercase tracking-[0.3em] mb-3"
                 style="
-                  font-family: 'Inter', sans-serif;
+                  font-family: &quot;Inter&quot;, sans-serif;
                   font-weight: 500;
                 "
               >
@@ -276,7 +274,7 @@ const handleSubmit = async () => {
               <p
                 class="text-sm text-gray-400 mb-2"
                 style="
-                  font-family: 'Inter', sans-serif;
+                  font-family: &quot;Inter&quot;, sans-serif;
                   font-weight: 500;
                 "
               >
@@ -294,14 +292,14 @@ const handleSubmit = async () => {
                     : 'border-gray-300 focus:border-[#D4AF37]',
                 ]"
                 style="
-                  font-family: 'Inter', sans-serif;
+                  font-family: &quot;Inter&quot;, sans-serif;
                   font-weight: 300;
                 "
               />
               <p
                 v-if="errors.message"
                 class="text-red-500 text-sm mt-2"
-                style="font-family: 'Inter', sans-serif"
+                style="font-family: &quot;Inter&quot;, sans-serif"
               >
                 {{ errors.message }}
               </p>
@@ -317,7 +315,7 @@ const handleSubmit = async () => {
                   : 'bg-black hover:scale-105 active:scale-95',
               ]"
               style="
-                font-family: 'Inter', sans-serif;
+                font-family: &quot;Inter&quot;, sans-serif;
                 font-weight: 500;
               "
             >
