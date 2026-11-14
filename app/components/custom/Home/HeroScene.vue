@@ -246,7 +246,7 @@ async function initScene() {
     <!-- Still image for phones, reduced motion and no-WebGL browsers -->
     <picture v-if="useStillImage">
       <source
-        media="(max-width: 767px)"
+        media="(orientation: portrait)"
         srcset="/images/hero-ring-mobile.webp"
         width="780"
         height="1500"

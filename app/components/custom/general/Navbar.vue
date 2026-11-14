@@ -64,7 +64,7 @@ onMounted(() => {
         @toggle="toggleMobileMenu"
       />
 
-      <div class="hidden md:flex items-center gap-12">
+      <div class="hidden md:flex items-center gap-8 lg:gap-12">
         <a
           v-for="item in [
             'services',
@@ -78,7 +78,7 @@ onMounted(() => {
           :href="`/#${item}`"
           @click.prevent="goToSection(item)"
           :class="[
-            'text-xs uppercase tracking-[0.2em] transition-all duration-200 hover:-translate-y-0.5',
+            'py-3 text-xs uppercase tracking-[0.2em] transition-all duration-200 hover:-translate-y-0.5',
             scrolled
               ? 'text-gray-800 hover:text-gray-600'
               : 'text-white hover:text-gray-300',

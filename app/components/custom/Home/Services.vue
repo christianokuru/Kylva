@@ -65,7 +65,7 @@ const services = [
           v-for="(service, index) in services"
           :key="service.number"
           :class="[
-            'grid md:grid-cols-12 gap-8 md:gap-12 border-t border-gray-200 pt-12',
+            'grid md:grid-cols-12 gap-8 md:gap-x-12 md:gap-y-10 border-t border-gray-200 pt-12',
           ]"
         >
           <div class="md:col-span-2" data-aos="fade-up">
@@ -80,7 +80,7 @@ const services = [
             </span>
           </div>
 
-          <div class="md:col-span-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="md:col-span-10 lg:col-span-6" data-aos="fade-up" data-aos-delay="100">
             <h3
               class="text-4xl md:text-5xl mb-6 tracking-tight"
               style="
@@ -101,7 +101,7 @@ const services = [
             </p>
           </div>
 
-          <div class="md:col-span-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="md:col-span-10 md:col-start-3 lg:col-span-4 lg:col-start-auto" data-aos="fade-up" data-aos-delay="200">
             <ul class="space-y-4">
               <li
                 v-for="feature in service.features"

@@ -103,10 +103,10 @@ useSchemaOrg([
         <ol
           class="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-500 font-sans"
         >
-          <li><NuxtLink to="/" class="hover:text-white">Home</NuxtLink></li>
+          <li><NuxtLink to="/" class="inline-block py-2 hover:text-white">Home</NuxtLink></li>
           <li aria-hidden="true">/</li>
           <li>
-            <NuxtLink to="/projects" class="hover:text-white">Projects</NuxtLink>
+            <NuxtLink to="/projects" class="inline-block py-2 hover:text-white">Projects</NuxtLink>
           </li>
           <li aria-hidden="true">/</li>
           <li class="text-gray-300" aria-current="page">{{ project.title }}</li>
@@ -230,7 +230,7 @@ useSchemaOrg([
                   :href="project.url"
                   target="_blank"
                   rel="noopener"
-                  class="text-white font-light underline underline-offset-4 decoration-white/30 hover:decoration-[#D4AF37] break-all"
+                  class="inline-block py-1 text-white font-light underline underline-offset-4 decoration-white/30 hover:decoration-[#D4AF37] break-all"
                 >
                   {{ project.url.replace(/^https?:\/\//, "").replace(/\/$/, "") }}
                 </a>

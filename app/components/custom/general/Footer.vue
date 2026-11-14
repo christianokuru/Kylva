@@ -29,12 +29,12 @@ const sections = ["services", "about", "work", "process", "faq", "contact"];
           >
             Quick Links
           </h3>
-          <ul class="space-y-3">
+          <ul class="space-y-1">
             <li v-for="section in sections" :key="section">
               <a
                 :href="`/#${section}`"
                 @click.prevent="goToSection(section)"
-                class="inline-block capitalize text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1 font-sans font-light"
+                class="inline-block py-1.5 capitalize text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1 font-sans font-light"
               >
                 {{ section === "faq" ? "FAQ" : section }}
               </a>
@@ -48,11 +48,11 @@ const sections = ["services", "about", "work", "process", "faq", "contact"];
           >
             Projects
           </h3>
-          <ul class="space-y-3">
+          <ul class="space-y-1">
             <li v-for="project in projects" :key="project.slug">
               <NuxtLink
                 :to="`/projects/${project.slug}`"
-                class="inline-block text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1 font-sans font-light"
+                class="inline-block py-1.5 text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1 font-sans font-light"
               >
                 {{ project.title }}
               </NuxtLink>
@@ -60,7 +60,7 @@ const sections = ["services", "about", "work", "process", "faq", "contact"];
             <li>
               <NuxtLink
                 to="/projects"
-                class="inline-block text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1 font-sans font-light"
+                class="inline-block py-1.5 text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1 font-sans font-light"
               >
                 All projects →
               </NuxtLink>
@@ -76,7 +76,7 @@ const sections = ["services", "about", "work", "process", "faq", "contact"];
           </h3>
           <a
             href="mailto:okuruchristian@gmail.com"
-            class="text-gray-400 hover:text-white transition-colors text-sm font-sans font-light break-all"
+            class="inline-block py-1.5 text-gray-400 hover:text-white transition-colors text-sm font-sans font-light break-all"
           >
             okuruchristian@gmail.com
           </a>
@@ -93,7 +93,7 @@ const sections = ["services", "about", "work", "process", "faq", "contact"];
             href="https://okuru-christian.vercel.app"
             target="_blank"
             rel="noopener"
-            class="text-gray-300 underline underline-offset-4 decoration-gray-600 hover:text-[#D4AF37] hover:decoration-[#D4AF37] transition-colors"
+            class="inline-block py-1.5 text-gray-300 underline underline-offset-4 decoration-gray-600 hover:text-[#D4AF37] hover:decoration-[#D4AF37] transition-colors"
             >Okuru Christian</a
           >
         </p>
