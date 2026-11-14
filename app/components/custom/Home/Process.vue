@@ -25,7 +25,7 @@ const steps = [
     number: "04",
     title: "Launch & Handover",
     description:
-      "Your store goes live and we hand over the full codebase. It belongs to you, to keep, change or host wherever you like.",
+      "Your store goes live, we hand over the full codebase, and you get 3 months of support. The code belongs to you.",
   },
 ];
 
@@ -137,7 +137,8 @@ const stack = [
             class="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl font-sans font-light"
           >
             The final price depends on the size of your store and the features
-            you need. You own the full codebase when we launch.
+            you need. Every store includes 3 months of support after launch,
+            and you own the full codebase.
           </p>
         </div>
         <div class="md:col-span-4 md:text-right">

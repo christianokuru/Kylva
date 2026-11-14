@@ -38,6 +38,11 @@ export const faqs: Faq[] = [
       "You do. When your store launches, we hand over the full codebase. It belongs to you, so you are free to host it, change it or work with any developer you like.",
   },
   {
+    question: "Do you offer support after launch?",
+    answer:
+      "Yes. Every store comes with 3 months of support after launch, included in the price.",
+  },
+  {
     question: "How long does a project take?",
     answer:
       "It depends on the size of the store and the features. After our first conversation, you get a timeline for each stage: discovery, design, build and launch.",
