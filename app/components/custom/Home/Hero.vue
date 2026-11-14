@@ -1,4 +1,6 @@
 <script setup>
+import HeroScene from "./HeroScene.vue";
+
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
   if (element) {
@@ -12,13 +14,10 @@ const scrollToSection = (id) => {
     id="hero"
     class="relative h-screen max-sm:h-auto max-sm:min-h-screen flex items-center justify-center overflow-hidden max-sm:overflow-visible bg-[#fafaf9] max-sm:pt-24 max-sm:pb-12"
   >
-    <div class="absolute inset-0 opacity-15">
-      <img
-        src="https://images.unsplash.com/photo-1745284504942-2eb53650360a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwbHV4dXJ5JTIwZmFzaGlvbnxlbnwxfHx8fDE3Njc3MjU5NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-        alt=""
-        class="w-full h-full object-cover"
-      />
-    </div>
+    <!-- 3D background (gold ring + glass). Loads only in the browser. -->
+    <ClientOnly>
+      <HeroScene />
+    </ClientOnly>
 
     <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-center">
       <div class="mt-4">

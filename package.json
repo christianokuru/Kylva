@@ -33,6 +33,7 @@
     "resend": "^6.5.2",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.17",
+    "three": "^0.186.1",
     "vee-validate": "^4.15.1",
     "vue": "^3.5.25",
     "vue-input-otp": "^0.3.1",
