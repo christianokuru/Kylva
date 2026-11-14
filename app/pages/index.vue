@@ -7,13 +7,13 @@ import Testimonials from "@/components/custom/Home/Testimonials.vue";
 import Contact from "@/components/custom/Home/Contact.vue";
 
 useSeoMeta({
-  title: "Kylva - Luxury E-Commerce Web Development Agency",
+  title: "Luxury E-Commerce Web Development Agency",
   description:
     "Crafting exceptional e-commerce experiences exclusively for luxury fashion and beauty brands.",
   ogTitle: "Kylva - Luxury E-Commerce Web Development Agency",
   ogDescription:
     "Crafting exceptional e-commerce experiences exclusively for luxury fashion and beauty brands.",
-  ogImage: "/logo.svg",
+  ogImage: "https://kylva.com/og-image.png",
   twitterCard: "summary_large_image",
 });
 
@@ -31,7 +31,7 @@ useSchemaOrg([
     about: { "@id": "https://kylva.com/#organization" },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: "https://kylva.com/logo.svg",
+      url: "https://kylva.com/og-image.png",
     },
   },
   // Service Schema: Fashion E-Commerce

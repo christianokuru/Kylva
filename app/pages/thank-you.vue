@@ -11,16 +11,16 @@ const navigateToHome = () => {
 
 // SEO Meta Tags for Thank You Page
 useSeoMeta({
-  title: "Thank You | Message Received",
+  title: "Thank You",
   description:
     "Your message has been received. We'll be in touch soon to discuss your project.",
   ogTitle: "Thank You | Kylva",
   ogDescription: "Your message has been received. We'll be in touch soon.",
-  ogImage: "https://kylva.com/logo.svg",
+  ogImage: "https://kylva.com/og-image.png",
   ogUrl: "https://kylva.com/thank-you",
   twitterTitle: "Thank You | Kylva",
   twitterDescription: "Your message has been received. We'll be in touch soon.",
-  twitterImage: "https://kylva.com/logo.svg",
+  twitterImage: "https://kylva.com/og-image.png",
 });
 
 useHead({

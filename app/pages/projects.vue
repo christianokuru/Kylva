@@ -2,10 +2,32 @@
 const { getAllProjects } = useProjects();
 const projects = getAllProjects();
 
+const projectsDescription =
+  "Selected e-commerce work by Kylva: bespoke online stores for luxury fashion, beauty and lifestyle brands.";
+
 useSeoMeta({
-  title: "Projects - Kylva",
-  description: "A selection of our finest e-commerce work.",
+  title: "Projects",
+  description: projectsDescription,
+  ogTitle: "Projects | Kylva",
+  ogDescription: projectsDescription,
+  ogUrl: "https://kylva.com/projects",
+  ogImage: "https://kylva.com/og-image.png",
+  twitterTitle: "Projects | Kylva",
+  twitterDescription: projectsDescription,
+  twitterImage: "https://kylva.com/og-image.png",
 });
+
+useSchemaOrg([
+  {
+    "@type": "CollectionPage",
+    "@id": "https://kylva.com/projects/#webpage",
+    name: "Projects | Kylva",
+    description: projectsDescription,
+    url: "https://kylva.com/projects",
+    isPartOf: { "@id": "https://kylva.com/#website" },
+    about: { "@id": "https://kylva.com/#organization" },
+  },
+]);
 </script>
 
 <template>

@@ -9,6 +9,8 @@ useSeoMeta({
   titleTemplate: "%s | Kylva",
   ogSiteName: "Kylva",
   ogType: "website",
+  ogImage: "https://kylva.com/og-image.png",
+  twitterImage: "https://kylva.com/og-image.png",
   twitterCard: "summary_large_image",
 });
 
@@ -45,11 +47,6 @@ useSchemaOrg([
     email: "okuruchristian@gmail.com",
     description:
       "Luxury web development agency crafting exceptional e-commerce experiences exclusively for high-end fashion and beauty brands.",
-    sameAs: [
-      "https://twitter.com/kylva",
-      "https://www.linkedin.com/company/kylva",
-      "https://www.tiktok.com/@kylva",
-    ],
     areaServed: ["United States", "Canada", "Europe"],
     knowsAbout: [
       "Luxury E-commerce Development",
@@ -58,7 +55,7 @@ useSchemaOrg([
       "Brand Experience Design",
     ],
   },
-  // WebSite Schema with Sitelinks Search Box
+  // WebSite Schema
   {
     "@type": "WebSite",
     "@id": "https://kylva.com/#website",
@@ -66,14 +63,6 @@ useSchemaOrg([
     url: "https://kylva.com",
     publisher: { "@id": "https://kylva.com/#organization" },
     inLanguage: "en-US",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: "https://kylva.com/search?q={search_term_string}",
-      },
-      "query-input": "required name=search_term_string",
-    },
   },
   // LocalBusiness Schema (ProfessionalService for credibility)
   {
@@ -90,11 +79,6 @@ useSchemaOrg([
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "Canada" },
       { "@type": "Continent", name: "Europe" },
-    ],
-    sameAs: [
-      "https://twitter.com/kylva",
-      "https://www.linkedin.com/company/kylva",
-      "https://www.tiktok.com/@kylva",
     ],
   },
 ]);

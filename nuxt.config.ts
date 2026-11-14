@@ -31,9 +31,6 @@ export default defineNuxtConfig({
     description:
       "Luxury web development agency crafting exceptional e-commerce experiences exclusively for high-end fashion and beauty brands in the US and Europe.",
     defaultLocale: "en",
-    identity: {
-      type: "Organization",
-    },
   },
 
   // App Configuration
@@ -61,47 +58,19 @@ export default defineNuxtConfig({
     },
   },
 
-  // Robots Configuration
+  // Robots Configuration (served as /robots.txt by @nuxtjs/seo)
   robots: {
-    allow: "/",
-    sitemap: "https://kylva.com/sitemap.xml",
-  },
-
-  // Sitemap Configuration
-  sitemap: {
-    strictNuxtContentPaths: true,
-    urls: [
+    groups: [
       {
-        loc: "/",
-        lastmod: new Date().toISOString(),
-        changefreq: "weekly",
-        priority: 1.0,
-      },
-      {
-        loc: "/services",
-        lastmod: new Date().toISOString(),
-        changefreq: "monthly",
-        priority: 0.9,
-      },
-      {
-        loc: "/portfolio",
-        lastmod: new Date().toISOString(),
-        changefreq: "weekly",
-        priority: 0.8,
-      },
-      {
-        loc: "/about",
-        lastmod: new Date().toISOString(),
-        changefreq: "monthly",
-        priority: 0.7,
-      },
-      {
-        loc: "/contact",
-        lastmod: new Date().toISOString(),
-        changefreq: "monthly",
-        priority: 0.8,
+        userAgent: ["MJ12bot", "DotBot", "SemrushBot", "AhrefsBot"],
+        disallow: ["/"],
       },
     ],
+  },
+
+  // Sitemap Configuration (pages are picked up automatically)
+  sitemap: {
+    exclude: ["/thank-you"],
   },
 
   // SEO Meta Tags
@@ -112,9 +81,8 @@ export default defineNuxtConfig({
       keywords:
         "luxury web development, fashion e-commerce agency, beauty brand website, haute couture digital, cosmetics e-commerce, luxury brand design, fashion website development, beauty platform, luxury digital agency, premium web design",
       author: "Kylva",
-      ogImage: "/og-image.png",
+      ogImage: "https://kylva.com/og-image.png",
       twitterCard: "summary_large_image",
-      twitterSite: "@kylva",
     },
   },
 
@@ -123,59 +91,9 @@ export default defineNuxtConfig({
     enabled: false,
   },
 
-  // Schema.org Configuration
-  schemaOrg: {
-    identity: {
-      type: "Organization",
-      name: "Kylva",
-      url: "https://kylva.com",
-      logo: "https://kylva.com/logo.svg",
-      email: "hello@kylva.studio",
-      description:
-        "Luxury web development agency crafting exceptional e-commerce experiences exclusively for high-end fashion and beauty brands.",
-      address: {
-        type: "PostalAddress",
-        addressCountry: "US",
-      },
-      sameAs: [
-        "https://twitter.com/kylva",
-        "https://www.linkedin.com/company/kylva",
-        "https://www.tiktok.com/@kylva",
-      ],
-      areaServed: [
-        {
-          type: "Country",
-          name: "United States",
-        },
-        {
-          type: "Country",
-          name: "Canada",
-        },
-        {
-          type: "Continent",
-          name: "Europe",
-        },
-      ],
-      knowsAbout: [
-        "Luxury E-commerce Development",
-        "Fashion Brand Web Design",
-        "Beauty Platform Development",
-        "Brand Experience Design",
-        "Haute Couture Digital",
-        "Cosmetics E-commerce",
-      ],
-    },
-  },
-
-  // OG Image Configuration
+  // OG Image: a static image (/og-image.png) is used, so the generator is off
   ogImage: {
-    enabled: true,
-    defaults: {
-      component: "OgImage",
-      props: {
-        logo: "/logo.svg",
-      },
-    },
+    enabled: false,
   },
 
   runtimeConfig: {
