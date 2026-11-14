@@ -47,7 +47,7 @@ useSchemaOrg([
     email: "okuruchristian@gmail.com",
     description:
       "Luxury web development agency crafting exceptional e-commerce experiences exclusively for high-end fashion and beauty brands.",
-    areaServed: ["United States", "Canada", "Europe"],
+    areaServed: "Worldwide",
     knowsAbout: [
       "Luxury E-commerce Development",
       "Fashion Brand Web Design",
@@ -72,14 +72,10 @@ useSchemaOrg([
     image: "https://kylva.com/og-image.png",
     url: "https://kylva.com",
     email: "okuruchristian@gmail.com",
-    priceRange: "$$$",
+    priceRange: "From $500",
     description:
       "Luxury web development agency specializing in bespoke e-commerce experiences for high-end fashion and beauty brands.",
-    areaServed: [
-      { "@type": "Country", name: "United States" },
-      { "@type": "Country", name: "Canada" },
-      { "@type": "Continent", name: "Europe" },
-    ],
+    areaServed: "Worldwide",
   },
 ]);
 

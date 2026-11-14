@@ -53,7 +53,7 @@ const scrollToSection = (sectionId) => {
             </p>
 
             <p>
-              We serve discerning brands across North America and Europe who
+              We serve discerning brands all over the world who
               recognize that their digital presence is not separate from their
               brand—it is their brand, experienced by thousands before a single
               product is ever touched.

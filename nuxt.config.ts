@@ -30,7 +30,7 @@ export default defineNuxtConfig({
     url: "https://kylva.com",
     name: "Kylva",
     description:
-      "Luxury web development agency crafting exceptional e-commerce experiences exclusively for high-end fashion and beauty brands in the US and Europe.",
+      "Luxury web development agency crafting exceptional e-commerce experiences for high-end fashion and beauty brands worldwide.",
     defaultLocale: "en",
   },
 
@@ -85,7 +85,7 @@ export default defineNuxtConfig({
   seo: {
     meta: {
       description:
-        "Bespoke e-commerce experiences for luxury fashion, beauty, and cosmetics brands. Premium web development for haute couture and beauty houses in the US and Europe.",
+        "Bespoke e-commerce experiences for luxury fashion, beauty, and cosmetics brands. Custom-built online stores for fashion and beauty brands worldwide.",
       keywords:
         "luxury web development, fashion e-commerce agency, beauty brand website, haute couture digital, cosmetics e-commerce, luxury brand design, fashion website development, beauty platform, luxury digital agency, premium web design",
       author: "Kylva",

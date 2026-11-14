@@ -6,7 +6,7 @@ const { goToSection } = useSectionNav();
 const { getAllProjects } = useProjects();
 const projects = getAllProjects();
 
-const sections = ["services", "about", "work", "testimonials", "contact"];
+const sections = ["services", "about", "work", "process", "faq", "contact"];
 </script>
 
 <template>
@@ -36,7 +36,7 @@ const sections = ["services", "about", "work", "testimonials", "contact"];
                 @click.prevent="goToSection(section)"
                 class="inline-block capitalize text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1 font-sans font-light"
               >
-                {{ section }}
+                {{ section === "faq" ? "FAQ" : section }}
               </a>
             </li>
           </ul>

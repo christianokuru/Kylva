@@ -77,7 +77,8 @@ const scrollToSection = (id) => {
                 'services',
                 'about',
                 'work',
-                'testimonials',
+                'process',
+                'faq',
                 'contact',
               ]"
               :key="item"

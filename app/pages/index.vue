@@ -3,7 +3,9 @@ import Hero from "@/components/custom/Home/Hero.vue";
 import Services from "@/components/custom/Home/Services.vue";
 import About from "@/components/custom/Home/About.vue";
 import Work from "@/components/custom/Home/Work.vue";
-import Testimonials from "@/components/custom/Home/Testimonials.vue";
+import Process from "@/components/custom/Home/Process.vue";
+import Faq from "@/components/custom/Home/Faq.vue";
+import { faqs } from "~/data/faqs";
 import Contact from "@/components/custom/Home/Contact.vue";
 
 useSeoMeta({
@@ -42,7 +44,7 @@ useSchemaOrg([
     description:
       "Bespoke online stores that embody the essence of luxury fashion. From haute couture to contemporary brands, we create digital experiences that mirror the sophistication of your collections.",
     provider: { "@id": "https://kylva.com/#organization" },
-    areaServed: ["United States", "Canada", "Europe"],
+    areaServed: "Worldwide",
     serviceType: "Luxury Fashion E-commerce Development",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -71,7 +73,7 @@ useSchemaOrg([
     description:
       "Elegant e-commerce solutions for beauty and cosmetics brands. We craft immersive experiences that highlight your products' luxury and effectiveness with refined detail.",
     provider: { "@id": "https://kylva.com/#organization" },
-    areaServed: ["United States", "Canada", "Europe"],
+    areaServed: "Worldwide",
     serviceType: "Luxury Beauty E-commerce Development",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -103,7 +105,7 @@ useSchemaOrg([
     description:
       "More than just a store—a complete digital identity. We develop cohesive experiences that tell your brand's story and connect with discerning customers on a deeper level.",
     provider: { "@id": "https://kylva.com/#organization" },
-    areaServed: ["United States", "Canada", "Europe"],
+    areaServed: "Worldwide",
     serviceType: "Luxury Brand Experience Design",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -124,6 +126,16 @@ useSchemaOrg([
       ],
     },
   },
+  // FAQ Schema (matches the FAQ section on the page)
+  {
+    "@type": "FAQPage",
+    "@id": "https://kylva.com/#faq",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  },
 ]);
 </script>
 
@@ -133,7 +145,8 @@ useSchemaOrg([
     <Services />
     <About />
     <Work />
-    <Testimonials />
+    <Process />
+    <Faq />
     <Contact />
   </div>
 </template>
