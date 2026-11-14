@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
+import { projects } from "./app/data/projects";
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
@@ -71,6 +72,13 @@ export default defineNuxtConfig({
   // Sitemap Configuration (pages are picked up automatically)
   sitemap: {
     exclude: ["/thank-you"],
+    // Project pages come from app/data/projects.ts
+    urls: projects.map((project) => ({
+      loc: `/projects/${project.slug}`,
+      images: [project.cover, ...project.gallery].map((image) => ({
+        loc: image.src,
+      })),
+    })),
   },
 
   // SEO Meta Tags

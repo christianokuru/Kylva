@@ -30,14 +30,12 @@ const toggleMenu = () => {
   emit("toggle");
 };
 
+const { goToSection } = useSectionNav();
+
 const scrollToSection = (id) => {
   emit("toggle");
-  setTimeout(() => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }, 100);
+  // Wait for the menu to close before scrolling or changing page
+  setTimeout(() => goToSection(id), 100);
 };
 </script>
 
@@ -74,7 +72,7 @@ const scrollToSection = (id) => {
         >
           <!-- Nav Links -->
           <div class="flex flex-col items-center gap-8">
-            <button
+            <a
               v-for="(item, index) in [
                 'services',
                 'about',
@@ -83,7 +81,8 @@ const scrollToSection = (id) => {
                 'contact',
               ]"
               :key="item"
-              @click="scrollToSection(item)"
+              :href="`/#${item}`"
+              @click.prevent="scrollToSection(item)"
               class="text-2xl uppercase tracking-[0.4em] text-gray-800 hover:text-black transition-all duration-300 transform"
               :style="{
                 fontFamily: 'Inter, sans-serif',
@@ -92,16 +91,17 @@ const scrollToSection = (id) => {
               }"
             >
               {{ item }}
-            </button>
+            </a>
           </div>
 
           <!-- CTA -->
-          <button
-            @click="scrollToSection('contact')"
+          <a
+            href="/#contact"
+            @click.prevent="scrollToSection('contact')"
             class="mt-16 px-12 py-5 bg-black text-white text-[10px] uppercase tracking-[0.3em] hover:bg-gray-800 transition-all duration-300 active:scale-95 shadow-2xl"
             style="font-family: 'Inter', sans-serif; font-weight: 500;">
             Start Project
-          </button>
+          </a>
         </div>
       </Transition>
     </Teleport>

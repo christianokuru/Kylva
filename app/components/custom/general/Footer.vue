@@ -2,126 +2,101 @@
 import Logo from "@/components/custom/general/Logo.vue";
 
 const currentYear = new Date().getFullYear();
+const { goToSection } = useSectionNav();
+const { getAllProjects } = useProjects();
+const projects = getAllProjects();
 
-const scrollToSection = (id) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
-};
+const sections = ["services", "about", "work", "testimonials", "contact"];
 </script>
 
 <template>
   <footer class="bg-black text-white py-16 px-6 lg:px-12">
     <div class="max-w-7xl mx-auto">
-      <div class="grid md:grid-cols-3 gap-12 mb-16">
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-12 mb-16">
         <div>
-          <Logo variant="white" class="mb-6" />
-          <p
-            class="text-gray-400 text-sm leading-relaxed"
-            style="font-family: 'Inter', sans-serif; font-weight: 300"
-          >
+          <NuxtLink to="/" aria-label="Kylva home" class="inline-block mb-6">
+            <Logo variant="white" />
+          </NuxtLink>
+          <p class="text-gray-400 text-sm leading-relaxed font-sans font-light">
             Crafting exceptional e-commerce experiences for luxury fashion and
             beauty brands.
           </p>
         </div>
 
-        <div>
+        <nav aria-label="Footer">
           <h3
-            class="text-xs uppercase tracking-[0.3em] mb-6"
-            style="font-family: 'Inter', sans-serif; font-weight: 500"
+            class="text-xs uppercase tracking-[0.3em] mb-6 font-sans font-medium"
           >
             Quick Links
           </h3>
           <ul class="space-y-3">
-            <li
-              v-for="link in [
-                'Services',
-                'About',
-                'Work',
-                'Testimonials',
-                'Contact',
-              ]"
-              :key="link"
-            >
-              <button
-                @click="scrollToSection(link.toLowerCase())"
-                class="text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1"
-                style="
-                  font-family: 'Inter', sans-serif;
-                  font-weight: 300;
-                "
-              >
-                {{ link }}
-              </button>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h3
-            class="text-xs uppercase tracking-[0.3em] mb-6"
-            style="font-family: 'Inter', sans-serif; font-weight: 500"
-          >
-            Connect
-          </h3>
-          <ul class="space-y-3">
-            <li>
+            <li v-for="section in sections" :key="section">
               <a
-                href="mailto:okuruchristian@gmail.com"
-                class="text-gray-400 hover:text-white transition-colors text-sm"
-                style="
-                  font-family: 'Inter', sans-serif;
-                  font-weight: 300;
-                "
+                :href="`/#${section}`"
+                @click.prevent="goToSection(section)"
+                class="inline-block capitalize text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1 font-sans font-light"
               >
-                okuruchristian@gmail.com
+                {{ section }}
               </a>
             </li>
           </ul>
+        </nav>
 
-          <div class="flex gap-4 mt-6">
-            <a
-              v-for="social in ['Instagram', 'LinkedIn', 'Behance']"
-              :key="social"
-              href="#"
-              class="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-[#D4AF37] transition-all duration-200 hover:-translate-y-1"
-              style="
-                font-family: 'Inter', sans-serif;
-                font-weight: 400;
-              "
-            >
-              {{ social }}
-            </a>
-          </div>
+        <nav aria-label="Projects">
+          <h3
+            class="text-xs uppercase tracking-[0.3em] mb-6 font-sans font-medium"
+          >
+            Projects
+          </h3>
+          <ul class="space-y-3">
+            <li v-for="project in projects" :key="project.slug">
+              <NuxtLink
+                :to="`/projects/${project.slug}`"
+                class="inline-block text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1 font-sans font-light"
+              >
+                {{ project.title }}
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink
+                to="/projects"
+                class="inline-block text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1 font-sans font-light"
+              >
+                All projects →
+              </NuxtLink>
+            </li>
+          </ul>
+        </nav>
+
+        <div>
+          <h3
+            class="text-xs uppercase tracking-[0.3em] mb-6 font-sans font-medium"
+          >
+            Connect
+          </h3>
+          <a
+            href="mailto:okuruchristian@gmail.com"
+            class="text-gray-400 hover:text-white transition-colors text-sm font-sans font-light break-all"
+          >
+            okuruchristian@gmail.com
+          </a>
         </div>
       </div>
 
       <div
-        class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+        class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-sans font-light"
       >
-        <p
-          class="text-xs text-gray-500"
-          style="font-family: 'Inter', sans-serif; font-weight: 300"
-        >
-          © {{ currentYear }} Kylva. All rights reserved.
+        <p>© {{ currentYear }} Kylva. All rights reserved.</p>
+        <p>
+          Made with love by
+          <a
+            href="https://okuru-christian.vercel.app"
+            target="_blank"
+            rel="noopener"
+            class="text-gray-300 underline underline-offset-4 decoration-gray-600 hover:text-[#D4AF37] hover:decoration-[#D4AF37] transition-colors"
+            >Okuru Christian</a
+          >
         </p>
-        <div class="flex gap-8">
-          <a
-            href="#"
-            class="text-xs text-gray-500 hover:text-white transition-colors uppercase tracking-[0.2em]"
-            style="font-family: 'Inter', sans-serif; font-weight: 300"
-          >
-            Privacy Policy
-          </a>
-          <a
-            href="#"
-            class="text-xs text-gray-500 hover:text-white transition-colors uppercase tracking-[0.2em]"
-            style="font-family: 'Inter', sans-serif; font-weight: 300"
-          >
-            Terms of Service
-          </a>
-        </div>
       </div>
     </div>
   </footer>

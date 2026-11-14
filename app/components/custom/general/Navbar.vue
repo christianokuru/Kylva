@@ -19,12 +19,7 @@ const handlePopState = (event) => {
   isMobileMenuOpen.value = !!(event.state && event.state.menu === "open");
 };
 
-const scrollToSection = (id) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
-};
+const { goToSection } = useSectionNav();
 
 onMounted(() => {
   window.addEventListener("popstate", handlePopState);
@@ -70,7 +65,7 @@ onMounted(() => {
       />
 
       <div class="hidden md:flex items-center gap-12">
-        <button
+        <a
           v-for="item in [
             'services',
             'about',
@@ -79,7 +74,8 @@ onMounted(() => {
             'contact',
           ]"
           :key="item"
-          @click="scrollToSection(item)"
+          :href="`/#${item}`"
+          @click.prevent="goToSection(item)"
           :class="[
             'text-xs uppercase tracking-[0.2em] transition-all duration-200 hover:-translate-y-0.5',
             scrolled
@@ -89,11 +85,12 @@ onMounted(() => {
           style="font-family: &quot;Inter&quot;, sans-serif; font-weight: 400"
         >
           {{ item }}
-        </button>
+        </a>
       </div>
 
-      <button
-        @click="scrollToSection('contact')"
+      <a
+        href="/#contact"
+        @click.prevent="goToSection('contact')"
         :class="[
           'hidden lg:block px-8 py-3 text-xs uppercase tracking-[0.2em] transition-all duration-200 hover:scale-105 active:scale-95',
           scrolled
@@ -103,7 +100,7 @@ onMounted(() => {
         style="font-family: &quot;Inter&quot;, sans-serif; font-weight: 500"
       >
         Start Project
-      </button>
+      </a>
     </div>
   </nav>
 </template>
