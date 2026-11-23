@@ -44,6 +44,57 @@ const mobile = (slug: string, alt: string): ProjectImage => ({
 
 export const projects: Project[] = [
   {
+    slug: "melare",
+    title: "Melaré",
+    category: "Skincare E-Commerce",
+    url: "https://melare.vercel.app/",
+    tagline:
+      "A skincare store for melanin-rich skin, with a skin quiz and naira or dollar checkout.",
+    summary:
+      "A full skincare store for melanin-rich skin, built in Lagos. Soft blush tones, editorial type and a quiz that builds each shopper a routine, with checkout through Paystack or Flutterwave.",
+    metaDescription:
+      "Melaré case study: a mobile-first skincare store for melanin-rich skin, with a skin quiz, bundles, Paystack and Flutterwave checkout in naira or dollars, and full admin and customer dashboards.",
+    overview: [
+      "Melaré sells gentle, effective skincare for melanin-rich skin: products that fade dark spots and even tone without bleaching. The store needed to feel calm and premium, load fast on mobile data, and take payments from customers in Nigeria and abroad.",
+      "The design pairs blush tones with large serif headlines and clean product photography. Shoppers can browse by skin concern, take a two-minute quiz for a personal routine, and check out as guests in naira or dollars. Behind the scenes, the owner runs everything from an admin dashboard with live order alerts, stock tracking and shipping updates.",
+    ],
+    features: [
+      "Mobile-first PWA that installs like an app and works well on slow networks",
+      "Shop by skin concern, bestsellers, new arrivals and money-saving bundles",
+      "Two-minute skin quiz that builds a personal routine",
+      "Checkout in naira or dollars with Paystack or Flutterwave: card, bank transfer, USSD and bank",
+      "Customer accounts with order tracking, reorder, saved addresses, wishlist and referral rewards",
+      "Admin dashboard with sales stats, order management, tracking numbers, stock alerts and push notifications",
+      "Security-first backend: verified payments, abuse-proof promo codes and privacy-safe analytics",
+    ],
+    tech: ["Next.js", "Tailwind CSS", "Postgres", "Paystack", "Flutterwave", "Vercel"],
+    cover: desktop(
+      "melare",
+      "cover.webp",
+      "Melaré homepage with the headline “Skin, but rarer.” beside a blush-pink serum dropper",
+    ),
+    gallery: [
+      desktop(
+        "melare",
+        "shot-2.webp",
+        "Melaré shop-by-concern icons above the “Loved right now” bestsellers row",
+      ),
+      desktop(
+        "melare",
+        "shot-3.webp",
+        "Melaré product page for Rare Glow Serum with naira price and add to bag",
+      ),
+      desktop(
+        "melare",
+        "shot-4.webp",
+        "Melaré checkout with the order summary and a choice of Paystack or Flutterwave",
+      ),
+    ],
+    mobile: mobile("melare", "Melaré homepage on a phone"),
+    ogImage: "/images/projects/melare/og.jpg",
+    featured: true,
+  },
+  {
     slug: "perferm",
     title: "Perferm",
     category: "Fragrance E-Commerce",
