@@ -17,7 +17,7 @@ const sections = ["services", "about", "work", "process", "faq", "contact"];
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
         <div>
           <NuxtLink to="/" aria-label="Kylva home" class="inline-block mb-6">
-            <Logo variant="white" />
+            <Logo variant="white" size="lg" />
           </NuxtLink>
           <p class="text-gray-400 text-sm leading-relaxed font-sans font-light">
             Custom online stores for fashion and beauty brands. No templates, no

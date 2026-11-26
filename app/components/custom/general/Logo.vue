@@ -1,34 +1,19 @@
 <script setup>
-const props = defineProps({
-  variant: {
-    type: String,
-    default: 'white',
-    validator: (value) => ['white', 'black'].includes(value)
-  }
-})
-
-const fillColor = computed(() => props.variant === 'black' ? '#000000' : '#FFFFFF')
+// Gold Kylva wordmark. Works on light and dark backgrounds.
+// `variant` is kept for existing callers; `size="lg"` is used in the footer.
+defineProps({
+  variant: { type: String, default: "white" },
+  size: { type: String, default: "md" },
+});
 </script>
 
 <template>
-  <svg 
-    width="120" 
-    height="32" 
-    viewBox="0 0 120 32" 
-    fill="none" 
-    xmlns="http://www.w3.org/2000/svg"
-    class="h-8"
-  >
-    <text
-      x="0"
-      y="24"
-      :fill="fillColor"
-      font-family="Cormorant Garamond, serif"
-      font-size="30"
-      font-weight="300"
-      letter-spacing="0.1em"
-    >
-      KYLVA
-    </text>
-  </svg>
+  <img
+    src="/kylva-wordmark.webp"
+    alt="Kylva"
+    width="480"
+    height="154"
+    :class="size === 'lg' ? 'h-14 w-auto' : 'h-10 md:h-11 w-auto'"
+    decoding="async"
+  />
 </template>
