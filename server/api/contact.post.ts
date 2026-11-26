@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { z } from "zod";
+import { leadEmail, thankYouEmail } from "../utils/emails";
 
 const text = (max: number) => z.string().trim().max(max);
 
@@ -16,15 +17,6 @@ const contactSchema = z.object({
   elapsed: z.number().optional().default(0), // ms spent on the page before sending
 });
 
-/** Make user text safe to put inside an HTML email. */
-const esc = (value: string) =>
-  value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-
 // Simple per-IP limit: 5 messages per 10 minutes (per server instance).
 const hits = new Map<string, number[]>();
 const WINDOW_MS = 10 * 60 * 1000;
@@ -37,11 +29,6 @@ const tooMany = (ip: string) => {
   if (hits.size > 5000) hits.clear();
   return recent.length > LIMIT;
 };
-
-const row = (label: string, value: string) =>
-  value
-    ? `<tr><td style="padding:6px 12px 6px 0;color:#6b7280;font-size:13px;vertical-align:top;white-space:nowrap">${label}</td><td style="padding:6px 0;font-size:14px;color:#111">${esc(value)}</td></tr>`
-    : "";
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
@@ -70,27 +57,14 @@ export default defineEventHandler(async (event) => {
   const resend = new Resend(config.resendApiKey);
   const from = config.fromEmail || "Kylva <onboarding@resend.dev>";
 
+  const lead = leadEmail(d);
   const { error } = await resend.emails.send({
     from,
     to: [config.contactReceiverEmail],
     replyTo: d.email,
-    subject: `New lead: ${d.brand} · ${d.service} · ${d.budget}`,
-    html: `
-      <div style="font-family:Arial,sans-serif;max-width:560px">
-        <h2 style="font-size:18px;margin:0 0 12px">New quote request</h2>
-        <table style="border-collapse:collapse">
-          ${row("Name", d.name)}
-          ${row("Email", d.email)}
-          ${row("Brand", d.brand)}
-          ${row("Website", d.website)}
-          ${row("Needs", d.service)}
-          ${row("Budget", d.budget)}
-          ${row("Launch", d.timeline)}
-        </table>
-        ${d.message ? `<p style="margin:16px 0 4px;color:#6b7280;font-size:13px">Message</p><p style="white-space:pre-wrap;font-size:14px;margin:0">${esc(d.message)}</p>` : ""}
-        <p style="margin-top:20px;font-size:12px;color:#6b7280">Reply to this email to answer ${esc(d.name)} directly.</p>
-      </div>
-    `,
+    subject: lead.subject,
+    html: lead.html,
+    text: lead.text,
   });
 
   if (error) {
@@ -103,23 +77,15 @@ export default defineEventHandler(async (event) => {
   if (config.fromEmail) {
     const whatsapp = String(config.public.whatsapp || "").replace(/\D/g, "");
     const replyTo = String(config.public.contactEmail || config.contactReceiverEmail);
-    const firstName = esc(d.name.split(" ")[0] || d.name);
+    const thanks = thankYouEmail(d, { whatsapp });
     try {
       await resend.emails.send({
         from: config.fromEmail,
         to: [d.email],
         replyTo,
-        subject: "Thanks, we got your request · Kylva",
-        html: `
-          <div style="font-family:Arial,sans-serif;max-width:520px;font-size:14px;line-height:1.6;color:#111">
-            <p>Hi ${firstName},</p>
-            <p>Thanks for telling us about <strong>${esc(d.brand)}</strong>. We've got your request and will reply within 24 hours with next steps and a clear price.</p>
-            <p>Meanwhile, you can try our concept stores at <a href="https://kylva.com/projects">kylva.com/projects</a>.</p>
-            ${whatsapp ? `<p>Prefer to chat? <a href="https://wa.me/${whatsapp}">Message us on WhatsApp</a>.</p>` : ""}
-            <p>Just reply to this email if you'd like to add anything.</p>
-            <p>Christian<br/>Kylva</p>
-          </div>
-        `,
+        subject: thanks.subject,
+        html: thanks.html,
+        text: thanks.text,
       });
     } catch (e) {
       console.error("Auto-reply failed:", e);
