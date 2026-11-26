@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 import { z } from "zod";
 import { leadEmail, thankYouEmail } from "../utils/emails";
+import { tooManyRequests } from "../utils/rateLimit";
 
 const text = (max: number) => z.string().trim().max(max);
 
@@ -17,24 +18,10 @@ const contactSchema = z.object({
   elapsed: z.number().optional().default(0), // ms spent on the page before sending
 });
 
-// Simple per-IP limit: 5 messages per 10 minutes (per server instance).
-const hits = new Map<string, number[]>();
-const WINDOW_MS = 10 * 60 * 1000;
-const LIMIT = 5;
-const tooMany = (ip: string) => {
-  const now = Date.now();
-  const recent = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS);
-  recent.push(now);
-  hits.set(ip, recent);
-  if (hits.size > 5000) hits.clear();
-  return recent.length > LIMIT;
-};
-
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
 
-  const ip = getRequestIP(event, { xForwardedFor: true }) || "unknown";
-  if (tooMany(ip)) {
+  if (tooManyRequests(event, "contact")) {
     throw createError({ statusCode: 429, statusMessage: "Too many messages, please try again later" });
   }
 

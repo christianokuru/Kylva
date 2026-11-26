@@ -1,5 +1,6 @@
 <!-- Path: /app/pages/projects/[slug].vue -->
 <script setup>
+import { SCORES_NOTE } from "~/data/projects";
 const route = useRoute();
 const { getProjectBySlug, getNextProject } = useProjects();
 
@@ -145,6 +146,29 @@ useSchemaOrg([
           </a>
         </div>
       </header>
+
+      <!-- Measured scores -->
+      <section v-if="project.scores" class="mb-16" aria-labelledby="scores-heading">
+        <h2 id="scores-heading" class="sr-only">Measured scores</h2>
+        <ul class="grid grid-cols-2 md:grid-cols-4 border-t border-l border-white/10">
+          <li
+            v-for="item in [
+              ['Speed', project.scores.performance],
+              ['Accessibility', project.scores.accessibility],
+              ['Best practices', project.scores.bestPractices],
+              ['SEO', project.scores.seo],
+            ]"
+            :key="item[0]"
+            class="border-r border-b border-white/10 px-6 py-6"
+          >
+            <span class="block text-4xl md:text-5xl font-serif font-light" :class="item[1] >= 90 ? 'text-[#D4AF37]' : 'text-white'">
+              {{ item[1] }}<span class="text-lg text-gray-500">/100</span>
+            </span>
+            <span class="block mt-1 text-[11px] uppercase tracking-[0.2em] text-gray-400 font-sans">{{ item[0] }}</span>
+          </li>
+        </ul>
+        <p class="mt-3 text-xs text-gray-500 font-sans">Measured on the live store: {{ SCORES_NOTE }}.</p>
+      </section>
 
       <!-- Cover -->
       <figure class="mb-24 overflow-hidden border border-white/10 bg-gray-900">

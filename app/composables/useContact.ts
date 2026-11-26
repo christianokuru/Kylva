@@ -18,5 +18,14 @@ export const useContact = () => {
     }
   };
 
-  return { email, whatsappNumber, whatsappUrl, track };
+  /** Remember that this visitor already sent us a lead (hides the exit offer). */
+  const markLeadSent = () => {
+    try {
+      localStorage.setItem("kylva-lead-sent", "1");
+    } catch {
+      /* private mode: fine */
+    }
+  };
+
+  return { email, whatsappNumber, whatsappUrl, track, markLeadSent };
 };

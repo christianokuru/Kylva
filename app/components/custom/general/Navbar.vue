@@ -22,7 +22,10 @@ const handlePopState = (event) => {
 const { goToSection } = useSectionNav();
 const route = useRoute();
 // The home hero is light, so use dark text there until the page scrolls.
-const dark = computed(() => scrolled.value || route.path === "/");
+// Light pages opt in with definePageMeta({ lightNav: true }).
+const dark = computed(
+  () => scrolled.value || route.path === "/" || !!route.meta.lightNav,
+);
 
 onMounted(() => {
   window.addEventListener("popstate", handlePopState);

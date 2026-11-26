@@ -7,13 +7,14 @@ const { getAllProjects } = useProjects();
 const projects = getAllProjects();
 
 const { email, whatsappUrl } = useContact();
+import { solutions } from "~/data/solutions";
 const sections = ["services", "about", "work", "process", "faq", "contact"];
 </script>
 
 <template>
   <footer class="bg-black text-white py-16 px-6 lg:px-12">
     <div class="max-w-7xl mx-auto">
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
         <div>
           <NuxtLink to="/" aria-label="Kylva home" class="inline-block mb-6">
             <Logo variant="white" />
@@ -39,6 +40,35 @@ const sections = ["services", "about", "work", "process", "faq", "contact"];
               >
                 {{ section === "faq" ? "FAQ" : section }}
               </a>
+            </li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Solutions">
+          <h3 class="text-xs uppercase tracking-[0.3em] mb-6 font-sans font-medium">
+            Solutions
+          </h3>
+          <ul class="space-y-1">
+            <li v-for="s in solutions" :key="s.slug">
+              <NuxtLink
+                :to="`/solutions/${s.slug}`"
+                class="inline-block py-1.5 text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1 font-sans font-light"
+                >{{ s.label }}</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink
+                to="/shopify-cost-calculator"
+                class="inline-block py-1.5 text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1 font-sans font-light"
+                >Shopify cost calculator</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink
+                to="/blog"
+                class="inline-block py-1.5 text-gray-400 hover:text-white transition-all duration-200 text-sm hover:translate-x-1 font-sans font-light"
+                >Guides</NuxtLink
+              >
             </li>
           </ul>
         </nav>

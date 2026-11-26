@@ -1,6 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
 import { projects } from "./app/data/projects";
+import { solutions } from "./app/data/solutions";
+import { articles } from "./app/data/articles";
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
@@ -73,12 +75,16 @@ export default defineNuxtConfig({
   sitemap: {
     exclude: ["/thank-you"],
     // Project pages come from app/data/projects.ts
-    urls: projects.map((project) => ({
-      loc: `/projects/${project.slug}`,
-      images: [project.cover, ...project.gallery].map((image) => ({
-        loc: image.src,
+    urls: [
+      ...projects.map((project) => ({
+        loc: `/projects/${project.slug}`,
+        images: [project.cover, ...project.gallery].map((image) => ({
+          loc: image.src,
+        })),
       })),
-    })),
+      ...solutions.map((s) => ({ loc: `/solutions/${s.slug}` })),
+      ...articles.map((a) => ({ loc: `/blog/${a.slug}`, lastmod: a.published })),
+    ],
   },
 
   // SEO Meta Tags

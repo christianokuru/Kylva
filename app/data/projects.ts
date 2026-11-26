@@ -28,7 +28,12 @@ export interface Project {
   featured?: boolean;
   /** A concept store we designed and built to show our work (not a paying client). */
   concept?: boolean;
+  /** Google Lighthouse scores (mobile) for the live site, out of 100. */
+  scores?: { performance: number; accessibility: number; bestPractices: number; seo: number };
 }
+
+/** When and how the scores were measured. */
+export const SCORES_NOTE = "Google Lighthouse, mobile test, November 2026";
 
 const desktop = (slug: string, file: string, alt: string): ProjectImage => ({
   src: `/images/projects/${slug}/${file}`,
@@ -47,6 +52,7 @@ const mobile = (slug: string, alt: string): ProjectImage => ({
 export const projects: Project[] = [
   {
     slug: "melare",
+    scores: { performance: 91, accessibility: 97, bestPractices: 100, seo: 100 },
     title: "Melaré",
     category: "Skincare E-Commerce",
     url: "https://melare.vercel.app/",
@@ -99,6 +105,7 @@ export const projects: Project[] = [
   },
   {
     slug: "perferm",
+    scores: { performance: 77, accessibility: 100, bestPractices: 96, seo: 100 },
     title: "Perferm",
     category: "Fragrance E-Commerce",
     url: "https://perferm.vercel.app/",
@@ -150,6 +157,7 @@ export const projects: Project[] = [
   },
   {
     slug: "oats-collection",
+    scores: { performance: 74, accessibility: 82, bestPractices: 93, seo: 100 },
     title: "OAT Collection",
     category: "Beauty Platform",
     url: "https://oats-collections.vercel.app/",
@@ -200,6 +208,7 @@ export const projects: Project[] = [
   },
   {
     slug: "hours-collection",
+    scores: { performance: 87, accessibility: 78, bestPractices: 96, seo: 100 },
     title: "Hours Collection",
     category: "Fashion E-Commerce",
     url: "https://hours-store.vercel.app/",

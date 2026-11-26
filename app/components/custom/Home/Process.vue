@@ -264,6 +264,11 @@ const packages = [
             </a>
           </div>
         </div>
+
+        <p class="mt-8 text-center text-sm text-gray-600 font-sans">
+          On Shopify now?
+          <NuxtLink to="/shopify-cost-calculator" class="text-black underline underline-offset-4 decoration-[#D4AF37]">See how much you'd save with our free calculator →</NuxtLink>
+        </p>
       </div>
     </div>
   </section>

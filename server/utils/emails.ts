@@ -1,3 +1,8 @@
+import type { estimate as estimateFn } from "../../app/lib/shopifyCost";
+import { usd } from "../../app/lib/shopifyCost";
+
+type Estimate = ReturnType<typeof estimateFn>;
+
 // Branded HTML emails for the contact form.
 // Table-based layout with inline styles so it looks right in Gmail, Outlook and Apple Mail.
 
@@ -301,5 +306,151 @@ export const thankYouEmail = (d: LeadData, opts: { whatsapp?: string } = {}) => 
       footerNote: `You're getting this because you asked for a quote on kylva.com.`,
     }),
     text,
+  };
+};
+
+/* ------------------------------------------------------------------ */
+/* 3. Calculator results → the visitor                                 */
+/* ------------------------------------------------------------------ */
+
+export const calculatorEmail = (r: Estimate, opts: { brand?: string; whatsapp?: string } = {}) => {
+  const brand = opts.brand?.trim();
+  const good = r.saving3 > 0;
+  const headline = good ? `You could save ${usd(r.saving3)} over 3 years` : "Shopify is cheaper for you right now";
+
+  const body = `
+    ${eyebrow("Your Shopify cost results")}
+    ${heading(esc(headline))}
+    ${para(
+      good && r.breakEvenMonths
+        ? `Based on your numbers${brand ? ` for <strong style="color:${C.ink}">${esc(brand)}</strong>` : ""}, a Kylva <strong style="color:${C.ink}">${r.pkgName}</strong> store pays for itself in about <strong style="color:${C.ink}">${r.breakEvenMonths} ${r.breakEvenMonths === 1 ? "month" : "months"}</strong>. After that, the money you'd pay Shopify every month stays with you.`
+        : "At your current numbers the monthly Shopify bill is small. A custom store starts to pay off as your sales grow, or when you want a look a theme can't give you.",
+    )}
+
+    <p style="margin:24px 0 8px;font-family:${SANS};font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:${C.muted}">Your Shopify bill each month</p>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px">
+      ${detailRows([
+        [`${r.planName} plan`, usd(r.planMonthly)],
+        ["Apps", usd(r.input.apps)],
+        ["Extra payment fee", usd(r.feeMonthly)],
+        ["Total", `<strong>${usd(r.shopifyMonthly)}</strong>`],
+      ])}
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px">
+      <tr>
+        <td width="50%" style="padding:16px;background:${C.ivory};text-align:center;border-right:4px solid #ffffff">
+          <p style="margin:0 0 4px;font-family:${SANS};font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:${C.muted}">Shopify · 3 years</p>
+          <p style="margin:0;font-family:${SERIF};font-size:26px;color:${C.ink}">${usd(r.shopify3)}</p>
+        </td>
+        <td width="50%" style="padding:16px;background:${C.ink};text-align:center">
+          <p style="margin:0 0 4px;font-family:${SANS};font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#d4d4d8">Kylva ${r.pkgName} · 3 years</p>
+          <p style="margin:0;font-family:${SERIF};font-size:26px;color:#ffffff">${usd(r.kylva3)}</p>
+        </td>
+      </tr>
+    </table>
+
+    ${para(`Kylva's figure is the one-off ${r.pkgName} package (${usd(r.pkgPrice)}) plus about $20 a month for hosting, domain and email. Card processing fees are left out on both sides, because you pay them either way.`)}
+
+    <div style="margin:8px 0 24px">
+      ${button(`${SITE}/#contact`, "Get a free quote")}
+      ${opts.whatsapp ? button(`https://wa.me/${opts.whatsapp}?text=${encodeURIComponent("Hi Kylva, I used your Shopify cost calculator and I'd like a quote.")}`, "Chat on WhatsApp", "green") : ""}
+    </div>
+
+    ${para("Questions about your numbers? Just reply to this email.")}
+    <p style="margin:24px 0 0;font-family:${SANS};font-size:14px;color:${C.text}">Warmly,</p>
+    <p style="margin:4px 0 0;font-family:${SERIF};font-size:24px;color:${C.ink}">Christian Okuru</p>
+    <p style="margin:2px 0 0;font-family:${SANS};font-size:12px;color:${C.muted}">Founder, Kylva</p>
+  `;
+
+  const text = [
+    headline,
+    "",
+    `Your Shopify bill each month: ${usd(r.shopifyMonthly)} (${r.planName} plan ${usd(r.planMonthly)}, apps ${usd(r.input.apps)}, extra payment fee ${usd(r.feeMonthly)})`,
+    `Shopify over 3 years: ${usd(r.shopify3)}`,
+    `Kylva ${r.pkgName} over 3 years: ${usd(r.kylva3)}`,
+    good && r.breakEvenMonths ? `Pays for itself in about ${r.breakEvenMonths} months.` : "",
+    "",
+    `Get a free quote: ${SITE}/#contact`,
+    "",
+    "Christian Okuru, Founder, Kylva",
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  return {
+    subject: good ? `Your results: save ${usd(r.saving3)} over 3 years · Kylva` : "Your Shopify cost results · Kylva",
+    html: layout({
+      preview: `Shopify: ${usd(r.shopify3)} vs Kylva: ${usd(r.kylva3)} over 3 years.`,
+      body,
+      footerNote: "You're getting this because you asked for your results on kylva.com.",
+    }),
+    text,
+  };
+};
+
+/* ------------------------------------------------------------------ */
+/* 4. Short lead (calculator or free review) → Kylva                   */
+/* ------------------------------------------------------------------ */
+export const quickLeadEmail = (d: {
+  source: "calculator" | "review";
+  name: string;
+  email: string;
+  brand: string;
+  website: string;
+  extra?: [string, string][];
+}) => {
+  const what = d.source === "calculator" ? "Used the Shopify calculator" : "Wants a free store review";
+  const site = websiteLink(d.website);
+  const who = d.brand || d.name || d.email;
+
+  const body = `
+    ${eyebrow(d.source === "calculator" ? "Calculator lead" : "Free review request")}
+    ${heading(`${esc(who)}`)}
+    ${para(esc(what) + (d.source === "review" ? ". Send them a short video with 5 fixes within 48 hours." : ". They have their results by email. A friendly follow-up in a day or two works well."))}
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px">
+      ${detailRows([
+        ["Name", esc(d.name)],
+        ["Email", `<a href="mailto:${esc(d.email)}" style="color:${C.ink}">${esc(d.email)}</a>`],
+        ["Brand", esc(d.brand)],
+        ["Website", d.website ? (site ? `<a href="${esc(site)}" style="color:${C.ink}">${esc(d.website)}</a>` : esc(d.website)) : ""],
+        ...(d.extra || []).map(([k, v]) => [k, esc(v)] as [string, string]),
+      ])}
+    </table>
+    <div>
+      ${button(`mailto:${d.email}`, "Reply")}
+      ${site ? button(site, "View their brand", "light") : ""}
+    </div>
+  `;
+
+  return {
+    subject: `${d.source === "calculator" ? "Calculator lead" : "Free review request"}: ${who}`,
+    html: layout({ preview: `${what}: ${d.email}`, body, footerNote: "Sent from kylva.com. Press reply to answer them directly." }),
+    text: [what, `Name: ${d.name}`, `Email: ${d.email}`, `Brand: ${d.brand}`, `Website: ${d.website}`, ...(d.extra || []).map(([k, v]) => `${k}: ${v}`)].join("\n"),
+  };
+};
+
+/* ------------------------------------------------------------------ */
+/* 5. Free review confirmation → the visitor                           */
+/* ------------------------------------------------------------------ */
+export const reviewConfirmEmail = (d: { name: string; website: string }, opts: { whatsapp?: string } = {}) => {
+  const first = esc((d.name.trim().split(/\s+/)[0] || "there").trim());
+  const body = `
+    ${eyebrow("Free store review")}
+    ${heading(`Thanks, ${first}. Your review is on its way.`)}
+    ${para(`We'll look at <strong style="color:${C.ink}">${esc(d.website)}</strong> and send you a short video with <strong style="color:${C.ink}">5 practical fixes</strong> to help you sell more, within 48 hours. It's free, whether or not you work with us.`)}
+    ${para("While you wait, have a look at the stores we've built. Each one is live, so try it on your phone.")}
+    <div style="margin:8px 0 24px">
+      ${button(`${SITE}/projects`, "See our work")}
+      ${opts.whatsapp ? button(`https://wa.me/${opts.whatsapp}`, "Chat on WhatsApp", "green") : ""}
+    </div>
+    <p style="margin:24px 0 0;font-family:${SANS};font-size:14px;color:${C.text}">Warmly,</p>
+    <p style="margin:4px 0 0;font-family:${SERIF};font-size:24px;color:${C.ink}">Christian Okuru</p>
+    <p style="margin:2px 0 0;font-family:${SANS};font-size:12px;color:${C.muted}">Founder, Kylva</p>
+  `;
+  return {
+    subject: "Your free store review is on its way · Kylva",
+    html: layout({ preview: "5 practical fixes for your store, within 48 hours.", body, footerNote: "You're getting this because you asked for a free store review on kylva.com." }),
+    text: `Thanks, ${d.name}. We'll review ${d.website} and send you a short video with 5 fixes within 48 hours.\n\nSee our work: ${SITE}/projects\n\nChristian Okuru, Founder, Kylva`,
   };
 };

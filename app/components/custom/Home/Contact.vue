@@ -26,7 +26,7 @@ const contactSchema = z.object({
 });
 
 const { errors, validate, clearFieldError } = useZod(contactSchema);
-const { email: contactEmail, whatsappUrl, track } = useContact();
+const { email: contactEmail, whatsappUrl, track, markLeadSent } = useContact();
 
 // Set by the package buttons in the Process section
 const chosenService = useState("contact-service", () => "");
@@ -77,6 +77,7 @@ const handleSubmit = async () => {
       service: formData.value.service,
       budget: formData.value.budget,
     });
+    markLeadSent();
     formData.value = empty();
     await navigateTo("/thank-you");
   } catch {
