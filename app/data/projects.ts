@@ -26,6 +26,8 @@ export interface Project {
   mobile: ProjectImage;
   ogImage: string;
   featured?: boolean;
+  /** A concept store we designed and built to show our work (not a paying client). */
+  concept?: boolean;
 }
 
 const desktop = (slug: string, file: string, alt: string): ProjectImage => ({
@@ -51,7 +53,7 @@ export const projects: Project[] = [
     tagline:
       "A skincare store for melanin-rich skin, with a skin quiz and naira or dollar checkout.",
     summary:
-      "A full skincare store for melanin-rich skin, built in Lagos. Soft blush tones, editorial type and a quiz that builds each shopper a routine, with checkout through Paystack or Flutterwave.",
+      "A concept skincare store for melanin-rich skin, designed and built by Kylva. Soft blush tones, editorial type and a quiz that builds each shopper a routine, with checkout through Paystack or Flutterwave.",
     metaDescription:
       "Melaré case study: a mobile-first skincare store for melanin-rich skin, with a skin quiz, bundles, Paystack and Flutterwave checkout in naira or dollars, and full admin and customer dashboards.",
     overview: [
@@ -93,6 +95,7 @@ export const projects: Project[] = [
     mobile: mobile("melare", "Melaré homepage on a phone"),
     ogImage: "/images/projects/melare/og.jpg",
     featured: true,
+    concept: true,
   },
   {
     slug: "perferm",
@@ -143,6 +146,7 @@ export const projects: Project[] = [
     mobile: mobile("perferm", "Perferm homepage on a phone"),
     ogImage: "/images/projects/perferm/og.jpg",
     featured: true,
+    concept: true,
   },
   {
     slug: "oats-collection",
@@ -192,6 +196,7 @@ export const projects: Project[] = [
     mobile: mobile("oats-collection", "OAT Collection homepage on a phone"),
     ogImage: "/images/projects/oats-collection/og.jpg",
     featured: true,
+    concept: true,
   },
   {
     slug: "hours-collection",
@@ -237,6 +242,7 @@ export const projects: Project[] = [
     mobile: mobile("hours-collection", "Hours Collection homepage on a phone"),
     ogImage: "/images/projects/hours-collection/og.jpg",
     featured: true,
+    concept: true,
   },
 ];
 

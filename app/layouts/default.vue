@@ -3,6 +3,7 @@
 <script setup>
 import Navbar from "../components/custom/general/Navbar.vue";
 import Footer from "../components/custom/general/Footer.vue";
+import MobileCta from "../components/custom/general/MobileCta.vue";
 </script>
 
 <template>
@@ -12,5 +13,6 @@ import Footer from "../components/custom/general/Footer.vue";
       <slot />
     </main>
     <Footer />
+    <MobileCta />
   </div>
 </template>

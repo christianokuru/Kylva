@@ -1,13 +1,7 @@
 <!-- Path: /app/pages/thank-you.vue -->
 
 <script setup>
-import Button from "@/components/custom/general/Button.vue";
-
-const router = useRouter();
-
-const navigateToHome = () => {
-  router.push("/");
-};
+const { whatsappUrl, track } = useContact();
 
 // SEO Meta Tags for Thank You Page
 useSeoMeta({
@@ -54,20 +48,37 @@ useSchemaOrg([
 </script>
 
 <template>
-  <section class="min-h-[60vh] flex items-center justify-center px-6 py-32">
-    <div class="max-w-2xl text-center space-y-12">
-      <h1
-        class="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight leading-[110%] text-foreground"
-      >
-        Thank you
+  <section class="min-h-[70vh] flex items-center justify-center px-6 pt-36 pb-24 bg-[#fafaf9]">
+    <div class="max-w-2xl text-center">
+      <p class="text-xs uppercase tracking-[0.4em] text-[#8a6d12] mb-6 font-sans">
+        Request received
+      </p>
+      <h1 class="text-5xl md:text-6xl tracking-tight leading-[1.1] mb-8 font-serif font-light">
+        Thank you, <span class="italic" style="font-weight: 400">we're on it</span>
       </h1>
-
-      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed">
-        Your message has been received. We'll be in touch within 24-48 hours to
-        discuss your project.
+      <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-12 font-sans font-light">
+        We'll reply within 24 hours with next steps and a clear price. Check
+        your inbox (and spam folder) for a copy of your request.
       </p>
 
-      <Button variant="primary" text="Back to Home" @click="navigateToHome" />
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          v-if="whatsappUrl()"
+          :href="whatsappUrl('Hi Kylva, I just sent a quote request on your website.')"
+          target="_blank"
+          rel="noopener"
+          @click="track('contact_whatsapp', { location: 'thank_you' })"
+          class="w-full sm:w-auto px-10 py-5 bg-[#1f7a4d] text-white text-xs uppercase tracking-[0.3em] hover:bg-[#17633e] transition-colors font-sans font-medium"
+        >
+          Can't wait? WhatsApp us
+        </a>
+        <NuxtLink
+          to="/projects"
+          class="w-full sm:w-auto px-10 py-5 border border-black text-xs uppercase tracking-[0.3em] hover:bg-black hover:text-white transition-colors font-sans font-medium"
+        >
+          Try our concept stores
+        </NuxtLink>
+      </div>
     </div>
   </section>
 </template>

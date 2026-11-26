@@ -10,12 +10,17 @@ export const faqs: Faq[] = [
   {
     question: "How much does a custom online store cost?",
     answer:
-      "Custom stores start from $500. The final price depends on the size of your store and the features you need, such as the number of products, payment options and customer accounts. Once we understand your project, you get a clear quote.",
+      "There are three packages: Launch from $500, Growth from $1,200 and Flagship from $2,500. The final price depends on the number of products and the features you need. It is a one-off payment, with no monthly platform fees, and you get a clear written quote before any work starts.",
   },
   {
     question: "Do you work with brands outside my country?",
     answer:
       "Yes. We work with brands anywhere in the world. Everything happens remotely, from the first call to launch.",
+  },
+  {
+    question: "Have you worked with real brands?",
+    answer:
+      "Kylva is a new studio. The stores in our portfolio are concept stores we designed and built end to end, and you can try each one live. You get a clear quote and timeline up front, and you own the code at the end.",
   },
   {
     question: "Do you use Shopify or ready-made templates?",
@@ -25,7 +30,7 @@ export const faqs: Faq[] = [
   {
     question: "What technology do you build with?",
     answer:
-      "We build with Next.js for the website, Supabase for the database and customer accounts, and Redis for caching so pages load fast. Payments run through Stripe, Flutterwave or Paystack, depending on where your customers are.",
+      "We build with Next.js or Nuxt for fast store pages and Postgres for products, orders and customer accounts. Payments run through Stripe, Paystack or Flutterwave, depending on where your customers are.",
   },
   {
     question: "Which payment methods can my store accept?",

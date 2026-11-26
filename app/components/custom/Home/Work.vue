@@ -26,9 +26,9 @@ const projects = getFeaturedProjects();
         <p
           class="text-xs md:text-xl text-gray-400 leading-relaxed max-w-3xl font-sans font-light"
         >
-          Each project is a partnership in excellence. These stores are more
-          than beautiful websites: they are digital expressions of brands that
-          expect nothing less than perfection.
+          Concept stores we designed and built end to end to show what your
+          store could look like: real checkout, real admin dashboards, live on
+          the web. Open any of them on your phone and try it.
         </p>
       </div>
 
@@ -76,9 +76,14 @@ const projects = getFeaturedProjects();
                 class="md:col-span-4 flex md:flex-col items-start md:items-end justify-between md:justify-start gap-4"
               >
                 <span
-                  class="text-sm uppercase tracking-[0.2em] text-gray-500 font-sans font-normal"
+                  class="text-sm uppercase tracking-[0.2em] text-gray-400 font-sans font-normal md:text-right"
                 >
                   {{ project.category }}
+                  <span
+                    v-if="project.concept"
+                    class="mt-2 block text-[11px] tracking-[0.25em] text-[#D4AF37]"
+                    >Concept store</span
+                  >
                 </span>
                 <span
                   class="text-xs uppercase tracking-[0.3em] text-white font-sans inline-flex items-center gap-2"

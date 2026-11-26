@@ -101,7 +101,7 @@ const scrollToSection = (id) => {
             @click.prevent="scrollToSection('contact')"
             class="mt-16 px-12 py-5 bg-black text-white text-[10px] uppercase tracking-[0.3em] hover:bg-gray-800 transition-all duration-300 active:scale-95 shadow-2xl"
             style="font-family: 'Inter', sans-serif; font-weight: 500;">
-            Start Project
+            Get a free quote
           </a>
         </div>
       </Transition>

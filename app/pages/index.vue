@@ -8,13 +8,15 @@ import Faq from "@/components/custom/Home/Faq.vue";
 import { faqs } from "~/data/faqs";
 import Contact from "@/components/custom/Home/Contact.vue";
 
+const homeTitle = "Custom Online Stores for Fashion & Beauty Brands";
+const homeDescription =
+  "Kylva builds fast, mobile-first online stores for fashion and beauty brands. No templates, no monthly platform fees, and you own the code. From $500.";
+
 useSeoMeta({
-  title: "Luxury E-Commerce Web Development Agency",
-  description:
-    "Crafting exceptional e-commerce experiences exclusively for luxury fashion and beauty brands.",
-  ogTitle: "Kylva - Luxury E-Commerce Web Development Agency",
-  ogDescription:
-    "Crafting exceptional e-commerce experiences exclusively for luxury fashion and beauty brands.",
+  title: homeTitle,
+  description: homeDescription,
+  ogTitle: `Kylva - ${homeTitle}`,
+  ogDescription: homeDescription,
   ogImage: "https://kylva.com/og-image.png",
   twitterCard: "summary_large_image",
 });
@@ -25,9 +27,8 @@ useSchemaOrg([
   {
     "@type": "WebPage",
     "@id": "https://kylva.com/#webpage",
-    name: "Kylva - Luxury E-Commerce Web Development Agency",
-    description:
-      "Crafting exceptional e-commerce experiences exclusively for luxury fashion and beauty brands.",
+    name: `Kylva - ${homeTitle}`,
+    description: homeDescription,
     url: "https://kylva.com",
     isPartOf: { "@id": "https://kylva.com/#website" },
     about: { "@id": "https://kylva.com/#organization" },

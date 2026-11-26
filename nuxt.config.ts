@@ -30,7 +30,7 @@ export default defineNuxtConfig({
     url: "https://kylva.com",
     name: "Kylva",
     description:
-      "Luxury web development agency crafting exceptional e-commerce experiences for high-end fashion and beauty brands worldwide.",
+      "Custom online stores for fashion and beauty brands: fast, mobile-first and fully yours, with no monthly platform fees.",
     defaultLocale: "en",
   },
 
@@ -85,9 +85,9 @@ export default defineNuxtConfig({
   seo: {
     meta: {
       description:
-        "Bespoke e-commerce experiences for luxury fashion, beauty, and cosmetics brands. Custom-built online stores for fashion and beauty brands worldwide.",
+        "Custom online stores for fashion and beauty brands. Fast, mobile-first, built from scratch and fully yours, with no monthly platform fees.",
       keywords:
-        "luxury web development, fashion e-commerce agency, beauty brand website, haute couture digital, cosmetics e-commerce, luxury brand design, fashion website development, beauty platform, luxury digital agency, premium web design",
+        "custom online store, shopify alternative, fashion e-commerce agency, beauty brand website, haute couture digital, cosmetics e-commerce, luxury brand design, fashion website development, beauty platform, luxury digital agency, premium web design",
       author: "Kylva",
       ogImage: "https://kylva.com/og-image.png",
       twitterCard: "summary_large_image",
@@ -118,6 +118,10 @@ export default defineNuxtConfig({
       // appDescription: process.env.NUXT_PUBLIC_APP_DESCRIPTION,
       // paystackPublicKey: process.env.NUXT_PUBLIC_PAYSTACK_PUBLIC_KEY,
       gaId: process.env.NUXT_PUBLIC_GA_ID || "", // Google Analytics 4 ID
+      // Business email shown on the site (e.g. hello@kylva.com). Hidden while empty.
+      contactEmail: process.env.NUXT_PUBLIC_CONTACT_EMAIL || "",
+      // WhatsApp number with country code, digits only (e.g. 2348012345678). Hidden while empty.
+      whatsapp: process.env.NUXT_PUBLIC_WHATSAPP || "",
     },
   },
 });

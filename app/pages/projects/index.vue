@@ -95,7 +95,7 @@ useSchemaOrg([
             <span
               class="block text-xs uppercase tracking-[0.2em] text-[#D4AF37] mb-3 font-sans"
             >
-              {{ project.category }}
+              {{ project.category }}<template v-if="project.concept"> · Concept store</template>
             </span>
             <h2
               class="text-3xl md:text-4xl mb-4 tracking-tight group-hover:text-gray-300 transition-colors duration-300 font-serif font-normal"

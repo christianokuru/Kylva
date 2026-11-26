@@ -119,7 +119,7 @@ useSchemaOrg([
           <p
             class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-4 font-sans"
           >
-            {{ project.category }}
+            {{ project.category }}<template v-if="project.concept"> · Concept store</template>
           </p>
           <h1
             class="text-6xl md:text-7xl lg:text-8xl tracking-tight mb-6 font-serif font-light leading-[1.05]"
@@ -139,7 +139,7 @@ useSchemaOrg([
             rel="noopener"
             class="inline-flex items-center gap-3 px-10 py-5 bg-white text-black text-xs uppercase tracking-[0.3em] hover:bg-gray-200 transition-all duration-300 font-sans font-medium"
           >
-            Visit live site
+            {{ project.concept ? "Try the live demo" : "Visit live site" }}
             <span aria-hidden="true">↗</span>
             <span class="sr-only">(opens in a new tab)</span>
           </a>
@@ -209,6 +209,16 @@ useSchemaOrg([
               </dt>
               <dd class="text-white font-light">{{ project.category }}</dd>
             </div>
+            <div v-if="project.concept">
+              <dt
+                class="text-xs uppercase tracking-[0.3em] text-gray-500 mb-2"
+              >
+                Type
+              </dt>
+              <dd class="text-white font-light">
+                Concept store, designed and built by Kylva to show our work
+              </dd>
+            </div>
             <div>
               <dt
                 class="text-xs uppercase tracking-[0.3em] text-gray-500 mb-2"
@@ -223,7 +233,7 @@ useSchemaOrg([
               <dt
                 class="text-xs uppercase tracking-[0.3em] text-gray-500 mb-2"
               >
-                Live site
+                {{ project.concept ? "Live demo" : "Live site" }}
               </dt>
               <dd>
                 <a

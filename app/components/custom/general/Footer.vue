@@ -6,6 +6,7 @@ const { goToSection } = useSectionNav();
 const { getAllProjects } = useProjects();
 const projects = getAllProjects();
 
+const { email, whatsappUrl } = useContact();
 const sections = ["services", "about", "work", "process", "faq", "contact"];
 </script>
 
@@ -18,8 +19,8 @@ const sections = ["services", "about", "work", "process", "faq", "contact"];
             <Logo variant="white" />
           </NuxtLink>
           <p class="text-gray-400 text-sm leading-relaxed font-sans font-light">
-            Crafting exceptional e-commerce experiences for luxury fashion and
-            beauty brands.
+            Custom online stores for fashion and beauty brands. No templates, no
+            monthly platform fees.
           </p>
         </div>
 
@@ -74,12 +75,32 @@ const sections = ["services", "about", "work", "process", "faq", "contact"];
           >
             Connect
           </h3>
-          <a
-            href="mailto:okuruchristian@gmail.com"
-            class="inline-block py-1.5 text-gray-400 hover:text-white transition-colors text-sm font-sans font-light break-all"
-          >
-            okuruchristian@gmail.com
-          </a>
+          <ul class="space-y-1">
+            <li>
+              <a
+                href="/#contact"
+                @click.prevent="goToSection('contact')"
+                class="inline-block py-1.5 text-gray-400 hover:text-white transition-colors text-sm font-sans font-light"
+                >Get a free quote</a
+              >
+            </li>
+            <li v-if="whatsappUrl()">
+              <a
+                :href="whatsappUrl()"
+                target="_blank"
+                rel="noopener"
+                class="inline-block py-1.5 text-gray-400 hover:text-white transition-colors text-sm font-sans font-light"
+                >WhatsApp</a
+              >
+            </li>
+            <li v-if="email">
+              <a
+                :href="`mailto:${email}`"
+                class="inline-block py-1.5 text-gray-400 hover:text-white transition-colors text-sm font-sans font-light break-all"
+                >{{ email }}</a
+              >
+            </li>
+          </ul>
         </div>
       </div>
 

@@ -16,6 +16,8 @@ useSeoMeta({
 
 const route = useRoute();
 const config = useRuntimeConfig();
+// Business email from settings; left out of structured data until it's set.
+const contactEmail = config.public.contactEmail || undefined;
 
 /* ---------------------
    Canonical + HTML attrs
@@ -44,9 +46,10 @@ useSchemaOrg([
       "@type": "ImageObject",
       url: "https://kylva.com/logo.svg",
     },
-    email: "okuruchristian@gmail.com",
+    email: contactEmail,
+    founder: { "@type": "Person", name: "Christian Okuru" },
     description:
-      "Luxury web development agency crafting exceptional e-commerce experiences exclusively for high-end fashion and beauty brands.",
+      "E-commerce studio building custom online stores for fashion and beauty brands, with no monthly platform fees.",
     areaServed: "Worldwide",
     knowsAbout: [
       "Luxury E-commerce Development",
@@ -71,10 +74,10 @@ useSchemaOrg([
     name: "Kylva",
     image: "https://kylva.com/og-image.png",
     url: "https://kylva.com",
-    email: "okuruchristian@gmail.com",
-    priceRange: "From $500",
+    email: contactEmail,
+    priceRange: "$500 - $2,500+",
     description:
-      "Luxury web development agency specializing in bespoke e-commerce experiences for high-end fashion and beauty brands.",
+      "Custom online stores for fashion and beauty brands: fast, mobile-first and fully owned by you.",
     areaServed: "Worldwide",
   },
 ]);

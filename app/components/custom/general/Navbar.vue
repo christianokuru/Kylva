@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import Logo from "@/components/custom/general/Logo.vue";
 import MobileMenu from "@/components/custom/general/MobileMenu.vue";
 
@@ -20,6 +20,9 @@ const handlePopState = (event) => {
 };
 
 const { goToSection } = useSectionNav();
+const route = useRoute();
+// The home hero is light, so use dark text there until the page scrolls.
+const dark = computed(() => scrolled.value || route.path === "/");
 
 onMounted(() => {
   window.addEventListener("popstate", handlePopState);
@@ -45,7 +48,9 @@ onMounted(() => {
         ? 'bg-transparent'
         : scrolled
           ? 'bg-white/95 backdrop-blur-sm shadow-sm'
-          : 'bg-black/20 backdrop-blur-sm',
+          : dark
+            ? 'bg-[#fafaf9]/80 backdrop-blur-sm'
+            : 'bg-black/40 backdrop-blur-sm',
     ]"
   >
     <div
@@ -55,11 +60,11 @@ onMounted(() => {
         to="/"
         class="flex items-center transition-transform duration-200 hover:scale-105"
       >
-        <Logo :variant="scrolled || isMobileMenuOpen ? 'black' : 'white'" />
+        <Logo :variant="dark || isMobileMenuOpen ? 'black' : 'white'" />
       </NuxtLink>
 
       <MobileMenu
-        :scrolled="scrolled"
+        :scrolled="dark"
         :is-open="isMobileMenuOpen"
         @toggle="toggleMobileMenu"
       />
@@ -79,8 +84,8 @@ onMounted(() => {
           @click.prevent="goToSection(item)"
           :class="[
             'py-3 text-xs uppercase tracking-[0.2em] transition-all duration-200 hover:-translate-y-0.5',
-            scrolled
-              ? 'text-gray-800 hover:text-gray-600'
+            dark
+              ? 'text-gray-900 hover:text-gray-600'
               : 'text-white hover:text-gray-300',
           ]"
           style="font-family: &quot;Inter&quot;, sans-serif; font-weight: 400"
@@ -94,13 +99,13 @@ onMounted(() => {
         @click.prevent="goToSection('contact')"
         :class="[
           'hidden lg:block px-8 py-3 text-xs uppercase tracking-[0.2em] transition-all duration-200 hover:scale-105 active:scale-95',
-          scrolled
+          dark
             ? 'bg-black text-white hover:bg-gray-900'
             : 'bg-white text-black hover:bg-gray-100',
         ]"
         style="font-family: &quot;Inter&quot;, sans-serif; font-weight: 500"
       >
-        Start Project
+        Get a free quote
       </a>
     </div>
   </nav>
